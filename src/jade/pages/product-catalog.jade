@@ -1,0 +1,238 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+include ../elements/_ui-tables
+
+//- Title
+block title
+  title= cfg.nav.shop.submenu.productCatalog.title
+
+//- Page
+block page
+
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.shop,
+    cfg.nav
+    )
+
+  +breadcrumb-classic(
+  cfg.nav.shop.submenu.productCatalog.title,
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.shop.title,
+      "href": cfg.nav.shop.href
+    },
+    2: {
+      "title": cfg.nav.shop.submenu.productCatalog.title,
+      "href": cfg.nav.shop.submenu.productCatalog.href
+    }
+  })
+
+  // Page Content
+  main.page-content.section-70.section-md-114
+    section
+      .shell
+        .text-center
+          h2.text-bold Product Catalog
+        hr.divider.bg-madison
+        .offset-top-60.range.range-xs-center
+          .range.range-lg-condensed.offset-top-20.range-xs-center.section-products
+            .cell-xs-10.cell-lg-3.cell-sm-6.cell-md-4
+              .product
+                .product-body
+                  img.img-responsive.reveal-inline-block(src="images/product-01-225x225.jpg", width="225", height="225", alt="")
+                  .offset-top-20
+                    P.text-primary
+                      a(href= cfg.nav.shop.submenu.singleProduct.href) Expandable Bamboo Flatware Tray
+                  .offset-top-22
+                    h6 $28.00
+                  .offset-top-20
+                    a(href= cfg.nav.shop.submenu.shoppingCart.href).btn.btn-primary.btn-icon.btn-icon-left
+                      span.icon.fa-shopping-cart
+                      span Add to Cart
+                .product-meta-info
+                  ul.list-inline.list-inline-dark.list-inline-lg
+                    li
+                      a(href="#").icon.icon-xxs.fa-heart
+                    li
+                      a(href="#").icon.icon-xs.fa-exchange
+                    li
+                      a(href="#").icon.icon-xs.fa-eye
+
+            .cell-xs-10.cell-lg-3.cell-sm-6.cell-md-4.offset-top-30.offset-sm-top-0
+              .product
+                .product-body
+                  .label
+                    span New
+                  img.img-responsive.reveal-inline-block(src="images/product-02-225x225.jpg", width="225", height="225", alt="")
+                  .offset-top-20
+                    P.text-primary
+                      a(href= cfg.nav.shop.submenu.singleProduct.href) FSC Teak Rectangular Cutting Boards with Well
+                  .offset-top-22
+                    h6 $44.00
+                  .offset-top-20
+                    a(href= cfg.nav.shop.submenu.shoppingCart.href).btn.btn-primary.btn-icon.btn-icon-left
+                      span.icon.fa-shopping-cart
+                      span Add to Cart
+                .product-meta-info
+                  ul.list-inline.list-inline-dark.list-inline-lg
+                    li
+                      a(href="#").icon.icon-xxs.fa-heart
+                    li
+                      a(href="#").icon.icon-xs.fa-exchange
+                    li
+                      a(href="#").icon.icon-xs.fa-eye
+            .cell-xs-10.cell-lg-3.cell-sm-6.cell-md-4.offset-top-30.offset-md-top-0
+              .product
+                .product-body
+                  img.img-responsive.reveal-inline-block(src="images/product-03-225x225.jpg", width="225", height="225", alt="")
+                  .offset-top-20
+                    P.text-primary
+                      a(href= cfg.nav.shop.submenu.singleProduct.href) Kuhn Rikon Cookie Press and Decorating Kit
+                  .offset-top-22
+                    h6 $9.00
+                      span.text-dark.text-strike.inset-left-10 $15.00
+                  .offset-top-20
+                    a(href= cfg.nav.shop.submenu.shoppingCart.href).btn.btn-primary.btn-icon.btn-icon-left
+                      span.icon.fa-shopping-cart
+                      span Add to Cart
+                .product-meta-info
+                  ul.list-inline.list-inline-dark.list-inline-lg
+                    li
+                      a(href="#").icon.icon-xxs.fa-heart
+                    li
+                      a(href="#").icon.icon-xs.fa-exchange
+                    li
+                      a(href="#").icon.icon-xs.fa-eye
+            .cell-xs-10.cell-lg-3.cell-sm-6.cell-md-4.offset-top-30.offset-lg-top-0
+              .product
+                .product-body
+                  img.img-responsive.reveal-inline-block(src="images/product-04-225x225.jpg", width="225", height="225", alt="")
+                  .offset-top-20
+                    P.text-primary
+                      a(href= cfg.nav.shop.submenu.singleProduct.href) Rabbit ® Wine Opener 3 Piece Set
+                  .offset-top-22
+                    h6 $29.00
+                      span.text-dark.text-strike.inset-left-10 $35.00
+                  .offset-top-20
+                    a(href= cfg.nav.shop.submenu.shoppingCart.href).btn.btn-primary.btn-icon.btn-icon-left
+                      span.icon.fa-shopping-cart
+                      span Add to Cart
+                .product-meta-info
+                  ul.list-inline.list-inline-dark.list-inline-lg
+                    li
+                      a(href="#").icon.icon-xxs.fa-heart
+                    li
+                      a(href="#").icon.icon-xs.fa-exchange
+                    li
+                      a(href="#").icon.icon-xs.fa-eye
+
+            .cell-xs-10.cell-lg-3.cell-sm-6.cell-md-4.offset-top-30.offset-lg-top-0
+              .product
+                .product-body
+                  img.img-responsive.reveal-inline-block(src="images/product-05-234x225.jpg", width="234", height="225", alt="")
+                  .offset-top-20
+                    P.text-primary
+                      a(href= cfg.nav.shop.submenu.singleProduct.href) 5 Piece 5.5-9.75 Inches Nesting Mixing Bowl Set
+                  .offset-top-22
+                    h6 $31.00
+                  .offset-top-20
+                    a(href= cfg.nav.shop.submenu.shoppingCart.href).btn.btn-primary.btn-icon.btn-icon-left
+                      span.icon.fa-shopping-cart
+                      span Add to Cart
+                .product-meta-info
+                  ul.list-inline.list-inline-dark.list-inline-lg
+                    li
+                      a(href="#").icon.icon-xxs.fa-heart
+                    li
+                      a(href="#").icon.icon-xs.fa-exchange
+                    li
+                      a(href="#").icon.icon-xs.fa-eye
+
+            .cell-xs-10.cell-lg-3.cell-sm-6.cell-md-4.offset-top-30.offset-lg-top-0
+              .product
+                .product-body
+                  img.img-responsive.reveal-inline-block(src="images/product-06-234x225.jpg", width="234", height="225", alt="")
+                  .offset-top-20
+                    P.text-primary
+                      a(href= cfg.nav.shop.submenu.singleProduct.href) 10 Piece 2.25-10.25 Inches Glass Nesting Bowl Set
+                  .offset-top-22
+                    h6 $39.00
+                  .offset-top-20
+                    a(href= cfg.nav.shop.submenu.shoppingCart.href).btn.btn-primary.btn-icon.btn-icon-left
+                      span.icon.fa-shopping-cart
+                      span Add to Cart
+                .product-meta-info
+                  ul.list-inline.list-inline-dark.list-inline-lg
+                    li
+                      a(href="#").icon.icon-xxs.fa-heart
+                    li
+                      a(href="#").icon.icon-xs.fa-exchange
+                    li
+                      a(href="#").icon.icon-xs.fa-eye
+
+            .cell-xs-10.cell-lg-3.cell-sm-6.cell-md-4.offset-top-30.offset-lg-top-0
+              .product
+                .product-body
+                  img.img-responsive.reveal-inline-block(src="images/product-07-234x225.jpg", width="234", height="225", alt="")
+                  .offset-top-20
+                    P.text-primary
+                      a(href= cfg.nav.shop.submenu.singleProduct.href) 10 Piece OXO ® Holder with Tools Set
+                  .offset-top-22
+                    h6 $9.00
+                      span.text-dark.text-strike.inset-left-10 $44.00
+                  .offset-top-20
+                    a(href= cfg.nav.shop.submenu.shoppingCart.href).btn.btn-primary.btn-icon.btn-icon-left
+                      span.icon.fa-shopping-cart
+                      span Add to Cart
+                .product-meta-info
+                  ul.list-inline.list-inline-dark.list-inline-lg
+                    li
+                      a(href="#").icon.icon-xxs.fa-heart
+                    li
+                      a(href="#").icon.icon-xs.fa-exchange
+                    li
+                      a(href="#").icon.icon-xs.fa-eye
+
+            .cell-xs-10.cell-lg-3.cell-sm-6.cell-md-4.offset-top-30.offset-lg-top-0
+              .product
+                .product-body
+                  .label
+                    span Sale
+                  img.img-responsive.reveal-inline-block(src="images/product-08-234x225.jpg", width="234", height="225", alt="")
+                  .offset-top-20
+                    P.text-primary
+                      a(href= cfg.nav.shop.submenu.singleProduct.href) Carter Cocktail Shaker
+                  .offset-top-22
+                    h6 $29.00
+                      span.text-dark.text-strike.inset-left-10 $35.00
+                  .offset-top-20
+                    a(href= cfg.nav.shop.submenu.shoppingCart.href).btn.btn-primary.btn-icon.btn-icon-left
+                      span.icon.fa-shopping-cart
+                      span Add to Cart
+                .product-meta-info
+                  ul.list-inline.list-inline-dark.list-inline-lg
+                    li
+                      a(href="#").icon.icon-xxs.fa-heart
+                    li
+                      a(href="#").icon.icon-xs.fa-exchange
+                    li
+                      a(href="#").icon.icon-xs.fa-eye
+  // Page Footer
+  include ../sections/_section-footer-corporate

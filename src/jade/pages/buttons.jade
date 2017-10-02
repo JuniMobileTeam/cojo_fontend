@@ -1,0 +1,122 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+
+//- Title
+block title
+  title= cfg.nav.elements.submenu.buttons.title
+
+//- Page
+block page
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.elements,
+    cfg.nav
+    )
+
+  +breadcrumb-classic(
+  cfg.nav.elements.submenu.buttons.title,
+  {0: {
+    "title": cfg.nav.home.title,
+    "href": cfg.nav.home.href
+  },
+    1: {
+      "title": cfg.nav.elements.title,
+      "href": cfg.nav.elements.href
+    },
+    2: {
+      "title": cfg.nav.elements.submenu.buttons.title,
+      "href": cfg.nav.elements.submenu.buttons.href
+    }
+  })
+
+  // Page Content
+  main.page-content.section-70.section-md-114
+
+    // Heading Style
+    section
+      .shell
+        .range.range-xs-center.range-sm-left
+          .cell-xs-12
+            h2.text-bold Button Sizes
+            hr.divider.bg-madison
+            .offset-top-40.offset-md-top-60
+              .group.group-xl
+                a(href="#").btn.btn-primary Standard Button
+                a(href="#").btn.btn-primary.btn-sm Small Button
+
+    section.offset-top-70.offset-md-top-114
+      .shell
+        h2.text-bold Button Shapes
+        hr.divider.bg-madison
+        .offset-top-40.offset-md-top-60
+          .group.group-xl
+            a(href="#").btn.btn-primary.btn-rounded  Default Shape
+            a(href="#").btn.btn-primary.btn-round  Round Shape
+            a(href="#").btn.btn-primary.btn-ellipse Circle Shape
+            a(href="#").btn.btn-primary.btn-rect Square Shape
+
+
+      section.offset-top-70.offset-md-top-114
+        .shell
+          h2.text-bold Buttons with Icons
+          hr.divider.bg-madison
+          .offset-top-40.offset-md-top-60
+            .group.group-xl
+              a(href="#").btn.btn-icon.btn-icon-right.btn-default
+                span.icon.fa-arrow-right
+                span Learn More
+
+              a(href="#").btn.btn-icon.btn-icon-left.btn-default
+                span.text-middle.icon.fa-arrow-right
+                span Read More
+
+              a(href="#").btn.btn-primary.btn-icon.btn-icon-left
+                span.icon.fa-arrow-right
+                span Read More
+
+              a(href="#").btn.btn-icon.btn-icon-right.btn-primary
+                span.icon.fa-arrow-right
+                span Learn More
+
+      section.offset-top-70.offset-md-top-114
+        .shell
+          h2.text-bold Buttons with Shadow
+          hr.divider.bg-madison
+          .offset-top-40.offset-md-top-60
+            .group.group-xl
+              a(href="#").btn.btn-icon.btn-icon-right.btn-default.btn-shadow
+                span.icon.fa-arrow-right
+                span Learn More
+              a(href="#").btn.btn-icon.btn-icon-right.btn-primary.btn-shadow
+                span.icon.fa-arrow-right
+                span Learn More
+
+      section.offset-top-70.offset-md-top-114
+        .shell
+          h2.text-bold Social Buttons
+          hr.divider.bg-madison
+          .offset-top-40.offset-md-top-60
+            ul.list-inline.list-inline-sm.list-inline-madison
+              li
+                a(href="#").icon.icon-xxs.fa-facebook.icon-rect.icon-gray-light-filled
+              li
+                a(href="#").icon.icon-xxs.fa-twitter.icon-rect.icon-gray-light-filled
+              li
+                a(href="#").icon.icon-xxs.fa-google.icon-rect.icon-gray-light-filled
+              li
+                a(href="#").icon.icon-xxs.fa-instagram.icon-rect.icon-gray-light-filled
+
+  // Page Footer
+  include ../sections/_section-footer-corporate

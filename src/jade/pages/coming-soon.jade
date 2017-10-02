@@ -1,0 +1,34 @@
+extends  ../_skeleton
+//- Includes
+include ../elements/_ui-timers
+include ../elements/_widget-form-subscribe-type-2
+//- Title
+block title
+  title= cfg.nav.pages.submenu.pages.submenu.comingSoon.title
+//- Page
+block page
+  // Page Header
+  header.page-head
+  // Page Content
+  main.page-content.section-cover.section-404.section-30.shell
+    div
+      a(href="./")
+        img(src="images/logo-170x172.png" width=108 height=108 alt="")
+    div.section-50
+      .offset-top-10
+        h2.text-bold We're getting ready to launch in
+      .offset-top-15.offset-lg-top-30
+        hr.divider.bg-madison
+      .offset-top-30.offset-lg-top-60
+        .offset-top-66(style="max-width: 770px; margin-left: auto; margin-right: auto")
+          .DateCountdown(data-date='2017-04-1 01:00:00')
+      .range.range-xs-center.offset-top-30.offset-lg-top-60
+        .cell-sm-6
+          p Our website is under construction, we are working very hard to give you the best experience on our new web site.
+          .offset-top-30
+            p Stay ready, we`re launching soon
+          .offset-top-15
+            +widget-form-subscribe-type-2("form-subscribe-forms-page")
+    div
+      p
+        | &copy; #[span(id="copyright-year")] All Rights Reserved Terms of Use and #[a(href="privacy.html") Privacy Policy]

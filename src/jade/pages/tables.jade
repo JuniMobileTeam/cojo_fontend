@@ -1,0 +1,140 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+include ../elements/_ui-tables
+
+//- Title
+block title
+  title= cfg.nav.elements.submenu.tables.title
+
+//- Page
+block page
+
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.elements,
+    cfg.nav
+    )
+
+  +breadcrumb-classic(
+  cfg.nav.elements.submenu.tables.title,
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.elements.title,
+      "href": cfg.nav.elements.href
+    },
+    2: {
+      "title": cfg.nav.elements.submenu.tables.title,
+      "href": cfg.nav.elements.submenu.tables.href
+    }
+  })
+
+  // Page Content
+  main.page-content.section-70.section-md-114
+
+    // Hover Rows Table
+    section
+      .shell
+        h2.text-bold Hover Rows Table
+        hr.divider.bg-madison
+        .range.offset-sm-top-45.range-xs-center
+          .cell-sm-10.cell-lg-8
+            +table-custom([
+              ['#', 'First Name', 'Last Name', 'Username'],
+              ['1', 'Timothy', 'Richards', '@timothyrichards'],
+              ['2', 'Raymond', 'Hawkins', '@raymondhawkins'],
+              ['3', 'Bruce', 'Brooks', '@brucebrooks'],
+              ['4', 'Jessica', 'Chavez', '@jessicachavez']],
+            "table-fixed table-hover-rows", true)
+
+    // Striped Table
+    section.offset-top-70.offset-md-top-114
+      .shell
+        h2.text-bold Striped Table
+        hr.divider.bg-madison
+        .range.offset-sm-top-45.range-xs-center
+          .cell-sm-10.cell-lg-8
+            +table-custom([
+              ['#', 'First Name', 'Last Name', 'Username'],
+              ['1', 'Timothy', 'Richards', '@timothyrichards'],
+              ['2', 'Raymond', 'Hawkins', '@raymondhawkins'],
+              ['3', 'Bruce', 'Brooks', '@brucebrooks'],
+              ['4', 'Jessica', 'Chavez', '@jessicachavez']],
+            "table-fixed striped-table", true)
+
+    // Color Header Table
+    section.offset-top-70.offset-md-top-114
+      .shell
+        h2.text-bold Color Header
+        hr.divider.bg-madison
+        .range.offset-sm-top-60.range-xs-center
+          .cell-sm-10.cell-lg-8
+            +table-custom([
+              ['#', 'First Name', 'Last Name', 'Username'],
+              ['1', 'Timothy', 'Richards', '@timothyrichards'],
+              ['2', 'Raymond', 'Hawkins', '@raymondhawkins'],
+              ['3', 'Bruce', 'Brooks', '@brucebrooks'],
+              ['4', 'Jessica', 'Chavez', '@jessicachavez']],
+            "table-primary table-fixed", true)
+
+    // Dark Header, Hover Rows Table
+    section.offset-top-70.offset-md-top-114
+      .shell
+        h2.text-bold Dark Header, Hover Rows
+        hr.divider.bg-madison
+        .range.offset-sm-top-60.range-xs-center
+          .cell-sm-10.cell-lg-8
+            +table-custom([
+              ['#', 'First Name', 'Last Name', 'Username'],
+              ['1', 'Timothy', 'Richards', '@timothyrichards'],
+              ['2', 'Raymond', 'Hawkins', '@raymondhawkins'],
+              ['3', 'Bruce', 'Brooks', '@brucebrooks'],
+              ['4', 'Jessica', 'Chavez', '@jessicachavez']],
+            "table-dark-blue table-fixed", true)
+
+    // Condenced Table Table
+    section.offset-top-70.offset-md-top-114
+      .shell
+        h2.text-bold Condensed Table
+        hr.divider.bg-madison
+        .range.offset-sm-top-50.range-xs-center
+          .cell-sm-10.cell-lg-8
+            +table-custom([
+              ['#', 'First Name', 'Last Name', 'Username'],
+              ['1', 'Timothy', 'Richards', '@timothyrichards'],
+              ['2', 'Raymond', 'Hawkins', '@raymondhawkins'],
+              ['3', 'Bruce', 'Brooks', '@brucebrooks'],
+              ['4', 'Jessica', 'Chavez', '@jessicachavez']]
+            , "table-fixed condensed-table", true)
+
+    // Bordered Table
+    section.offset-top-70.offset-md-top-114
+      .shell
+        h2.text-bold Bordered Table
+        hr.divider.bg-madison
+        .range.offset-sm-top-50.range-xs-center
+          .cell-sm-10.cell-lg-8
+            +table-custom([
+              ['#', 'First Name', 'Last Name', 'Username'],
+              ['1', 'Timothy', 'Richards', '@timothyrichards'],
+              ['2', 'Raymond', 'Hawkins', '@raymondhawkins'],
+              ['3', 'Bruce', 'Brooks', '@brucebrooks'],
+              ['4', 'Jessica', 'Chavez', '@jessicachavez']]
+            , "table-fixed bordered-table", true)
+  // Page Footer
+  include ../sections/_section-footer-corporate

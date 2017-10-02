@@ -1,0 +1,73 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_ui-rd-parallax
+include ../elements/_widget-flickrfeed
+include ../elements/_ui-rd-navbar-hamburger-menu
+
+//- Title
+block title
+  title= cfg.nav.pages.submenu.layouts.submenu.headerHamburgerMenu.title
+
+//- Page
+block page
+  // Page Header
+  header.page-head(style="position:absolute; left:0; right:0;top:0")
+    //- RD Navbar
+    +rd-navbar-hamburger-menu(
+    'rd-navbar-humburger-menu',
+    {
+      "data-auto-height": "false",
+      "data-lg-stick-up": 'false',
+      "data-lg-hover-on":"false"
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.pages,
+    cfg.nav
+    )
+
+  // Page Content
+  main.page-content
+    //- Welcome
+    section()
+      // Swiper
+      .swiper-container.swiper-slider(data-height="100vh" data-loop="false" data-dragable="false" data-min-height="480px" data-slide-effect="true")
+        .swiper-wrapper
+          .swiper-slide(data-slide-bg='images/slide-01-1920x810.jpg' style="background-position: 80% center")
+            .swiper-slide-caption
+              .container
+                .range.range-xs-center.range-lg-left
+                  .cell-md-9.text-md-left.cell-xs-10
+                    .jumbotron-custom.bg-white-transparent
+                      .top-banner(style='z-index:9')
+                        h4.text-white Recipe of the Day
+                      div
+                        h1.text-bold
+                          a(href= cfg.nav.campus.submenu.resipesSingle.href) Moroccan Carrot Salad with Feta
+                      .offset-top-20.offset-xs-top-40.offset-xl-top-60
+                        h5.text-regular.font-default Bored with the same old salad? You’ll love this easy-to-cook recipe, which combines ingredients you probably already have in your kitchen in new and interesting ways.
+                      .offset-top-20.offset-xl-top-40
+                        a(href= cfg.nav.campus.submenu.resipesSingle.href).btn.btn-primary View Recipe
+
+
+    // A Few Words
+    section.section-70.section-md-100
+      .shell
+        .range.text-sm-left.range-sm-justify.range-sm-reverse
+          .cell-sm-5
+            .img-wrap-2.view-animate.zoomInSmall.duration-06
+              figure
+                img.img-responsive.reveal-inline-block(src="images/home-01-620-350.jpg" width=620 height=350 alt="")
+          .cell-sm-7.offset-top-50.offset-sm-top-0
+            h2.text-bold.view-animate.fadeInLeftSm.delay-06 About Us
+            hr.divider.bg-madison.hr-sm-left-0.view-animate.fadeInLeftSm.delay-08
+            .offset-top-35.offset-md-top-60.view-animate.fadeInLeftSm.delay-1
+              p
+                | Responding to the needs of students and society, Williams College's access to education provides relevant opportunities and a supportive environment for you to realize your goals.
+                | We work to provide you with the right tools, pathways, flexibility, and convenience to make your studying experience here successful.
+            .offset-top-30.view-animate.fadeInLeftSm.delay-12
+              a(href="#").btn.btn-icon.btn-icon-right.btn-madison
+                span.icon.fa-arrow-right
+                span Learn More
+
+  include ../sections/_section-footer-corporate

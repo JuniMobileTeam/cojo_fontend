@@ -1,0 +1,183 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+include ../elements/_ui-isotope
+include ../elements/_ui-thumbnail-classic
+
+//- Title
+block title
+  title= cfg.nav.campus.submenu.cobblesGallery.title
+
+//- Page
+block page
+
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.campus,
+    cfg.nav
+    )
+
+  +breadcrumb-classic(
+  cfg.nav.campus.title,
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.campus.title,
+      "href": cfg.nav.campus.href
+    },
+    2: {
+      "title": cfg.nav.campus.submenu.cobblesGallery.title,
+      "href": cfg.nav.campus.submenu.cobblesGallery.href
+    }
+  })
+
+  // Page Content
+  main.page-content.section-70.section-md-114
+
+    // Portfolio Grid
+    section
+      h2 Cobbles Gallery
+
+      .offset-top-60
+        .isotope-wrap
+          // Isotope Content
+          .offset-top-60
+            .range.range-xs-center
+              .cell-xs-9.cell-sm-12.col-sm-offset-0
+                .isotope(data-isotope-layout="masonry" data-isotope-group= "gallery")
+                  .row.row-condensed(data-photo-swipe-gallery="gallery")
+                    .col-sm-6.col-lg-3.isotope-item(data-filter="Tab 1")
+                      +thumbnail-classic({
+                        "type": "thumbnail",
+                        "thumb": {"src": "images/portfolio/gallery-01-480x700.jpg", "width": 480, "height": 700, "alt": ""},
+                        "target": {
+                          "src": "images/portfolio/gallery-01-1200x800_original.jpg",
+                          "width": 1200,
+                          "height": 800,
+                          "alt": ""
+                        },
+                        "title": "Photo #1",
+                        "content": "All recipes published by Good Food are easy to cook and offer you a tasty gastronomic experience."
+                      })
+                    .col-sm-6.col-lg-3.offset-top-30.offset-sm-top-0.isotope-item(data-filter="Tab 1")
+                      +thumbnail-classic({
+                        "type": "thumbnail",
+                        "thumb": {"src": "images/portfolio/gallery-02-480x350.jpg", "width": 480, "height": 350, "alt": ""},
+                        "target": {
+                          "src": "images/portfolio/gallery-02-1200x800_original.jpg",
+                          "width": 1200,
+                          "height": 800,
+                          "alt": ""
+                        },
+                        "title": "Photo #3",
+                        "content": "All recipes published by Good Food are easy to cook and offer you a tasty gastronomic experience."
+                      })
+                    .col-sm-6.col-lg-3.offset-top-30.offset-lg-top-0.isotope-item(data-filter="Tab 1")
+                      +thumbnail-classic({
+                        "type": "thumbnail",
+                        "thumb": {"src": "images/portfolio/gallery-03-480x350.jpg", "width": 480, "height": 350, "alt": ""},
+                        "target": {
+                          "src": "images/portfolio/gallery-03-1200x800_original.jpg",
+                          "width": 1200,
+                          "height": 800,
+                          "alt": ""
+                        },
+                        "title": "Photo #5",
+                        "content": "All recipes published by Good Food are easy to cook and offer you a tasty gastronomic experience."
+                      })
+                    .col-sm-6.col-lg-3.offset-top-30.offset-lg-top-0.isotope-item(data-filter="Tab 1")
+                      +thumbnail-classic({
+                        "type": "thumbnail",
+                        "thumb": {"src": "images/portfolio/gallery-07-480x700.jpg", "width": 480, "height": 700, "alt": ""},
+                        "target": {
+                          "src": "images/portfolio/gallery-04-1200x800_original.jpg",
+                          "width": 1200,
+                          "height": 800,
+                          "alt": ""
+                        },
+                        "title": "Photo #8",
+                        "content": "All recipes published by Good Food are easy to cook and offer you a tasty gastronomic experience."
+                      })
+                    .col-sm-6.col-lg-3.offset-lg-top-0.offset-top-30.isotope-item(data-filter="Tab 1")
+                      +thumbnail-classic({
+                        "type": "thumbnail",
+                        "thumb": {"src": "images/portfolio/gallery-05-480x700.jpg", "width": 480, "height": 700, "alt": ""},
+                        "target": {
+                          "src": "images/portfolio/gallery-06-1200x800_original.jpg",
+                          "width": 1200,
+                          "height": 800,
+                          "alt": ""
+                        },
+                        "title": "Photo #4",
+                        "content": "All recipes published by Good Food are easy to cook and offer you a tasty gastronomic experience."
+                      })
+                    .col-sm-6.col-lg-3.offset-lg-top-0.offset-top-30.isotope-item(data-filter="Tab 1")
+                      +thumbnail-classic({
+                        "type": "thumbnail",
+                        "thumb": {"src": "images/portfolio/gallery-06-480x350.jpg", "width": 480, "height": 350, "alt": ""},
+                        "target": {
+                          "src": "images/portfolio/gallery-07-1200x800_original.jpg",
+                          "width": 1200,
+                          "height": 800,
+                          "alt": ""
+                        },
+                        "title": "Photo #6",
+                        "content": "All recipes published by Good Food are easy to cook and offer you a tasty gastronomic experience."
+                      })
+                    .col-sm-6.col-lg-3.offset-top-30.offset-lg-top-0.isotope-item(data-filter="Tab 1")
+                      +thumbnail-classic({
+                        "type": "thumbnail",
+                        "thumb": {"src": "images/portfolio/gallery-04-480x350.jpg", "width": 480, "height": 350, "alt": ""},
+                        "target": {
+                          "src": "images/portfolio/gallery-05-1200x800_original.jpg",
+                          "width": 1200,
+                          "height": 800,
+                          "alt": ""
+                        },
+                        "title": "Photo #2",
+                        "content": "All recipes published by Good Food are easy to cook and offer you a tasty gastronomic experience."
+                      })
+                    .col-sm-6.col-lg-3.offset-lg-top-0.offset-top-30.isotope-item(data-filter="Tab 1")
+                      +thumbnail-classic({
+                        "type": "thumbnail",
+                        "thumb": {"src": "images/portfolio/gallery-09-480x350.jpg", "width": 480, "height": 350, "alt": ""},
+                        "target": {
+                          "src": "images/portfolio/gallery-09-1200x800_original.jpg",
+                          "width": 1200,
+                          "height": 800,
+                          "alt": ""
+                        },
+                        "title": "Photo #7",
+                        "content": "All recipes published by Good Food are easy to cook and offer you a tasty gastronomic experience."
+                      })
+
+                    .col-sm-6.col-lg-3.offset-lg-top-0.offset-top-30.isotope-item(data-filter="Tab 1")
+                      +thumbnail-classic({
+                        "type": "thumbnail",
+                        "thumb": {"src": "images/portfolio/gallery-08-480x350.jpg", "width": 480, "height": 350, "alt": ""},
+                        "target": {
+                          "src": "images/portfolio/gallery-08-1200x800_original.jpg",
+                          "width": 1200,
+                          "height": 800,
+                          "alt": ""
+                        },
+                        "title": "Photo #9",
+                        "content": "All recipes published by Good Food are easy to cook and offer you a tasty gastronomic experience."
+                      })
+
+  // Page Footer
+  include ../sections/_section-footer-corporate

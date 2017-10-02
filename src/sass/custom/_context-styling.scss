@@ -1,0 +1,181 @@
+// Contexts
+// -------------------------
+
+%context-light {
+  .form-control-impressed {
+    background: rgba(255, 255, 255, .6);
+    &, &:focus {
+      box-shadow: none;
+    }
+  }
+  .form-label.focus {
+    color: $gray-darker;
+  }
+
+  .quote-outboxed {
+    .quote-body {
+      box-shadow: $shadow-area-md;
+      background: $white;
+
+      &:before {
+        color: $gray-lighter;
+      }
+
+      &:after {
+        border-color: $white transparent transparent transparent;
+      }
+    }
+  }
+}
+
+%context-dark {
+  // Text Styles
+  &, .btn-link, .form-label, .form-label-outside.focus,
+  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    color: $white;
+  }
+  p,
+  .p,
+  .list {
+    a {
+      color: $white;
+      &:hover {
+        color: $white;
+        text-decoration: underline;
+      }
+    }
+  }
+  .form-label.auto-fill{
+    color: $input-color;
+  }
+  .divider{
+    background: $white;
+  }
+  .countdown-custom {
+    .countdown-amount, .countdown-period {
+      color: $white;
+    }
+  }
+  .quote-classic-boxed{
+    q, cite{
+      color: $white;
+    }
+    .text-dark{
+      color: $gray-light;
+    }
+    .quote-body{
+      &:before{
+        color: rgba($white, .2);
+      }
+    }
+  }
+  .text-black{
+    color: $white;
+  }
+  .form-group {
+    > .form-control {
+      color: $white;
+    }
+
+    > .form-control::-webkit-input-placeholder {
+      color: $white;
+    }
+
+    > .form-control::-moz-placeholder {
+      color: $white;
+    }
+
+    > .form-control:-ms-input-placeholder {
+      color: $white;
+    }
+
+    > .form-control:-moz-placeholder {
+      color: $white;
+    }
+  }
+
+  // Button Styles
+  .btn-default {
+    @include button-variant-custom($white, transparent, $white, $gray-darker, $white, $white);
+  }
+  .btn-primary {
+    @include button-variant-custom($white, $brand-primary, $brand-primary, $brand-primary, $white, $white);
+  }
+
+  // Owl Carousel
+  .owl-carousel {
+    .owl-prev,
+    .owl-next {
+      border-color: $white;
+      color: $white;
+    }
+    .owl-dot {
+      background: $white;
+      &.active {
+        background: $brand-primary;
+      }
+    }
+  }
+
+  // Counter (type-1)
+  .counter-type-1 {
+    .divider {
+      background: $white;
+    }
+  }
+
+  .form-control-impressed {
+    background: $gray-base;
+  }
+
+  // Footer (variant 2)
+  .contact-info dl {
+    dd a {
+      color: $white;
+    }
+    dd a:hover{
+      color: $brand-primary;
+    }
+  }
+
+  .thumbnail-classic-caption {
+    color: $gray-darker;
+  }
+
+  .thumbnail-classic-title{
+    color: $gray-darker;
+  }
+
+  // Form Validation
+  .has-error .form-validation {
+    color: lighten($brand-danger, 27.5%);
+  }
+
+  @media (min-width: $screen-sm-min) {
+    .form-label-outside.auto-fill {
+      color: $white;
+    }
+  }
+
+  .progress-linear{
+    .progress-header{
+      .progress-value{
+        color: $white;
+      }
+    }
+  }
+}
+
+.context-light {
+  @extend %context-light;
+}
+
+.context-dark {
+  @extend %context-dark;
+}
+
+.bg-gray-base {
+  .form-control-impressed {
+    background: darken($gray-base, 3%);
+  }
+}

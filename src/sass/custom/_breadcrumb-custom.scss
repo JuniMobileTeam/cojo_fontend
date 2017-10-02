@@ -1,0 +1,24 @@
+//
+// Breadcrumb custom
+// --------------------------------------------------
+
+// Breadcrumb Classic
+// -------------------------
+
+.breadcrumb-classic {
+  background: $brand-primary;
+  position: relative;
+  .list-inline-dashed {
+    > li {
+      &:last-child{
+       color: rgba(255,255,255,.6);
+        &:before{
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+
+

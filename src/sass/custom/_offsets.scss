@@ -1,0 +1,66 @@
+//
+// Offsets
+// --------------------------------------------------
+
+
+// Insets
+// -------------------------
+
+$insets: (0, 10px, 15px, 20px, 25px, 30px, 38px, 50px, 60px, 70px, 100px, 110px);
+
+html .page{
+  @include indent-responsive(inset, left, padding-left, $medias, $insets);
+  @include indent-responsive(inset, right, padding-right, $medias, $insets);
+}
+
+
+// Elements
+// -------------------------
+
+.inset-left-7p{
+  padding-left: 7%;
+}
+.inset-right-7p{
+  padding-right: 7%;
+}
+
+.inset-left-11p{
+  padding-left: 11%;
+}
+
+.inset-right-11p{
+  padding-right: 11%;
+}
+
+.preffix-left-17 {
+  margin-left: 17px;
+}
+.preffix-left-sm-0{
+  @media (min-width: $screen-sm-min) {
+    margin-left: 0;
+  }
+}
+
+
+// Grid
+// -------------------------
+
+.shell-fluid-custom{
+  @media (min-width: $screen-lg-min) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// Sections
+// -------------------------
+
+
+// Responsive
+// -------------------------
+
+$offsets: (0,3px, 5px,9px, 10px, 12px, 15px, 17px, 20px, 22px, 25px,26px, 27px, 30px, 35px, 40px, 45px, 47px, 50px, 56px, 60px, 65px, 70px, 85px, 90px, 110px, 114px, 133px, 147px);
+
+html .page{
+  @include indent-responsive(offset, top, margin-top, $medias, $offsets);
+}

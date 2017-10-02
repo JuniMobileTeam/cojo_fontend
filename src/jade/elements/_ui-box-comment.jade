@@ -1,0 +1,26 @@
+//- Comment Box
+//- type - comment box type
+//- image - {image} object
+//- date - comment date
+//- title - comment author
+//- body - comment body
+mixin box-comment(type, image, date, title, body)
+  // Box Comment
+  .box-comment.text-left(class=type)
+    .unit.unit-xs-horizontal
+      .unit-left
+        img.box-comment-img(src= image.src alt= image.alt width= image.width height= image.height)
+      .unit-body
+        div
+          p.box-comment-title
+            span.h6.text-primary.text-bold=  title
+            time.post-meta.inset-left-20.text-italic(datetime="2016-01-01")= date
+        .box-comment-body.offset-top-10
+          p= body
+          .offset-top-20
+            a(href="#")
+              span.icon.fa-reply.icon-xs.icon-primary
+              span.text-primary.inset-left-10 Reply
+
+    block
+

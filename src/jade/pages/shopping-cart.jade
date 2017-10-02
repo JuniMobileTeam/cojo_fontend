@@ -1,0 +1,99 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+include ../elements/_ui-tables
+
+//- Title
+block title
+  title= cfg.nav.shop.submenu.shoppingCart.title
+
+//- Page
+block page
+
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.shop,
+    cfg.nav
+    )
+
+  +breadcrumb-classic(
+  cfg.nav.shop.submenu.shoppingCart.title,
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.shop.title,
+      "href": cfg.nav.shop.href
+    },
+    2: {
+      "title": cfg.nav.shop.submenu.shoppingCart.title,
+      "href": cfg.nav.shop.submenu.shoppingCart.href
+    }
+  })
+
+  // Page Content
+  main.page-content.section-70.section-md-114.section-md-bottom-90
+
+    // Hover Rows Table
+    section
+      .shell
+        h2.text-bold Shopping Cart
+        hr.divider.bg-madison
+        .offset-top-60
+          .table-responsive.clearfix
+            table.table-dark-blue.table-custom.table
+              tbody
+                tr
+                  th
+                  th Item
+                  th Price
+                  th Quantity
+                  th Total
+                tr
+                  td.text-center.p
+                    a(href="#").icon.fa-trash.icon-xxs.text-gray
+                  td
+                    a(href= cfg.nav.shop.submenu.singleProduct.href).text-primary 10 Piece OXO ® Holder with Tools Set
+                  td $29.00
+                  td
+                    input.form-control.input-sm(type="number" data-zeros="true" value="1" min="1" max="20")
+                  td.text-bold.text-black $29.00
+                tr
+                  td.text-center.p
+                    a(href="#").icon.fa-trash.icon-xxs.text-gray
+                  td
+                    a(href= cfg.nav.shop.submenu.singleProduct.href).text-primary Carter Cocktail Shaker
+                  td $9.00
+                  td
+                    input.form-control.input-sm(type="number" data-zeros="true" value="1" min="1" max="20")
+                  td.text-bold.text-black $18.00
+        .offset-top-30.clearfix
+          p.pull-right.inset-lg-right-70 Total:
+            span.h4.inset-left-20 $47.00
+        .offset-top-20.text-sm-left
+
+          .form-group(style="max-width: 400px").reveal-inline-block
+            .input-group
+              input.form-control(placeholder="Coupon Code", type="text")
+              span.input-group-btn
+                a(href="#").btn.btn-primary Apply Coupon
+          a(href= cfg.nav.shop.submenu.checkout.href).btn.btn-primary.btn-icon.btn-icon-right.pull-sm-right.offset-top-10.offset-sm-top-0
+            span.icon.fa-arrow-right
+            span Checkout
+
+
+  // Page Footer
+  include ../sections/_section-footer-corporate

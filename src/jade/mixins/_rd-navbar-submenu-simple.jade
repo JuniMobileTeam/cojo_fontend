@@ -1,0 +1,12 @@
+//- RD Navbar Simple submenu
+
+mixin rd-navbar-simple-submenu(link)
+  - if (typeof(link.submenu) !== 'undefined'){
+    ul.rd-navbar-dropdown
+      each sublink in link.submenu
+        li
+          a(href=sublink.href)= sublink.title
+
+          +rd-navbar-simple-submenu(sublink)
+  -}
+

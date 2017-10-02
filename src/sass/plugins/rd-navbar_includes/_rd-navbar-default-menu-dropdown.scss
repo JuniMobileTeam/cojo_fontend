@@ -1,0 +1,167 @@
+//
+// RD Navbar Default Menu Dropdown
+// --------------------------------------------------
+
+%rd-navbar-default-menu-dropdown {
+
+  .rd-navbar-dropdown, .rd-navbar-megamenu {
+    position: absolute;
+    top: 100%;
+    left: -30px;
+    z-index: 1;
+    width: 250px;
+    padding: 20px;
+    visibility: hidden;
+    transition: .3s all ease;
+    text-align: left;
+    opacity: 0;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.15);
+    background: $brand-madison;
+    li {
+      position: relative;
+      &:hover {
+        > a {
+          color: $white;
+          padding-left: 20px;
+          &:before {
+            opacity: 1;
+            left: 0;
+          }
+        }
+      }
+      > a {
+        @extend %rd-navbar-default-link-font;
+        font-weight: 400;
+        display: block;
+        padding-right: 25px;
+        font-size: 14px;
+        font-family: $font-family-base;
+        color: rgba($white, .75);
+        //white-space: nowrap;
+        &:before {
+          position: absolute;
+          left: -5px;
+          top: 50%;
+          @include transform(translateY(-50%));
+          content: "\f105";
+          font-family: "FontAwesome";
+          font-size: 16px;
+          opacity: 0;
+          transition: 0.45s all ease;
+
+        }
+        > span {
+          vertical-align: middle;
+        }
+      }
+      &.rd-navbar--has-dropdown:after {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        right: 13px;
+        font-size: $rd-navbar-menu-dropdown-lists-dropdown-megamenu-item-caret-icon-size;
+        font-family: $rd-navbar-menu-dropdown-lists-dropdown-megamenu-item-caret-icon-family;
+        line-height: $rd-navbar-menu-dropdown-lists-dropdown-megamenu-item-caret-icon-line-height;
+        content: $rd-navbar-menu-dropdown-lists-dropdown-megamenu-item-caret-icon;
+        transition: .3s all ease;
+        color: $rd-navbar-light-menu-dropdown-lists-dropdown-megamenu-active-item-color;
+        @include transform(translateY(-50%));
+      }
+      & + li {
+        margin-top: 15px;
+      }
+    }
+
+    .rd-navbar-dropdown .rd-navbar-dropdown {
+      z-index: 3;
+    }
+
+    &.rd-navbar-open-left, &.rd-navbar-open-left .rd-navbar-dropdown {
+      right: 100%;
+      left: auto;
+    }
+    @media (min-width: $screen-lg-min) {
+      padding: 25px 30px 0 30px;
+      li + li {
+        margin-top: 30px;
+      }
+      li:last-child{
+        margin-bottom: 25px;
+      }
+    }
+  }
+
+  .rd-navbar-nav > .rd-navbar-submenu > .rd-navbar-dropdown.rd-navbar-open-left {
+    right: 0;
+  }
+
+  .rd-navbar-cart-dropdown {
+    margin-top: 22px;
+  }
+
+  .rd-navbar-dropdown {
+    margin-top: 35px;
+    z-index: 2;
+    li {
+      & + li {
+        &:before {
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          background: rgba(255, 255, 255, .2);
+          content: "";
+          top: -8px;
+        }
+      }
+    }
+    @media (min-width: $screen-lg-min) {
+      li + li {
+        &:before {
+          top: -15px;
+        }
+      }
+    }
+    @media (min-width: $screen-xl-min) {
+      margin-top: 64px;
+    }
+  }
+
+  .rd-navbar-megamenu {
+    padding: 20px;
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    li + li {
+      margin-top: 13px;
+    }
+    h6 {
+      font-size: 16px;
+      color: $white;
+      font-weight: 700;
+    }
+    .col-md-3 {
+      > li + li {
+        margin-top: 20px;
+      }
+    }
+    @media (min-width: $screen-lg-min) {
+      padding: 40px;
+      padding-bottom: 15px;
+      h6 {
+        font-size: $font-size-h6;
+      }
+      li + li{
+        margin-top: 20px;
+      }
+      .col-md-3 {
+        > li + li {
+          margin-top: 35px;
+        }
+      }
+
+    }
+  }
+}

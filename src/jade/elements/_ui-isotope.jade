@@ -1,0 +1,33 @@
+//- isotope - Isotope object
+//- amountList - array of Isotope
+mixin isotope(amountList, isotope, filterID, columns, isotopeWrapOffset)
+  - var title = isotope.title? isotope.title : "Categories"
+  .isotope-wrap
+    if amountList
+      // Isotope Filters
+      .text-sm-left(class= columns)
+        .isotope-filters(class= isotope.alignClass)
+          if (isotope.alignClass === "isotope-filters-vertical")
+            h4.text-uppercase.text-bold.isotope-filters-title.offset-top-30= title
+
+          ul.list-inline.list-inline-sm
+            li.veil-md
+              p Choose your category:
+            li.section-relative.offset-top-20.offset-xs-top-0
+              button.isotope-filters-toggle.btn.btn-xs.btn-default(data-custom-toggle=filterID data-custom-toggle-disable-on-blur="true") Filter
+                span.caret
+
+              ul.list-sm-inline.isotope-filters-list(id=filterID)
+                each item, index in amountList
+                  li
+                    a.text-bold(class= index === 0 ? "active" : "" data-isotope-filter= item.toLocaleLowerCase() === "all" ? "*" : item, data-isotope-group= isotope.group, href="#")= item
+
+    // Isotope Content
+    if amountList
+      div(class= isotopeWrapOffset)
+        .isotope(data-isotope-layout= isotope.layout, data-isotope-group= isotope.group)
+          block
+    else
+      .col-xs-12
+        .isotope(data-isotope-layout= isotope.layout, data-isotope-group= isotope.group)
+          block

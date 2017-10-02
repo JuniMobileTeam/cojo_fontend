@@ -1,0 +1,569 @@
+//
+// Posts
+// --------------------------------------------------
+
+// Post Common Styles
+// --------------------------------------------------
+
+.post {
+  &-meta {
+    .icon-xxs {
+      font-size: 18px;
+    }
+  }
+
+  &-title + &-meta {
+    margin-top: 8px;
+  }
+}
+
+// Post default
+// --------------------------------------------------
+
+.post-default {
+  .post-controls {
+    margin-bottom: 0;
+  }
+
+  .post-controls + .post-title {
+    margin-top: 8px;
+  }
+}
+
+// Post timeline
+// --------------------------------------------------
+.post-timeline {
+  .thumbnail-default {
+    figure {
+      position: relative;
+      z-index: 1;
+      &:after,
+      &:before {
+        pointer-events: none;
+        display: none;
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 2px;
+        background: $brand-madison;
+        top: 50%;
+        margin-top: -1px;
+        z-index: -1;
+        transition: 0.35s all ease;
+        @media (min-width: $screen-md-min) {
+          display: block;
+        }
+      }
+      &:after {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        margin-left: 0;
+        margin-top: -8px;
+        outline: 5px solid $white;
+        z-index: -2;
+      }
+    }
+    &:hover {
+      figure {
+        &:after,
+        &:before {
+          background: $brand-primary;
+        }
+      }
+    }
+  }
+  &-left {
+    figure {
+      &:after,
+      &:before {
+        right: -97px;
+        @media (min-width: $screen-lg-min) {
+          right: -122px;
+        }
+      }
+      &:after {
+        right: -104px;
+        @media (min-width: $screen-lg-min) {
+          right: -124px;
+        }
+      }
+    }
+  }
+  &-right {
+    figure {
+      &:after,
+      &:before {
+        left: -97px;
+        @media (min-width: $screen-lg-min) {
+          left: -115px;
+        }
+      }
+      &:after {
+        left: -103px;
+        @media (min-width: $screen-lg-min) {
+          left: -122px;
+        }
+      }
+    }
+  }
+}
+
+// Post widget
+// --------------------------------------------------
+
+.widget-post {
+  display: block;
+
+  > a {
+    display: inline-block;
+
+    &:hover {
+      time {
+        @include transform(translate(10px, -1px));
+      }
+
+      h6 {
+        color: $brand-madison;
+      }
+    }
+  }
+
+  h6,
+  time {
+    transition: .3s;
+  }
+
+  .post-meta {
+    .icon-xxs {
+      font-size: 14px;
+    }
+
+    time {
+      display: inline-block;
+      font-size: 12px;
+      @include transform(translate(0, -1px));
+    }
+  }
+
+  & + .widget-post {
+    margin-top: 16px;
+  }
+}
+
+// Post vacation
+// --------------------------------------------------
+
+.post-vacation {
+  color: $gray-base;
+  background: $white;
+  height: 120px;
+
+  .post-vacation-title {
+    color: $brand-primary;
+    font-weight: 700;
+    a:hover{
+      color: $brand-madison;
+    }
+  }
+  &-meta {
+    text-align: left;
+    > * {
+      display: inline-block;
+    }
+    .list-inline {
+      float: right;
+      margin-left: -2px;
+      margin-right: -2px;
+
+      > li {
+        padding-left: 2px;
+        padding-right: 2px;
+      }
+    }
+  }
+  &-img-wrap {
+    display: inline-block;
+    width: 27%;
+    float: left;
+    height: 120px;
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+  &-body {
+    display: inline-block;
+    padding: 15px;
+    width: 73%;
+    @include display-flex();
+    @include flex-direction (column);
+    @include justify-content (space-around);
+    height: 100%;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    &-body {
+      display: inline-block;
+      padding: 18px;
+      padding-left: 27px;
+      width: 73%;
+    }
+    .list-inline {
+      margin-left: -6px;
+      margin-right: -6px;
+
+      > li {
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+    }
+  }
+}
+
+// Event post
+// --------------------------------------------------
+
+.post-event {
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  &-meta {
+    background: $gray-base;
+    padding: 5px 9px;
+    min-width: 90px;
+    > * {
+      margin: 0;
+    }
+    color: $gray-lighter;
+    .h3 {
+      color: $white;
+    }
+  }
+  &-body {
+    h6 {
+      font-weight: 700;
+      font-size: 16px;
+      a {
+        color: $brand-primary;
+        &:hover {
+          color: $brand-madison;
+        }
+      }
+    }
+  }
+  .list-inline {
+    a {
+      color: $brand-primary;
+      &:hover {
+        color: $brand-madison;
+      }
+    }
+    .icon-xxs {
+      font-size: 20px;
+      line-height: 20px;
+    }
+  }
+  &-img-overlay {
+    position: relative;
+    display: inline-block;
+    &:after {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba($brand-madison, .8);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.35s all ease;
+    }
+  }
+  &-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, 0%));
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+
+  }
+  &-img-overlay:hover {
+    &:after {
+      opacity: 1;
+      visibility: visible;
+    }
+    .post-event-overlay {
+      opacity: 1;
+      visibility: visible;
+      @include transform(translate(-50%, -50%));
+      transition: 0.35s all ease;
+    }
+  }
+  .unit {
+    margin-top: -6px;
+  }
+  .btn-primary {
+    &:hover {
+      color: $gray-base;
+      background-color: $white;
+      border-color: $white;
+    }
+  }
+  @media (min-width: $screen-lg-min) {
+    &-body {
+      padding-top: 21px;
+    }
+  }
+  @media (min-width: $screen-xl-min) {
+    &-body {
+      h6 {
+        font-size: 18px;
+      }
+    }
+  }
+}
+.mobile{
+  .post-event {
+    &-meta {
+      margin-top: -1px;
+    }
+  }
+}
+
+// Post news
+// --------------------------------------------------
+
+.post-news {
+  max-width: 370px;
+  background: $white;
+  margin-left: auto;
+  margin-right: auto;
+
+  &-mod-1{
+    max-width: 420px;
+  }
+  &-mod-2{
+    .btn {
+      margin-top: 15px;
+    }
+    @media (min-width: $screen-md-min) {
+      .btn {
+        position: absolute;
+        left: 50%;
+        bottom: calc(100% + 11px);
+        @include transform(translateX(-50%) translateY(10px));
+        opacity: 0;
+        margin-top: 0;
+      }
+      &:hover{
+        .btn {
+          opacity: 1;
+          @include transform(translateX(-50%) translateY(0));
+        }
+      }
+    }
+    .post-news-body-variant-1 {
+      position: relative;
+      h6 {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &-body {
+    padding: 30px;
+    h6 {
+      font-weight: 700;
+      a {
+        color: $brand-primary;
+        &:hover {
+          color: $brand-madison;
+        }
+      }
+    }
+  }
+  &-body-variant-1{
+    padding: 22px 30px;
+    h6 {
+      font-weight: 700;
+      a {
+        color: $brand-primary;
+        &:hover {
+          color: $brand-madison;
+        }
+      }
+    }
+  }
+  &-wide {
+    max-width: none;
+  }
+}
+
+// Post news modern
+// --------------------------------------------------
+.post-news-modern {
+  > .unit {
+    > .unit-right {
+      position: relative;
+      z-index: 0;
+      &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 49px;
+        width: 1px;
+        height: 20px;
+        background: #d3d3d3;
+        z-index: -1;
+      }
+      &:after {
+        position: absolute;
+        content: "";
+        top: 97px;
+        left: 104%;
+        width: 50px;
+        height: 1px;
+        background: #d3d3d3;
+        z-index: -1;
+        display: none;
+      }
+      .unit-left {
+        min-width: 100px;
+      }
+    }
+    .unit {
+      background: $brand-catskill;
+      padding-bottom: 10px;
+    }
+  }
+  .post-news {
+    &-body {
+      padding: 15px;
+    }
+  }
+  @media (min-width: $screen-lg-min) {
+    .post-news {
+      &-body {
+        padding: 30px;
+      }
+    }
+  }
+  @media (min-width: $screen-sm-min) {
+    > .unit {
+      > .unit-right {
+        width: 100px;
+        &:before {
+          height: calc(100% + 21px);
+          left: 50px;
+        }
+        &:after {
+          display: block;
+        }
+      }
+    }
+  }
+  & + .post-news-modern {
+    margin-top: 60px;
+    @media (min-width: $screen-sm-min) {
+      margin-top: 30px;
+    }
+  }
+}
+
+// Facebook iframe
+// -------------------------
+
+.fb-page-responsive {
+  text-align: center;
+}
+
+.fb-page-responsive,
+.fb-post {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
+// Products
+// -------------------------
+.product {
+  box-shadow: $shadow-area-ambient;
+  background: $white;
+  position: relative;
+  z-index: 0;
+  transition: 0.35s all ease;
+  &-body{
+    position: relative;
+    overflow: hidden;
+    padding: 37px;
+    p {
+      min-height: 44px;
+    }
+  }
+
+  &-meta-info {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    top: 90%;
+    left: 0;
+    right: 0;
+    transition: 0.35s all ease;
+    .icon-xs {
+      font-size: 24px;
+      line-height: 24px;
+    }
+    .icon-xxs {
+      font-size: 20px;
+      line-height: 20px;
+    }
+  }
+  .label{
+    position: absolute;
+    @include transform(rotate(-45deg));
+    left: -61px;
+    top: -18px;
+    background: $brand-madison;
+    height: 65px;
+    line-height: 90px;
+    width: 150px;
+    span{
+      font-size: 20px;
+      font-weight: 700;
+      color: $white;
+    }
+  }
+  &:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.35s all ease;
+  }
+  @media (min-width: $screen-md-min) {
+    border: 1px solid $gray-light;
+    box-shadow: none;
+    &-meta-info {
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+    }
+    &:hover {
+      padding-bottom: 39px;
+      margin-bottom: -39px;
+      z-index: 2;
+      .product-meta-info {
+        top: calc(100% - 76px);
+        opacity: 1;
+        visibility: visible;
+      }
+      &:before{
+        box-shadow: 0 2px 14px 0 rgba(0, 0, 0, .32);
+      }
+    }
+  }
+}

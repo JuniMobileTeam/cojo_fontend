@@ -1,0 +1,100 @@
+//
+// Custom Countdown
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+
+.countdown-custom {
+  .countdown {
+    &:before { 
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    &-section {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      padding-top: 20px;
+      text-align: center;
+      border-radius: 50%;
+
+      &:nth-child(5) {
+        display: none;
+      }
+
+      @media (min-width: $screen-lg-min) {
+        &:nth-child(5) {
+          display: inline-block;
+        }
+      }
+    }
+    &-row {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    &-amount {
+      display: block;
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 1.2;
+      text-transform: uppercase;
+      color: $brand-primary;
+    }
+    &-period {
+      display: block;
+      font-size: 18px;
+      line-height: 1.2;
+      color: $gray-base;
+      font-weight: 700;
+    }
+
+    @media (min-width: $screen-xs-min) {
+      &-section {
+        width: 100px;
+        height: 100px;
+        padding-top: 15px;
+        border-width: 4px;
+      }
+      .countdown-section + .countdown-section {
+        margin-left: 10px;
+      }
+    }
+
+    @media (min-width: $screen-sm-min) {
+      &-section {
+        width: 130px;
+        height: 130px;
+        padding-top: $countdown-custom-sm-section-inset-top;
+      }
+      .countdown-section + .countdown-section {
+        margin-left: 40px;
+      }
+      &-amount {
+        font-size: 30px;
+      }
+      &-period {
+        margin-top: 70px;
+      }
+    }
+
+    @media (min-width: $screen-md-min) {
+      .countdown-section + .countdown-section {
+        margin-left: 90px;
+      }
+    }
+  }
+
+  // Countdown Ellipse
+  @media (min-width: $screen-xs-min) {
+    &.countdown-ellipse .countdown-section {
+      border: $countdown-ellipse-xs-border;
+    }
+  }
+}
+
+
+

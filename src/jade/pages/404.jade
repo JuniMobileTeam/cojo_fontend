@@ -1,0 +1,39 @@
+extends  ../_skeleton
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+//- Title
+block title
+  title= cfg.nav.pages.submenu.pages.submenu.page404.title
+//- Page
+block page
+  // Page Header
+  header.page-head
+  // Page Content
+  main.page-content
+    .section-404-cover
+      .section-cover.section-404.section-30
+        div
+          a(href="./")
+            img(src="images/logo-170x172.png" width=108 height=108 alt="")
+        .section-50
+          .shell
+            div
+              h1.font-default
+                span.big.text-light.text-bold 404
+            .offset-top-10
+              h2.text-bold Sorry, the page was not found
+            .offset-top-15.offset-lg-top-30
+              hr.divider.bg-madison
+            .offset-top-30.offset-lg-top-60
+              p You may have mistyped the address or the page may have moved.
+            .offset-top-15.offset-lg-top-30
+              .group.group-xl
+                a(href="./").btn.btn-primary.btn-icon.btn-icon.btn-icon-left
+                  span.icon.fa-arrow-left
+                  span Back to Home Page
+                a(href=cfg.nav.contacts.href).btn.btn-default.btn-icon.btn-icon.btn-icon-left
+                  span.icon.fa-envelope
+                  span Contact Us
+        div
+          p
+            | &copy; #[span(id="copyright-year")] All Rights Reserved Terms of Use and #[a(href="privacy.html") Privacy Policy]

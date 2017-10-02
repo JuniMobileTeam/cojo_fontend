@@ -1,0 +1,234 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+include ../elements/_ui-tables
+
+//- Title
+block title
+  title= cfg.nav.shop.submenu.checkout.title
+
+//- Page
+block page
+
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.shop,
+    cfg.nav
+    )
+
+  +breadcrumb-classic(
+  cfg.nav.shop.submenu.checkout.title,
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.shop.title,
+      "href": cfg.nav.shop.href
+    },
+    2: {
+      "title": cfg.nav.shop.submenu.checkout.title,
+      "href": cfg.nav.shop.submenu.checkout.href
+    }
+  })
+
+  // Page Content
+  main.page-content.section-70.section-md-114.section-md-bottom-90
+
+    // Billing form
+    section.text-left
+      .shell
+        .text-center
+          h2.text-bold Checkout
+        hr.divider.bg-madison
+        .offset-top-60.range.range-xs-center
+          .cell-xs-10.cell-md-8
+            section
+              .range
+                .cell-sm-6
+                  h6.text-bold Returning Customer?
+                  .text-subline
+                  .offset-top-20
+                    p
+                      a(href= cfg.nav.pages.submenu.pages.submenu.loginRegister.href) Click here to login
+                .cell-sm-6
+                  h6.text-bold Have a Coupon?
+                  .text-subline
+                  .offset-top-20
+                    p
+                      a(href="#") Click here to enter your code
+            section.text-sm-left.offset-top-60
+              h6.text-bold Billing Details
+              .text-subline
+              .range.offset-top-30
+                .cell-lg-6
+                  .form-group
+                    label.form-label(for="billing-first-name") Your first name
+                    input#billing-first-name.form-control.form-validation-inside-mod-1(type="text" name="first-name" data-constraints="@Required")
+                .cell-lg-6.offset-top-30.offset-lg-top-0
+                  .form-group
+                    label.form-label(for="billing-last-name") Your last name
+                    input#billing-last-name.form-control.form-validation-inside-mod-1(type="text" name="last-name" data-constraints="@Required")
+                .cell-lg-12.offset-top-30
+                  .form-group
+                    label.form-label(for="billing-company") Company
+                    input#billing-company.form-control.form-validation-inside-mod-1(type="text" name="company" data-constraints="@Required")
+                .cell-lg-6.offset-top-30
+                  .form-group
+                    label.form-label(for="billing-email") Your e-mail
+                    input#billing-email.form-control.form-validation-inside-mod-1(type="email" name="email" data-constraints="@Required @Email")
+                .cell-lg-6.offset-top-30
+                  .form-group
+                    label.form-label(for="billing-phone") Your phone
+                    input#billing-phone.form-control.form-validation-inside-mod-1(type="text" name="phone" data-constraints="@IsNumeric")
+                .cell-lg-12.offset-top-30
+                  .form-group
+                    select.form-control.select-filter(data-placeholder="United Kingdom", data-minimum-results-for-search="Infinity")
+                      option United Kingdom
+                      option(value="2") USA
+                      option(value="3") Russia
+                      option(value="4") China
+
+                .cell-lg-12.offset-top-30
+                  .form-group
+                    label.form-label(for="billing-address") Street address
+                    input#billing-address.form-control.form-validation-inside-mod-1(type="text" name="address" data-constraints="@Required")
+
+                .cell-lg-12.offset-top-30
+                  .form-group
+                    label.form-label(for="billing-appartment") Apartment, suite etc.
+                    input#billing-appartment.form-control.form-validation-inside-mod-1(type="text" name="appartment" data-constraints="@Required")
+
+                .cell-lg-12.offset-top-30
+                  .form-group
+                    label.form-label(for="billing-city") City
+                    input#billing-city.form-control.form-validation-inside-mod-1(type="text" name="city" data-constraints="@Required")
+
+                .cell-lg-6.offset-top-30
+                  .form-group
+                    label.form-label(for="billing-country") Country
+                    input#billing-country.form-control.form-validation-inside-mod-1(type="text" name="country" data-constraints="@Required")
+                .cell-lg-6.offset-top-30
+                  .form-group
+                    label.form-label(for="billing-postcode") Postcode
+                    input#billing-postcode.form-control.form-validation-inside-mod-1(type="text" name="postcode" data-constraints="@Required")
+                .cell-lg-12.offset-top-30
+                  .form-group
+                    label.checkbox-inline
+                      input(name="input-group-radio", value="checkbox-1", type="checkbox" class="checkbox-custom")
+                      | Create an account
+
+            section.text-sm-left.offset-md-top-110.offset-top-70
+              h6.text-bold Ship to Different Address
+              .text-subline
+              .range.offset-top-30
+                .cell-lg-6
+                  .form-group
+                    label.form-label(for="contact-us-first-name") Your first name
+                    input#contact-us-first-name.form-control.form-validation-inside-mod-1(type="text" name="first-name" data-constraints="@Required")
+                .cell-lg-6.offset-top-30.offset-lg-top-0
+                  .form-group
+                    label.form-label(for="contact-us-last-name") Your last name
+                    input#contact-us-last-name.form-control.form-validation-inside-mod-1(type="text" name="last-name" data-constraints="@Required")
+                .cell-lg-12.offset-top-30
+                  .form-group
+                    label.form-label(for="contact-us-company") Company
+                    input#contact-us-company.form-control.form-validation-inside-mod-1(type="text" name="company" data-constraints="@Required")
+                .cell-lg-12.offset-top-30
+                  .form-group
+                    select.form-control.select-filter(data-placeholder="United Kingdom", data-minimum-results-for-search="Infinity")
+                      option United Kingdom
+                      option(value="2") USA
+                      option(value="3") Russia
+                      option(value="4") China
+
+                .cell-lg-12.offset-top-30
+                  .form-group
+                    label.form-label(for="contact-us-address") Street address
+                    input#contact-us-address.form-control.form-validation-inside-mod-1(type="text" name="address" data-constraints="@Required")
+
+                .cell-lg-12.offset-top-30
+                  .form-group
+                    label.form-label(for="contact-us-appartment") Apartment, suite etc.
+                    input#contact-us-appartment.form-control.form-validation-inside-mod-1(type="text" name="appartment" data-constraints="@Required")
+
+                .cell-lg-12.offset-top-30
+                  .form-group
+                    label.form-label(for="contact-us-city") City
+                    input#contact-us-city.form-control.form-validation-inside-mod-1(type="text" name="city" data-constraints="@Required")
+
+                .cell-lg-6.offset-top-30
+                  .form-group
+                    label.form-label(for="contact-us-country") Country
+                    input#contact-us-country.form-control.form-validation-inside-mod-1(type="text" name="country" data-constraints="@Required")
+                .cell-lg-6.offset-top-30
+                  .form-group
+                    label.form-label(for="contact-us-postcode") Postcode
+                    input#contact-us-postcode.form-control.form-validation-inside-mod-1(type="text" name="postcode" data-constraints="@Required")
+                .cell-lg-12.offset-top-30
+                  .form-group
+                    label.form-label(for="contact-us-message") Order notes...
+                    textarea#contact-us-message.form-control.form-validation-inside-mod-1(name="message" data-constraints="@Required")
+            section.text-sm-left.offset-md-top-110.offset-top-70
+              h6.text-bold Your Order
+              .text-subline
+              .table-responsive.clearfix.offset-top-30
+                table.table-dark-blue.table-custom.table-fixed
+                  tbody
+                    tr
+                      th Product
+                      th
+                    tr
+                      td.text-primary 10 Piece OXO ® Holder with Tools Set
+                      td $29.00
+                    tr
+                      td.text-black Subtotal
+                      td $29.00
+                    tr
+                      td.text-black Shipping
+                      td.
+                        Please fill in your details
+                        to see available shipping
+                        methods.
+                    tr
+                      td.text-black Total
+                      td $29.00
+              .offset-top-60
+                .inset-sm-left-25
+                  .form-group
+                    label.radio-inline.text-black
+                      input(name="input-group-radio", value="radio-1", type="radio" class="radio-custom")
+                      | Cheque Payment
+
+                  .form-group.offset-top-20
+                    label.radio-inline.text-black
+                      input(name="input-group-radio", value="radio-1", type="radio" class="radio-custom")
+                      | PayPal
+                  .inset-sm-left-25
+                    .group
+                      a(href="#")
+                        img.img-responsive(src="images/cards-01-63x40.jpg", width="63", height="40", alt="")
+                      a(href="#")
+                        img.img-responsive(src="images/cards-02-59x40.jpg", width="59", height="40", alt="")
+                      a(href="#")
+                        img.img-responsive(src="images/cards-03-62x40.jpg", width="62", height="40", alt="")
+                      a(href="#")
+                        img.img-responsive(src="images/cards-04-62x40.jpg", width="62", height="40", alt="")
+              .offset-top-60
+                a(href="#").btn.btn-primary I confirm my order
+
+
+  // Page Footer
+  include ../sections/_section-footer-corporate

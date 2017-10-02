@@ -1,0 +1,174 @@
+extends  ../_skeleton
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+include ../elements/_ui-rd-map
+//- Title
+block title
+  title= cfg.nav.howto.title
+//- Page
+block page
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.howto,
+    cfg.nav
+    )
+  +breadcrumb-classic(
+  cfg.nav.howto.title,
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.howto.title,
+      "href": cfg.nav.howto.href
+    }
+  })
+  // Page Content
+  main.page-content
+    // Foundation Donation Form
+    section.section-70.section-md-114
+      .shell
+        .range.range-xs-center
+          .cell-md-8.cell-sm-10
+            h2.text-bold Foundation Donation Form
+            hr.divider.bg-madison
+            .offset-top-60
+              p This form allows you to make a gift to Good Food using your credit card. On behalf of the Good Food Editorial Department, thank you for supporting us. All data collected is confidential and secured using 128-bit encryption. Please verify your email address so we can send an email confirmation of your gift.
+            .offset-top-60
+              //Donation Information
+              section.text-left
+                h6.text-bold Donation Information
+                .text-subline
+                .range.offset-top-17
+                  .cell-sm-3
+                    .form-group
+                      label.form-label.form-label-outside(for="donation-amount") Amount
+                      input#donation-amount.form-control(type="text" name="donation" data-constraints="@Required")
+                  .cell-sm-9.offset-top-17.offset-sm-top-0
+                    .form-group
+                      label.form-label.form-label-outside(for="donation-designation") Designation
+                      select.form-control.select-filter#donation-designation(data-placeholder="United Kingdom", data-minimum-results-for-search="Infinity")
+                        option Law School
+                        option(value="2") Medium School
+                        option(value="3") High School
+
+              //Additional Information
+              section.text-left.offset-top-60
+                h6.text-bold Additional Information
+                .text-subline
+                .offset-top-30
+                  .form-group
+                    label.checkbox-inline.text-dark
+                      input(name="input-group-radio", value="checkbox-1", type="checkbox" class="checkbox-custom")
+                      | I prefer to make this donation anonymously
+                .range.offset-top-17
+                  .cell-sm-6
+                    .form-group
+                      label.form-label.form-label-outside(for="donation-apply-to-existing-pledge") Apply to Existing Pledge
+                      select.form-control.select-filter#donation-apply-to-existing-pledge(data-placeholder="Yes", data-minimum-results-for-search="Infinity")
+                        option Yes
+                        option(value="2") No
+                  .cell-sm-6.offset-top-17.offset-sm-top-0
+                    .form-group
+                      label.form-label.form-label-outside(for="donation-company-matches-gifts") My Company Matches Gifts
+                      select.form-control.select-filter#donation-company-matches-gifts(data-placeholder="Yes", data-minimum-results-for-search="Infinity")
+                        option Yes
+                        option(value="2") No
+                .offset-top-20
+                  .form-group
+                    label.checkbox-inline.text-dark
+                      input(name="input-group-radio", value="checkbox-2", type="checkbox" class="checkbox-custom")
+                      | I would like to provide information about my spouse/partner
+
+
+              //Billing Information
+              section.text-left.offset-top-60
+                h6.text-bold Billing Information
+                .text-subline
+                .range.offset-top-17
+                  .cell-sm-3
+                    .form-group
+                      label.form-label.form-label-outside(for="donation-title") Title
+                      select.form-control.select-filter#donation-title(data-placeholder="Mr", data-minimum-results-for-search="Infinity")
+                        option Mr.
+                        option(value="2") Mrs.
+                  .cell-sm-9.offset-top-17.offset-sm-top-0
+                    .range
+                      .cell-sm-6
+                        .form-group
+                          label.form-label.form-label-outside(for="donation-first-name") First Name
+                          input#donation-first-name.form-control(type="text" name="first-name" data-constraints="@Required")
+                      .cell-sm-6.offset-top-17.offset-sm-top-0
+                        .form-group
+                          label.form-label.form-label-outside(for="donation-last-name") Last Name
+                          input#donation-last-name.form-control(type="text" name="last-name" data-constraints="@Required")
+                .offset-top-17
+                  .form-group
+                    label.form-label.form-label-outside(for="donation-country") Country
+                    input#donation-country.form-control(type="text" name="country" data-constraints="@Required")
+                .offset-top-17
+                  .form-group
+                    label.form-label.form-label-outside(for="donation-address") Address
+                    textarea#donation-address.form-control(name="message" data-constraints="@Required" style="height: 100px")
+                .range.offset-top-17
+                  .cell-sm-6
+                    .form-group
+                      label.form-label.form-label-outside(for="donation-city") City
+                      input#donation-city.form-control(type="text" name="city" data-constraints="@Required")
+                  .cell-sm-6.offset-top-17.offset-sm-top-0
+                    .form-group
+                      label.form-label.form-label-outside(for="donation-state") State
+                      select.form-control.select-filter#donation-state(data-placeholder="California", data-minimum-results-for-search="Infinity")
+                        option California
+                        option(value="2") Alabama
+                        option(value="3") Oregon
+                        option(value="4") Utah
+                .range.offset-top-17
+                  .cell-sm-6
+                    .form-group
+                      label.form-label.form-label-outside(for="donation-zip") ZIP
+                      input#donation-zip.form-control(type="text" name="zip" data-constraints="@Required")
+                  .cell-sm-6.offset-top-17.offset-sm-top-0
+                    .form-group
+                      label.form-label.form-label-outside(for="donation-phone") Phone
+                      input#donation-phone.form-control(type="text" name="Phone" data-constraints="@Required @IsNumeric")
+
+                .offset-top-17
+                  .form-group
+                    label.form-label.form-label-outside(for="donation-email") Email
+                    input#donation-email.form-control(type="email" name="email" data-constraints="@Required @Email")
+
+              //Tribute Information
+              section.text-left.offset-top-60
+                h6.text-bold Tribute Information
+                .text-subline
+                .offset-top-17
+                  .form-group
+                    label.form-label.form-label-outside(for="donation-name") Name
+                    input#donation-name.form-control(type="text" name="name" data-constraints="@Required")
+                .offset-top-17
+                  .form-group
+                    label.form-label.form-label-outside(for="donation-type") Type
+                    select.form-control.select-filter#donation-type(data-placeholder="In memory of", data-minimum-results-for-search="Infinity")
+                      option In memory of
+                      option(value="2") In memory of
+                .offset-top-25
+                  .form-group
+                    label.checkbox-inline.text-dark
+                      input(name="input-group-radio", value="checkbox-3", type="checkbox" class="checkbox-custom")
+                      | Mail a letter on my behalf
+                .offset-top-25
+                  a(href="#").btn.btn-primary Donate
+  // Page Footer
+  include ../sections/_section-footer-corporate

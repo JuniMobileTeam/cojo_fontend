@@ -1,0 +1,55 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+
+//- Title
+block title
+  title= cfg.nav.elements.submenu.icons.title
+
+//- Page
+block page
+
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.elements,
+    cfg.nav
+    )
+
+  +breadcrumb-classic(
+  cfg.nav.elements.submenu.icons.title,
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.elements.title,
+      "href": cfg.nav.elements.href
+    },
+    2: {
+      "title": cfg.nav.elements.submenu.icons.title,
+      "href": cfg.nav.elements.submenu.icons.href
+    }
+  })
+
+  // Page Content
+  main.page-content.section-70.section-md-114
+    //- Font Awesome section
+    include ../sections/_font-awesome
+    .offset-top-70.offset-md-top-114
+      //- Material Design section
+      include ../sections/_mdi
+
+  // Page Footer
+  include ../sections/_section-footer-corporate

@@ -1,0 +1,56 @@
+extends  ../_skeleton
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+include ../elements/_widget-form-search
+//- Title
+block title
+  title Search results
+//- Page
+block page
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.pages,
+    cfg.nav,
+    "Search results"
+    )
+  +breadcrumb-classic(
+  "Search results",
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.pages.title,
+      "href": cfg.nav.pages.href
+    },
+    2: {
+      "title": "Search results",
+      "href": "#"
+    }
+  })
+    // Page Content
+  main.page-content.section-70.section-sm-114
+    .shell
+      .range.range-xs-center
+        .cell-sm-8
+          // RD Search Form
+          form.form-search.rd-search(action="search-results.html" method="GET")
+            div.form-group
+              input(class="form-search-input form-control" type="text" name="s" autocomplete="off")
+            button(type="submit").form-search-submit
+              span.icon.fa-search
+          .offset-top-60
+            .rd-search-results
+  // Page Footers
+  include ../sections/_section-footer-corporate

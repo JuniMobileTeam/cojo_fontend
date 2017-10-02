@@ -1,0 +1,67 @@
+//
+// RD Navbar Default First level of Menu
+// --------------------------------------------------
+
+%rd-navbar-default-menu-first-lvl {
+  .rd-navbar-nav {
+    padding: 0;
+    @include clearfix;
+    > li {
+      float: left;
+      position: relative;
+      > a {
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.2;
+        font-family: $font-family-accent;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        color: $gray-base;
+        @media (min-width: $screen-lg-min) {
+          font-size: 16px;
+        }
+      }
+      &.active > a, &.focus > a, > a:hover {
+        color: $brand-primary;
+      }
+
+      &.rd-navbar--has-megamenu {
+        position: static;
+      }
+      &.rd-navbar--has-dropdown,
+      &.rd-navbar--has-megamenu {
+        > a {
+          vertical-align: middle;
+          display: inline-block;
+          &:after {
+            padding-left: 6px;
+            vertical-align: middle;
+            content: "\f078";
+            font-family: "FontAwesome";
+            font-size: 8px;
+            display: inline-block;
+          }
+        }
+      }
+      & + li {
+        margin-left: 40px;
+      }
+    }
+
+    li.focus {
+      > .rd-navbar-dropdown, > .rd-navbar-megamenu {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    @media (min-width: $screen-xl-min) {
+      > li + li {
+        margin-left: 59px;
+      }
+    }
+  }
+  .rd-navbar-cart{
+    display: inline-block;
+  }
+}

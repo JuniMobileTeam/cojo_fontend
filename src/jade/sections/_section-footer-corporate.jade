@@ -1,0 +1,66 @@
+//- Includes
+include ../elements/_widget-form-subscribe
+// Corporate footer
+footer.page-footer
+  .shell-wide
+    .hr.bg-gray-light
+  .shell.section-60
+    .range.range-lg-justify.range-xs-center
+      .cell-md-3.cell-lg-2
+        //Footer brand
+        a(href="index.html").reveal-inline-block
+          img(width='146' height='146' src='images/logo-170x172.png' alt='')
+          div
+            h6.barnd-name.text-bold.offset-top-25 Good Food
+          div
+            p.brand-slogan.text-gray.text-italic.font-accent Recipes
+      .cell-xs-10.cell-md-5.cell-lg-4.text-lg-left.offset-top-50.offset-md-top-0
+        h6.text-bold Contact us
+        .text-subline
+        .offset-top-30
+          ul.list-unstyled.contact-info.list
+            li
+              .unit.unit-horizontal.unit-middle.unit-spacing-xs
+                .unit-left
+                  span.icon.mdi.mdi-phone.text-middle.icon-xs.text-madison
+                .unit-body
+                  a(href="callto:#").text-dark
+                    | 1-800-1234-567,
+                  = " "
+                  a(href="callto:#").reveal-block.reveal-md-inline-block.text-dark
+                    | 1-800-6547-321
+            li.offset-top-15
+              .unit.unit-horizontal.unit-middle.unit-spacing-xs
+                .unit-left
+                  span.icon.mdi.mdi-map-marker.text-middle.icon-xs.text-madison
+                .unit-body.text-left
+                  a(href="#").text-dark 2130 Fulton Street San Diego, CA 94117-1080 USA
+            li.offset-top-15
+              .unit.unit-horizontal.unit-middle.unit-spacing-xs
+                .unit-left
+                  span.icon.mdi.mdi-email-open.text-middle.icon-xs.text-madison
+                .unit-body
+                  a(href="mailto:#") info@demolink.org
+        .offset-top-25.text-left
+          ul.list-inline.list-inline-sm.list-inline-madison
+            li
+              a(href="#").icon.icon-xxs.fa-facebook.icon-rect.icon-gray-light-filled
+            li
+              a(href="#").icon.icon-xxs.fa-twitter.icon-rect.icon-gray-light-filled
+            li
+              a(href="#").icon.icon-xxs.fa-google.icon-rect.icon-gray-light-filled
+            li
+              a(href="#").icon.icon-xxs.fa-instagram.icon-rect.icon-gray-light-filled
+
+      .cell-xs-10.cell-md-8.cell-lg-4.text-lg-left.offset-top-50.offset-lg-top-0
+        h6.text-bold Newsletter
+        .text-subline
+        .offset-top-30.text-left
+          p Enter your email address to get the latest news, special events and exclusive fresh recipes delivered right to your inbox.
+        .offset-top-10
+          +widget-form-subscribe("Your e-mail", "form-subscribe-footer")
+  .bg-madison.context-dark
+    .shell.text-md-left.section-15
+      p
+        | &copy; #[span(id="copyright-year")] All Rights Reserved Terms of Use and #[a(href="privacy.html") Privacy Policy]
+

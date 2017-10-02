@@ -1,0 +1,210 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+include ../elements/_ui-isotope
+include ../elements/_ui-thumbnail-classic
+
+//- Title
+block title
+  title= cfg.nav.campus.submenu.recipes.title
+
+//- Page
+block page
+
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.campus,
+    cfg.nav
+    )
+
+  +breadcrumb-classic(
+  cfg.nav.campus.title,
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.campus.title,
+      "href": cfg.nav.campus.href
+    },
+    2: {
+      "title": cfg.nav.campus.submenu.recipes.title,
+      "href": cfg.nav.campus.submenu.recipes.href
+    }
+  })
+
+  // Page Content
+  main.page-content
+
+    // Recipes
+    section.bg-catskill.section-70.section-md-114
+      .shell
+        h2 Explore recipes
+        hr.divider.bg-madison
+        .range.text-left.range-xs-center.offset-top-60
+          .cell-sm-6.cell-md-4
+            .form-group
+              label.form-label.form-label-outside(for="recipe") Recipe Category
+              select.form-control.select-filter#recipe(data-placeholder="Choose Category", data-minimum-results-for-search="Infinity")
+                option Choose Category
+                option(value="2") Category 1
+                option(value="3") Category 2
+                option(value="4") Category 3
+            .form-group
+              label.form-label.form-label-outside(for="skill") Skill Level
+              select.form-control.select-filter#skill(data-placeholder="Choose Level", data-minimum-results-for-search="Infinity")
+                option Choose Level
+                option(value="2") Category 1
+                option(value="3") Category 2
+                option(value="4") Category 3
+
+          .cell-sm-6.cell-md-4.offset-top-12.offset-sm-top-0
+            .form-group
+              label.form-label.form-label-outside(for="category") Recipe Course
+              select.form-control.select-filter#category(data-placeholder="Choose Category", data-minimum-results-for-search="Infinity")
+                option Choose Course
+                option(value="2") Course 1
+                option(value="3") Course 2
+                option(value="4") Course 3
+            .form-group
+              label.form-label.form-label-outside(for="ingredients") Ingredients
+              input#ingredients.form-control(type="text" name="address" data-constraints="@Required")
+          .cell-sm-6.cell-md-4.offset-top-12.offset-md-top-0
+            .form-group
+              label.form-label.form-label-outside(for="cuisine") Cuisine
+              select.form-control.select-filter#cuisine(data-placeholder="Choose Cuisine", data-minimum-results-for-search="Infinity")
+                option Choose Cuisine
+                option(value="2") Category 1
+                option(value="3") Category 2
+                option(value="4") Category 3
+            button(type='submit').btn.btn-primary.offset-top-26.btn-fullwidth Search for Recipes
+        .range.text-sm-left.range-xs-center.offset-top-60
+          .cell-sm-6.cell-md-4
+            article.post-news.bg-white
+              a(href='recipes-single.html')
+                img.img-responsive(src="images/blog/news-01-370x240.jpg", width="370", height="240", alt="")
+              .post-news-body
+                h6
+                  a(href='recipes-single.html') Jambalaya for the Crock Pot
+                .offset-top-20
+                  p Cut chicken into 1 inch pieces. Put all ingredients (EXCEPT shrimp and rice) in crock pot. Cover; cook on low for 8 hours. Add shrimp the last...
+
+                .post-news-meta.offset-top-20
+                  span.icon.icon-xs.mdi.mdi-clock.text-middle.text-madison
+                  span.text-middle.inset-left-10 01h 45m
+                  ul.list-inline.list-inline-xxs.offset-top-15.offset-sm-top-0.pull-sm-right
+                    li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                    li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                    li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                    li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                    li: span.icon.icon-xs.mdi.mdi-star.text-light
+            .offset-top-30
+              article.post-news.bg-white
+                a(href='recipes-single.html')
+                  img.img-responsive(src="images/blog/news-02-370x240.jpg", width="370", height="240", alt="")
+                .post-news-body
+                  h6
+                    a(href='recipes-single.html') Scallion Sesame Turkey Burger with Vegetables
+                  .offset-top-20
+                    p Mix all the ingredients gently. Ingredients: 1  turkey, sesame seeds, soy, scallions, cilantro, garlic, sesame oil, 1 tbsp of salt, and bread...
+                  .post-news-meta.offset-top-20
+                    span.icon.icon-xs.mdi.mdi-clock.text-middle.text-madison
+                    span.text-middle.inset-left-10 00h 45m
+                    ul.list-inline.list-inline-xxs.offset-top-15.offset-sm-top-0.pull-sm-right
+                      li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                      li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                      li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                      li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                      li: span.icon.icon-xs.mdi.mdi-star.text-primary
+          .cell-sm-6.cell-md-4.offset-top-30.offset-md-top-0
+            article.post-news.bg-white
+              a(href='recipes-single.html')
+                img.img-responsive(src="images/blog/news-04-370x240.jpg", width="370", height="240", alt="")
+              .post-news-body
+                h6
+                  a(href='recipes-single.html') Chicken Marsala Recipe with Mushrooms and Pasta
+                .offset-top-20
+                  p Pound chicken breasts to even out thickness and lightly salt and pepper. In large skillet, saute chicken in 2 T melted butter until lightly browned, about 2 minutes per side...
+                .post-news-meta.offset-top-20
+                  span.icon.icon-xs.mdi.mdi-clock.text-middle.text-madison
+                  span.text-middle.inset-left-10 01h 30m
+                  ul.list-inline.list-inline-xxs.offset-top-15.offset-sm-top-0.pull-sm-right
+                    li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                    li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                    li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                    li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                    li: span.icon.icon-xs.mdi.mdi-star.text-light
+            .offset-top-30
+              article.post-news.bg-white
+                a(href='recipes-single.html')
+                  img.img-responsive(src="images/blog/news-05-370x240.jpg", width="370", height="240", alt="")
+                .post-news-body
+                  h6
+                    a(href='recipes-single.html').
+                      Panera Broccoli Cheese Soup Recipe with Tilapia
+                  .offset-top-20
+                    p Cook melted butter and flour using a whisk over medium heat for 3-5 minutes...
+                  .post-news-meta.offset-top-20
+                    span.icon.icon-xs.mdi.mdi-clock.text-middle.text-madison
+                    span.text-middle.inset-left-10 02h 45m
+                    ul.list-inline.list-inline-xxs.offset-top-15.offset-sm-top-0.pull-sm-right
+                      li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                      li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                      li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                      li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                      li: span.icon.icon-xs.mdi.mdi-star.text-light
+          .cell-md-4.offset-top-30.offset-sm-top-0
+            .range
+              .cell-sm-6.cell-md-12
+                article.post-news.bg-white
+                  a(href='recipes-single.html')
+                    img.img-responsive(src="images/blog/news-03-370x240.jpg", width="370", height="240", alt="")
+                  .post-news-body
+                    h6
+                      a(href='recipes-single.html') Grilled Chicken Breast with Pineapple, Mango & Salsa
+                    .offset-top-20
+                      p Place boneless chicken breast in a ziplock bag. Add marinade ingredients shaking well. Chill for 1/2 an hour. Rub grill with an oil...
+                    .post-news-meta.offset-top-20
+                      span.icon.icon-xs.mdi.mdi-clock.text-middle.text-madison
+                      span.text-middle.inset-left-10 03h 00m
+                      ul.list-inline.list-inline-xxs.offset-top-15.offset-sm-top-0.pull-sm-right
+                        li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                        li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                        li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                        li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                        li: span.icon.icon-xs.mdi.mdi-star.text-primary
+
+              .cell-sm-6.cell-md-12.offset-top-30
+                article.post-news.bg-white
+                  a(href='recipes-single.html')
+                    img.img-responsive(src="images/blog/news-06-370x240.jpg", width="370", height="240", alt="")
+                  .post-news-body
+                    h6
+                      a(href='recipes-single.html') Strawberry Lemonade Recipe
+                    .offset-top-20
+                      p Place water, strawberries & sugar in a blender; cover & blend until smooth. Stir in lemon juice...
+                    .post-news-meta.offset-top-20
+                      span.icon.icon-xs.mdi.mdi-clock.text-middle.text-madison
+                      span.text-middle.inset-left-10 00h 35m
+                      ul.list-inline.list-inline-xxs.offset-top-15.offset-sm-top-0.pull-sm-right
+                        li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                        li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                        li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                        li: span.icon.icon-xs.mdi.mdi-star.text-primary
+                        li: span.icon.icon-xs.mdi.mdi-star.text-primary
+      a(href="#").btn.btn-primary.offset-top-60   View All Recipes
+
+  // Page Footer
+  include ../sections/_section-footer-corporate

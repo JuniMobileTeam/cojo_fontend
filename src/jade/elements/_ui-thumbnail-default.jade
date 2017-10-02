@@ -1,0 +1,11 @@
+// Classic Thumbnail
+//- thumbnail - {thumbnail} object
+mixin thumbnail-default(thumbnail)
+  -var targetBlank = (thumbnail.targetBlank === true)? "_blank" : "_self"
+  -var photoswipe = (typeof(thumbnail.target.href) !== 'undefined') ? {"href": thumbnail.target.href, target: targetBlank} : {"data-photo-swipe-item": "", "data-size": ""+thumbnail.target.width+"x"+thumbnail.target.height, "href": thumbnail.target.src}
+  -var titleAttrs = thumbnail.titleAttrs || "text-uppercase text-light"
+  -var icon = (thumbnail.icon != undefined)? thumbnail.icon : "fa-link"
+  a.thumbnail-default&attributes(photoswipe)
+    figure
+      img.img-responsive(width=thumbnail.thumb.width, height=thumbnail.thumb.height, src=thumbnail.thumb.src, alt=thumbnail.thumb.alt)
+    span.icon.icon-xxs(class= icon)

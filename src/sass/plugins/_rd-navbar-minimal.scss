@@ -1,0 +1,238 @@
+//
+// RD Navbar Default
+// --------------------------------------------------
+
+.rd-navbar-minimal{
+  @extend %rd-navbar-transition;
+  background: $white;
+  &.rd-navbar-fixed {
+    @extend %rd-navbar-default-panel;
+    @extend %rd-navbar-default-mobile-menu;
+    @extend %rd-navbar-default-aside-left;
+    @extend %rd-navbar-default-mobile-search;
+    .rd-navbar-brand {
+      display: none;
+    }
+    .rd-navbar-search {
+      display: none;
+    }
+    @media (min-width: $screen-md) {
+      .rd-navbar-mobile-brand {
+        display: none;
+      }
+      .rd-navbar-brand {
+        display: block;
+      }
+    }
+  }
+
+  &.rd-navbar-static {
+    @extend %rd-navbar-default-menu-first-lvl;
+    @extend %rd-navbar-default-menu-dropdown;
+    @extend %rd-navbar-default-search;
+    // Panel style
+    .rd-navbar-dropdown, .rd-navbar-megamenu{
+      @media (min-width: $screen-md-min) {
+        max-height: calc(100vh - 232px);
+        overflow-y: auto;
+      }
+    }
+    .rd-navbar-megamenu{
+      @media (min-width: $screen-md-min) {
+        width: 97%;
+      }
+      @media (min-width: $screen-lg-min) {
+        width: 100%;
+      }
+    }
+    .rd-navbar-top-panel {
+      background: $brand-madison;
+    }
+    .rd-navbar-mobile-brand {
+      display: none;
+    }
+    .rd-navbar-brand {
+      color: $gray-base;
+      img {
+        width: 86px;
+        height: 86px;
+        transition: 0.25s all ease;
+      }
+      &-title {
+        font-size: 18px;
+        line-height: 1.2;
+        font-family: $font-family-accent;
+        font-weight: 700;
+        color: $gray-base;
+      }
+      &-slogan {
+        font-size: 12px;
+        font-style: italic;
+        color: $gray-dark;
+        font-family: $font-family-accent;
+      }
+      @media (min-width: $screen-xl-min) {
+        float: left;
+        max-height: 90px;
+        &-title{
+          font-size: 24px;
+        }
+        &-slogan{
+          font-size: 14px;
+        }
+      }
+    }
+
+    .rd-navbar-top-panel {
+      padding: 4px 20px 5px;
+      &-left-part{
+        display: inline-block;
+      }
+      &-right-part {
+        display: inline-block;
+        float: right;
+        font-size: 12px;
+      }
+      color: $white;
+      ul{
+        li{
+          display: inline-block;
+          font-size: 12px;
+          &+li{
+            margin-left: 15px;
+          }
+        }
+      }
+      .icon{
+        font-size: 20px;
+        opacity: .3;
+        &.mdi-email-open,
+        &.mdi-login{
+          font-size: 18px;
+        }
+      }
+      a:hover{
+        opacity: 0.5;
+      }
+      @media (min-width: $screen-xl-min) {
+        padding: 4px 65px 5px;
+        ul li{
+          font-size: 14px;
+          & + li{
+            margin-left: 86px;
+          }
+        }
+        .icon{
+          font-size: 24px;
+        }
+        &.mdi-email-open,
+        &.mdi-login{
+          font-size: 22px;
+        }
+        &-right-part{
+          font-size: 14px;
+        }
+      }
+    }
+
+    .rd-navbar-panel .rd-navbar-toggle, .form-search-wrap {
+      display: none;
+    }
+    // navbar nav styles
+    .rd-navbar-nav-wrap {
+      display: inline-block;
+      margin-top: 15px;
+      @media (min-width: $screen-xl-min) {
+        margin-top: 25px;
+      }
+    }
+    .rd-navbar-menu-wrap {
+      padding: 20px;
+      text-align: center;
+      @media (min-width: $screen-xl-min) {
+        padding: 25px 65px;
+        text-align: right;
+      }
+    }
+    .rd-navbar-cart {
+      display: inline-block;
+      position: relative;
+      top: -4px;
+      margin-left: 30px;
+      .icon{
+        font-size: 18px;
+        color: $gray-base;
+      }
+      a{
+        color: $gray-dark;
+        font-family: $font-family-accent;
+        font-weight: 700;
+        &:hover{
+          color: $brand-primary;
+        }
+      }
+      @media (min-width: $screen-lg-min) {
+        margin-left: 55px;
+      }
+    }
+    .rd-navbar-search{
+      margin-left: 25px;
+      @media (min-width: $screen-lg-min) {
+        margin-left: 38px;
+      }
+    }
+    .rd-navbar-inner {
+      @include clearfix;
+      transition: .3s all ease;
+      position: relative;
+      text-align: left;
+    }
+
+    &.rd-navbar--is-stuck {
+      box-shadow: $shadow-area-md;
+      .rd-navbar-top-panel{
+        display: none;
+      }
+      .rd-navbar-menu-wrap{
+        padding: 7px 20px;
+      }
+      .rd-navbar-brand{
+        display: none;
+      }
+      .rd-navbar-nav-wrap{
+        margin-top: 10px;
+      }
+      .rd-navbar-dropdown{
+        margin-top: 22px;
+      }
+      .rd-navbar-dropdown, .rd-navbar-megamenu{
+        max-height: 100vh;
+      }
+      .rd-navbar-search-form{
+        margin-top: 16px;
+      }
+      @media (min-width: $screen-xl-min) {
+        .rd-navbar-menu-wrap{
+          padding: 7px 65px;
+        }
+        .rd-navbar-nav-wrap{
+          margin-top: 16px;
+        }
+        .rd-navbar-brand{
+          display: inline-block;
+          max-height: 60px;
+          img{
+            width: 62px;
+            height: 60px;
+          }
+        }
+        .rd-navbar-search-form{
+          margin-top: 23px;
+        }
+        .rd-navbar-dropdown{
+          margin-top: 29px;
+        }
+      }
+    }
+  }
+}

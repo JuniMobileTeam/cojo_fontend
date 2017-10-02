@@ -1,0 +1,191 @@
+extends  ../_skeleton
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+//- Title
+block title
+  title= cfg.nav.pages.submenu.about.submenu.people.title
+//- Page
+block page
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.pages,
+    cfg.nav
+    )
+  +breadcrumb-classic(
+  cfg.nav.pages.submenu.about.submenu.people.title,
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.pages.title,
+      "href": cfg.nav.pages.href
+    },
+    2: {
+      "title": cfg.nav.pages.submenu.about.title,
+      "href": cfg.nav.pages.submenu.about.href
+    },
+    3: {
+      "title": cfg.nav.pages.submenu.about.submenu.people.title,
+      "href": cfg.nav.pages.submenu.about.submenu.people.href
+    }
+  })
+  // Page Content
+  main.page-content
+    //4 Columns Layout
+    section.section-70.section-md-114
+      .shell
+        h2.text-bold 4 Columns Layout
+        hr.divider.bg-madison
+        .range.text-md-left.offset-top-60
+          .cell-sm-6.cell-md-3
+            img.img-responsive.reveal-inline-block(src="images/users/user-kathy-gibson-270x270.jpg" width=270 height=270 alt="")
+            .offset-top-20
+              h6.text-bold.text-primary
+                a(href= cfg.nav.pages.submenu.about.submenu.teamMemberProfile.href) Kathy Gibson
+            .offset-top-5
+              p Chef, Entrepreneur
+          .cell-sm-6.cell-md-3.offset-top-30.offset-sm-top-0
+            img.img-responsive.reveal-inline-block(src="images/users/user-julie-weaver-270x270.jpg" width=270 height=270 alt="")
+            .offset-top-20
+              h6.text-bold.text-primary
+                a(href= cfg.nav.pages.submenu.about.submenu.teamMemberProfile.href) Julie Weaver
+            .offset-top-5
+              p Food Blogger
+          .cell-sm-6.cell-md-3.offset-top-30.offset-md-top-0
+            img.img-responsive.reveal-inline-block(src="images/users/user-peter-wong-270x270.jpg" width=270 height=270 alt="")
+            .offset-top-20
+              h6.text-bold.text-primary
+                a(href= cfg.nav.pages.submenu.about.submenu.teamMemberProfile.href) Johnny Walsh
+            .offset-top-5
+              p Chef, Writer, Food Journalist
+          .cell-sm-6.cell-md-3.offset-top-30.offset-md-top-0
+            img.img-responsive.reveal-inline-block(src="images/users/user-russell-weber-270x270.jpg" width=270 height=270 alt="")
+            .offset-top-20
+              h6.text-bold.text-primary
+                a(href= cfg.nav.pages.submenu.about.submenu.teamMemberProfile.href) Russell Weber
+            .offset-top-5
+              p Co-Founder
+
+    //3 Columns Layout
+    section.section-70.section-md-114.bg-catskill
+      .shell
+        h2.text-bold 3 Columns Layout
+        hr.divider.bg-madison
+        .range.text-sm-left.offset-top-60
+          .cell-sm-6.cell-lg-4
+            .unit.unit-sm.unit-sm-horizontal.unit-spacing-lg
+              .unit-left
+                img.img-responsive.reveal-inline-block(src="images/users/user-kathy-gibson-110x110.jpg" width=110 height=110 alt="")
+              .unit-body
+                h6.text-bold.text-primary
+                  a(href= cfg.nav.pages.submenu.about.submenu.teamMemberProfile.href) Kathy Gibson
+                .offset-sm-top-30
+                  ul.list.list-unstyled
+                    li
+                      span.icon.icon-xs.mdi.mdi-phone.text-middle.text-gray(style="font-size: 24px; line-height: 24px")
+                      a.reveal-inline-block.text-black.inset-left-10(href="callto:#") 1-800-1234-567
+                    li
+                      span.icon.icon-xs.mdi.mdi-email-outline.text-middle.text-gray(style="font-size: 24px; line-height: 24px")
+                      a.reveal-inline-block.inset-left-10(href="mailto:info@demolink.org") info@demolink.org
+            .offset-top-20
+              p Kathy Gibson is a chef and entrepreneur who is a former contestant on Top Chef.
+
+          .cell-sm-6.cell-lg-4.offset-top-50.offset-sm-top-0
+            .unit.unit-sm.unit-sm-horizontal.unit-spacing-lg
+              .unit-left
+                img.img-responsive.reveal-inline-block(src="images/users/user-walter-myers-110x110.jpg" width=110 height=110 alt="")
+              .unit-body
+                h6.text-bold.text-primary
+                  a(href= cfg.nav.pages.submenu.about.submenu.teamMemberProfile.href) Russell Weber
+                .offset-sm-top-30
+                  ul.list.list-unstyled
+                    li
+                      span.icon.icon-xs.mdi.mdi-phone.text-middle.text-gray(style="font-size: 24px; line-height: 24px")
+                      a.reveal-inline-block.text-black.inset-left-10(href="callto:#") 1-800-1234-567
+                    li
+                      span.icon.icon-xs.mdi.mdi-email-outline.text-middle.text-gray(style="font-size: 24px; line-height: 24px")
+                      a.reveal-inline-block.inset-left-10(href="mailto:info@demolink.org") info@demolink.org
+            .offset-top-20
+              p Mr. Weber is one of Good Food’s co-founders, who is also a former chef and TV personality.
+
+          .cell-sm-6.cell-lg-4.offset-top-50.offset-lg-top-0
+            .unit.unit-sm.unit-sm-horizontal.unit-spacing-lg
+              .unit-left
+                img.img-responsive.reveal-inline-block(src="images/users/user-kathleen-mendoza-110x110.jpg" width=110 height=110 alt="")
+              .unit-body
+                h6.text-bold.text-primary
+                  a(href= cfg.nav.pages.submenu.about.submenu.teamMemberProfile.href) Julie Weaver
+                .offset-sm-top-30
+                  ul.list.list-unstyled
+                    li
+                      span.icon.icon-xs.mdi.mdi-phone.text-middle.text-gray(style="font-size: 24px; line-height: 24px")
+                      a.reveal-inline-block.text-black.inset-left-10(href="callto:#") 1-800-1234-567
+                    li
+                      span.icon.icon-xs.mdi.mdi-email-outline.text-middle.text-gray(style="font-size: 24px; line-height: 24px")
+                      a.reveal-inline-block.inset-left-10(href="mailto:info@demolink.org") info@demolink.org
+            .offset-top-20
+              p Previously a publishing company editor-in-chief, Julie became a full-time food blogger at Good Food.
+    // Images
+    section.section-bottom-70.section-lg-bottom-0
+      .shell-fluid.shell-fluid-custom
+        .range.range-lg-condensed
+          .cell-sm-4.cell-lg-1-5
+            .team-member
+              img.img-responsive.reveal-inline-block(src="images/users/user-kathleen-mendoza-384x500.jpg" width=384 height=500 alt="")
+              .team-member-body
+                div
+                  h4.text-bold.team-member-title
+                    a(href= cfg.nav.pages.submenu.about.submenu.teamMemberProfile.href) Katherine Smith
+                p.offset-top-0 Chef
+                a(href='team-member-profile.html').btn.btn-primary View Profile
+          .cell-sm-4.cell-lg-1-5.offset-top-50.offset-sm-top-0
+            .team-member
+              img.img-responsive.reveal-inline-block(src="images/users/user-johnny-walsh-384x500.jpg" width=384 height=500 alt="")
+              .team-member-body
+                div
+                  h4.text-bold.team-member-title
+                    a(href= cfg.nav.pages.submenu.about.submenu.teamMemberProfile.href) Johnny Walsh
+                p.offset-top-0 Food Journalist
+                a(href='team-member-profile.html').btn.btn-primary View Profile
+          .cell-sm-4.cell-lg-1-5.offset-top-50.offset-sm-top-0
+            .team-member
+              img.img-responsive.reveal-inline-block(src="images/users/user-james-alvarez-384x500.jpg" width=384 height=500 alt="")
+              .team-member-body
+                div
+                  h4.text-bold.team-member-title
+                    a(href= cfg.nav.pages.submenu.about.submenu.teamMemberProfile.href) James Alvarez
+                p.offset-top-0 Food Blogger
+                a(href='team-member-profile.html').btn.btn-primary View Profile
+          .cell-sm-4.cell-lg-1-5.offset-top-50.offset-lg-top-0
+            .team-member
+              img.img-responsive.reveal-inline-block(src="images/users/user-olivia-morales-384x500.jpg" width=384 height=500 alt="")
+              .team-member-body
+                div
+                  h4.text-bold.team-member-title
+                    a(href= cfg.nav.pages.submenu.about.submenu.teamMemberProfile.href) Kathy Gibson
+                p.offset-top-0 Chef, Entrepreneur
+                a(href='team-member-profile.html').btn.btn-primary View Profile
+          .cell-sm-4.cell-lg-1-5.offset-top-50.offset-lg-top-0
+            .team-member
+              img.img-responsive.reveal-inline-block(src="images/users/user-christina-rogers-384x500.jpg" width=384 height=500 alt="")
+              .team-member-body
+                div
+                  h4.text-bold.team-member-title
+                    a(href= cfg.nav.pages.submenu.about.submenu.teamMemberProfile.href) Christina Rogers
+                p.offset-top-0 Food Writer
+                a(href='team-member-profile.html').btn.btn-primary View Profile
+
+  // Page Footer
+  include ../sections/_section-footer-corporate

@@ -1,0 +1,103 @@
+extends  ../_skeleton
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+//- Title
+block title
+  title= cfg.nav.pages.submenu.pages.submenu.apply.title
+//- Page
+block page
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.pages,
+    cfg.nav
+    )
+  +breadcrumb-classic(
+  cfg.nav.pages.submenu.pages.submenu.apply.title,
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.pages.title,
+      "href": cfg.nav.pages.href
+    },
+    2: {
+      "title": cfg.nav.pages.submenu.pages.submenu.apply.title,
+      "href": cfg.nav.pages.submenu.pages.submenu.apply.href
+    }
+  })
+  // Page Content
+  main.page-content
+    //A Meeting of Minds
+    section.section-70.section-md-114
+      .shell
+        .range
+          .cell-sm-4.cell-sm-push-2.text-sm-left
+            img.img-responsive.reveal-inline-block(src="images/apply-01-370x370.jpg" width=370 height=370 alt="")
+          .cell-sm-8.cell-sm-push-1.offset-top-50.offset-sm-top-0.text-sm-left
+            .inset-sm-right-30
+              h2.text-bold Join Our Team
+              hr.divider.bg-madison.hr-sm-left-0
+              .offset-top-30.offset-sm-top-60
+                p Here at Good Food, we have dedicated our daily lives to promoting a real understanding of high-quality food and drink. If you love cooking and sharing your knowledge with others, then you’ll be a great part of our team. We are glad to offer exciting opportunities to anyone who is passionate about cooking, food blogging, and who wants to challenge their abilities and expand their skills in an atmosphere of personal and professional growth for all.
+                p We seek service-minded, talented, and innovative individuals who can help us continue sustaining our high standard of quality service. If you believe that by making healthier happier food choices, we will all reap many benefits both for our bodies and our minds, and you find enjoyment in sharing your knowledge and your positive people skills with others in order to create quality experiences for our readers, we encourage you to apply.
+
+                p If you’d like to apply, please be prepared to enter your e-mail address and password. You will be able to use that same information to access your Good Food profile and online application in the future.  We recommend you to submit a job application online. However, if you have difficulty submitting your resume online, contact us via the phone (800) 702-355.
+
+    // Fill in the Form
+    section.bg-madison
+      .shell
+        .range.range-xs-center.range-sm-right.offset-top-0
+          .cell-xs-10.cell-sm-8.cell-md-6.section-image-aside.section-image-aside-left.text-sm-left
+            .section-image-aside-img.veil.reveal-sm-block.section-image-aside-2-img(style='background-image: url(images/apply-02-948x987.jpg)')
+            .section-image-aside-body.section-70.section-md-114.inset-sm-left-70.inset-lg-left-100
+              h2.text-bold.text-white Fill in the Form
+              hr.divider.hr-sm-left-0.bg-white
+              .offset-top-60
+                form.rd-mailform.text-left(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+                  .offset-top-17
+                    .form-group
+                      label.form-label.form-label-outside.text-white(for="fill-form-name") First name
+                      input#fill-form-name.form-control(type="text" name="name" data-constraints="@Required")
+                  .offset-top-17
+                    .form-group
+                      label.form-label.form-label-outside.text-white(for="fill-form-last-name") Last name
+                      input#fill-form-last-name.form-control(type="text" name="last-name" data-constraints="@Required")
+                  .offset-top-17
+                    .form-group
+                      label.form-label.form-label-outside.text-white(for="fill-form-phone") Phone
+                      input#fill-form-phone.form-control(type="text" name="phone" data-constraints="@Required @IsNumeric")
+                  .offset-top-17
+                    .form-group
+                      label.form-label.form-label-outside.text-white(for="fill-form-email") E-mail
+                      input#fill-form-email.form-control(type="email" name="email" data-constraints="@Required @Email")
+                  .offset-top-17
+                    .form-group
+                      label.form-label.form-label-outside(for="fill-form-department" style="color: #fff") Department
+                      select.form-control.select-filter#fill-form-department(data-placeholder="Law", data-minimum-results-for-search="Infinity")
+                        option Food Blogging
+                        option(value="2") Editorial
+                        option(value="3") Technical Support
+                  .offset-top-35
+                    .form-group
+                      // RD Filepicker
+                      .rd-file-picker#fill-form-file
+                        input(name="file", type="file", multiple)
+                        .rd-file-picker-meta
+                        .rd-file-picker-btn.btn.text-left
+                          span Select a File
+                  .text-center.text-lg-left.offset-top-30.context-dark
+                    button(type="submit").btn.btn-primary Apply Now
+  // Page Footer
+  include ../sections/_section-footer-corporate

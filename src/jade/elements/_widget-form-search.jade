@@ -1,0 +1,11 @@
+//- RD Search Form
+mixin widget-form-search()
+  // RD Search Form
+  form.form-search.rd-search.form-search-widget(action="search-results.html" method="GET")
+    .form-group
+      .input-group
+        input(class="form-search-input  form-control" type="text" name="s" autocomplete="off")
+        span.input-group-btn
+          button(type="submit").btn.btn-primary
+            span.icon.fa-search 
+

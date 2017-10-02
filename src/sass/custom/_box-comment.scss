@@ -1,0 +1,68 @@
+//
+// Box Comment
+// --------------------------------------------------
+
+// Base styles
+// -------------------------
+
+.box-comment {
+  &-meta {
+    margin-bottom: 0;
+
+    a:hover {
+      color: $brand-madison;
+    }
+  }
+  &-title {
+    margin-top: 0;
+  }
+  &-body{
+    p{
+      color: $gray-base;
+    }
+  }
+  .icon-xs{
+    font-size: 16px;
+  }
+  a{
+    &:hover{
+      span{
+        color: $brand-madison;
+      }
+    }
+  }
+}
+
+// Classic Comments
+// -------------------------
+
+.box-comment-classic {
+  position: relative;
+
+  @media (max-width: $screen-xs-min) {
+    > .box-comment {
+      .box-comment-img {
+        margin-top: 5px;
+        margin-left: 5px;
+      }
+    }
+  }
+  > .box-comment {
+    margin-left: 20px;
+  }
+  @media (min-width: $screen-xs-min) {
+    .box-comment-header {
+      margin-top: 5px;
+    }
+  }
+  @media (min-width: $screen-md-min) {
+    > .box-comment {
+      margin-left: 80px;
+    }
+  }
+}
+
+.box-comment-classic + .box-comment-classic,
+.box-comment-classic > .box-comment {
+  margin-top: 23px;
+}

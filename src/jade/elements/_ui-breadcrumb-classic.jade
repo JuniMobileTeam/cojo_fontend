@@ -1,0 +1,25 @@
+//- Includes
+include ../elements/_ui-rd-parallax
+//- title - page title
+//- icon - page icon
+//- breacrumbs - an array of {link} object
+mixin breadcrumb-classic(title, breadcrumbs)
+  // Classic Breadcrumbs
+  section.breadcrumb-classic.context-dark
+    +rd-parallax({
+      "backgroundSpeed": "0.35",
+      "attrType":"media",
+      "src":"images/parallax-breadcrumbs.jpg",
+      "htmlSpeed": "0.08"
+    })
+      .shell.section-30.section-sm-top-70.section-sm-bottom-60
+        h1.veil.reveal-sm-block= title
+        .offset-sm-top-35
+          ul.list-inline.list-inline-lg.list-inline-dashed.p
+            each link, index in breadcrumbs
+              if breadcrumbs[parseInt(index) + 1]
+                li
+                  a(href=link.href)= link.title
+              else
+                li
+                  = link.title

@@ -1,0 +1,60 @@
+/**
+ * RD Filepicker
+ * @Section
+ */
+
+.rd-file-picker{
+  position: relative;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 17px;
+  background-color: white;
+  border-radius: 0;
+
+
+  &-btn{
+    box-sizing: border-box;
+    position: static;
+    @include button-variant-custom($white, $brand-primary, $brand-primary, $white, darken($brand-primary, 20%), darken($brand-primary, 20%));
+    border-radius: 0;
+
+  }
+
+  &-meta{
+    width: 70%;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #000;
+    cursor: default;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  input[type="file"]{
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+    transform: translate(-3px, -3px);
+
+    overflow: hidden;
+    background-color: red;
+    transition: none;
+    visibility: hidden;
+  }
+}
+
+
+

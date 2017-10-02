@@ -1,0 +1,130 @@
+extends  ../_skeleton
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+include ../elements/_ui-thumbnail-default
+include ../elements/_ui-pagination-bootstrap
+//- Title
+block title
+  title= cfg.nav.news.submenu.gridNews3columns.title
+//- Page
+block page
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.news,
+    cfg.nav
+    )
+  +breadcrumb-classic(
+  cfg.nav.news.submenu.gridNews3columns.title,
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.news.title,
+      "href": cfg.nav.news.href
+    },
+    2: {
+      "title": cfg.nav.news.submenu.gridNews3columns.title,
+      "href": cfg.nav.news.submenu.gridNews3columns.href
+    }
+  })
+  // Page Content
+  main.page-content
+    #fb-root
+    // Latest news
+    section.section-70.section-md-114.bg-catskill
+      .shell
+        .range.text-sm-left.range-xs-center
+          .cell-sm-6.cell-md-4
+            article.post-news
+              a(href= cfg.nav.news.submenu.newsPostPage.href)
+                img.img-responsive(src="images/blog/news-01-370x240.jpg", width="370", height="240", alt="")
+              .post-news-body
+                h6
+                  a(href= cfg.nav.news.submenu.newsPostPage.href) 10 Seafood Recipes You’ll Ever Need
+                .offset-top-20
+                  p Seafood’s one of those ingredients that not everyone feels comfortable cooking. There’s always something that puts people off.
+                .post-news-meta.offset-top-20
+                  span.icon.icon-xs.mdi.mdi-calendar-clock.text-middle.text-madison
+                  span.text-middle.inset-left-10.text-italic.text-black 2 days ago
+          .cell-sm-6.cell-md-4.offset-top-30.offset-sm-top-0
+            article.post-news
+              a(href= cfg.nav.news.submenu.newsPostPage.href)
+                img.img-responsive(src="images/blog/news-02-370x240.jpg", width="370", height="240", alt="")
+              .post-news-body
+                h6
+                  a(href= cfg.nav.news.submenu.newsPostPage.href) Packing a Sandwich that Won’t be Sad and Soggy by Lunchtime
+                .offset-top-20
+                  p Last week we reflected on just how terrible a pathetic, soggy salad tastes. And let us tell you, what we depicted there is also about sandwiches.
+                .post-news-meta.offset-top-20
+                  span.icon.icon-xs.mdi.mdi-calendar-clock.text-middle.text-madison
+                  span.text-middle.inset-left-10.text-italic.text-black 2 days ago
+          .cell-sm-6.cell-md-4.offset-top-30.offset-md-top-0
+            article.post-news
+              a(href= cfg.nav.news.submenu.newsPostPage.href)
+                img.img-responsive(src="images/blog/news-04-370x240.jpg", width="370", height="240", alt="")
+              .post-news-body
+                h6
+                  a(href= cfg.nav.news.submenu.newsPostPage.href).
+                    5 Favorite Weeknight Dinners That You’ll Love
+                .offset-top-20
+                  p If you need a healthy mid-week dinner idea, you’ve come to the right place. Here is our top 5.
+                .post-news-meta.offset-top-20
+                  span.icon.icon-xs.mdi.mdi-calendar-clock.text-middle.text-madison
+                  span.text-middle.inset-left-10.text-italic.text-black 2 days ago
+          .cell-sm-6.cell-md-4.offset-top-30
+            article.post-news
+              a(href= cfg.nav.news.submenu.newsPostPage.href)
+                img.img-responsive(src="images/blog/news-05-370x240.jpg", width="370", height="240", alt="")
+              .post-news-body
+                h6
+                  a(href= cfg.nav.news.submenu.newsPostPage.href).
+                    15 Minute Baked Tilapia with Watermelon-Habanero Salsa
+                .offset-top-20
+                  p Today’s simple plan to healthier eating comes in the form of 15 Minute Baked Tilapia with Salsa. The basis of this dish is mild tender white fish, which makes it taste unforgettable.
+                .post-news-meta.offset-top-20
+                  span.icon.icon-xs.mdi.mdi-calendar-clock.text-middle.text-madison
+                  span.text-middle.inset-left-10.text-italic.text-black 2 days ago
+          .cell-sm-6.cell-md-4.offset-top-30
+            article.post-news
+              a(href= cfg.nav.news.submenu.newsPostPage.href)
+                img.img-responsive(src="images/blog/news-03-370x240.jpg", width="370", height="240", alt="")
+              .post-news-body
+                h6
+                  a(href= cfg.nav.news.submenu.newsPostPage.href) 8 Unique Skewers To Grill Right Now
+                .offset-top-20
+                  p Today we would like to present you our top 8 skewers that you should definitely try this summer. They are easy-to-cook and very tasty.
+                .post-news-meta.offset-top-20
+                  span.icon.icon-xs.mdi.mdi-calendar-clock.text-middle.text-madison
+                  span.text-middle.inset-left-10.text-italic.text-black 2 days ago
+
+          .cell-sm-6.cell-md-4.offset-top-30
+            article.post-news
+              a(href= cfg.nav.news.submenu.newsPostPage.href)
+                img.img-responsive(src="images/blog/news-06-370x240.jpg", width="370", height="240", alt="")
+              .post-news-body
+                h6
+                  a(href= cfg.nav.news.submenu.newsPostPage.href) Strawberry Peach Rose Sangria
+                .offset-top-20
+                  p Our new recipe is a necessity for any summer soiree. Plus it makes you feel super fab when you sip something pink like this Rosé Sangria.
+                .post-news-meta.offset-top-20
+                  span.icon.icon-xs.mdi.mdi-calendar-clock.text-middle.text-madison
+                  span.text-middle.inset-left-10.text-italic.text-black 2 days ago
+
+
+        .offset-top-60.text-md-left
+          +pagination-bootstrap(null, 1, 3)
+  .bg-catskill
+    // Page Footer
+    include ../sections/_section-footer-corporate

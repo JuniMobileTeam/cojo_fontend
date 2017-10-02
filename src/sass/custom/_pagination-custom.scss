@@ -1,0 +1,60 @@
+//
+// Custom Pagination
+// --------------------------------------------------
+
+// Bootstrap Pagination
+// -------------------------
+
+.pagination {
+  @include pagination-size(7px, 14px, $btn-font-size-small, $btn-lh-size-small, $border-radius-base);
+  > li > a,
+  > li > span {
+    min-width: $padding-small-vertical*2 + $border-width-small*2 + $btn-lh-size-small;
+    font-weight: $btn-font-weight;
+    transition: .3s;
+    text-align: center;
+    background-color: $white;
+    color: $brand-madison;
+    border-color: $brand-madison;
+    margin: 0 5px;
+    border-width: 2px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.10);
+    border-radius: $border-radius-base;
+  }
+  > li:first-child,
+  > li:last-child {
+    a, span {
+      span {
+        position: relative;
+        font-size: 11px;
+        line-height: 1;
+      }
+    }
+  }
+  > li > a,
+  > li > span {
+    &:hover,
+    &:focus,
+    &:active,
+    &:active:focus {
+      color: $white;
+      background-color: $brand-primary;
+      border-color: $brand-primary;
+      box-shadow: none;
+    }
+  }
+
+  > .active > a,
+  > .active > span {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &:active:focus {
+      color: $white;
+      background-color: $brand-primary;
+      border-color: $brand-primary;
+      box-shadow: none;
+    }
+  }
+}

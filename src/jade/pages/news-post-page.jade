@@ -1,0 +1,174 @@
+extends  ../_skeleton
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+include ../elements/_ui-thumbnail-default
+include ../elements/_ui-box-comment
+//- Title
+block title
+  title= cfg.nav.news.submenu.newsPostPage.title
+//- Page
+block page
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.news,
+    cfg.nav
+    )
+  +breadcrumb-classic(
+  "News",
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.news.title,
+      "href": cfg.nav.news.href
+    },
+    2: {
+      "title": cfg.nav.news.submenu.newsPostPage.title,
+      "href": cfg.nav.news.submenu.newsPostPage.href
+    }
+  })
+  // Page Content
+  main.page-content
+    #fb-root
+    // Latest news
+    section.section-70.section-md-114
+      .shell
+        .range.range-xs-center
+          .cell-sm-8.cell-md-8.text-md-left
+            h2.text-bold.
+              15 Minute Baked Tilapia with Watermelon-Habanero Salsa
+            hr.divider.bg-madison.hr-md-left-0
+            .offset-md-top-47.offset-top-20
+              ul.post-news-meta.list.list-inline.list-inline-xl
+                li
+                  span.icon.icon-xs.mdi.mdi-calendar-clock.text-middle.text-madison
+                  span.text-middle.inset-left-10.text-italic.text-black 2 days ago
+                li
+                  span.icon.icon-xs.mdi.mdi-account.text-middle.text-madison
+                  span.text-middle.inset-left-10.text-italic.text-primary Ronald Austin
+            .offset-top-30
+              img.img-responsive(src="images/blog/news-05-770x500.jpg", width="770", height="500", alt="")
+              .offset-top-30
+                p Today’s simple plan to healthier eating comes in the form of 15 Minute Baked Tilapia with Salsa. The basis of this dish is mild tender white fish, which makes it taste unforgettable. This is such a great warm weather, summertime dinner idea we believe you`re going to love. Another beautiful thing about the premise of this dish is it`s versatility.
+              p You can conversely change out the watermelon for fresh mango, pineapple, strawberries, peaches or papaya. There`s really no way to go wrong here! We recommend to serve fish on a bed of minted sweet peas which compliments the other flavors perfectly. You can find the recipe in one of  our latest posts. Here`s what you`ll need for your 15 Minute Baked Tilapia with Watermelon-Habanero Salsa (serves 4): Tilapia filets, seedless watermelon, red onion, habanero chile, cilantro, mint, lime.
+            .offset-top-30
+              img.img-responsive(src="images/blog/news-07-770x500.jpg", width="770", height="500", alt="")
+              .offset-top-30
+                p Preheat your oven to 400 degrees. Line a baking sheet with foil & grease lightly or give a quick hit of cooking spray. Lay your filets out & season with a little salt & fresh pepper. Bake for 10-12 minutes until just cooked through. While the tilapia`s cooking make your salsa. Start by dicing the watermelon, then dice your red onion, mince the habanero, chop the cilantro & mint. Finally mix it all together, and squeeze lime over the top. Remove the tilapia filets to plates & top with the salsa. Dinner is served!
+              p So basic but pretty right. Don`t let the habanero`s scare you. Sure they`re spicy but not nearly so much with the seeds & veins removed. They have so much citrusy flavor we just love them. If they still make you nervous, feel free to use serrano or japapeño peppers in their place.
+            .offset-top-30.post-news-meta.range.range-xs-middle.range-xs-center
+              .cell-md-6
+                .tags-list.group.group-sm.reveal-inline-block.text-middle
+                  a.btn.btn-xs.btn-primary.text-italic(href="#") News
+                  a.btn.btn-xs.btn-primary.text-italic(href="#") Colleges
+                  a.btn.btn-xs.btn-primary.text-italic(href="#") Liberal Arts
+                  a.btn.btn-xs.btn-primary.text-italic(href="#") University
+              .cell-md-6
+                ul.list-inline.list-inline-sm.list-inline-madison.pull-md-right.text-middle
+                  li
+                    a(href="#").icon.icon-xxs.fa-facebook.icon-rect.icon-gray-light-filled
+                  li
+                    a(href="#").icon.icon-xxs.fa-twitter.icon-rect.icon-gray-light-filled
+                  li
+                    a(href="#").icon.icon-xxs.fa-google.icon-rect.icon-gray-light-filled
+                  li
+                    a(href="#").icon.icon-xxs.fa-instagram.icon-rect.icon-gray-light-filled
+            .offset-top-50
+              h6.text-bold Author
+              .text-subline
+              .offset-top-30
+                .unit.unit-sm.unit-sm-horizontal.unit-spacing-lg
+                  .unit-left
+                    img.img-responsive.reveal-inline-block(src="images/users/user-ronald-austin-170x170.jpg", width="170", height="170", alt="")
+                  .unit-body.text-sm-left
+                    h6.text-bold.text-primary Ronald Austin
+                    p I am a professional blogger interested in everything taking place in cyberspace. I am running this website and try my best to make it a better place to visit. I post only the articles that are related to the topic and thoroughly analyze all visitors’ comments to cater to their needs better.
+              .offset-top-60
+                h6.text-bold Comments
+                .text-subline
+                .offset-top-30
+                  //- Comment 1
+                  +box-comment(
+                  "box-comment-classic",
+                  {
+                    "width": 80,
+                    "height": 80,
+                    "src": "images/users/user-maria-freeman-90x90.jpg",
+                    "alt": ""
+                  },
+                  "2 days ago",
+                  "Theresa Lane",
+                  "Thanks to the author for such a useful article. Now I know what dish I have to cook this season."
+                  )
+                    //- Reply 1
+                    +box-comment(
+                    "box-comment-classic",
+                    {
+                      "width": 80,
+                      "height": 80,
+                      "src": "images/users/user-ronald-austin-170x170.jpg",
+                      "alt": ""
+                    },
+                    "2 days ago",
+                    "Ronald Austin",
+                    "Thank you!"
+                    )
+                  .offset-top-60
+                    h6.text-bold Send a Comment
+                    .text-subline
+                    .offset-top-20
+                      form.rd-mailform.text-left(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+                        .range
+                          .cell-lg-6
+                            .form-group
+                              label.form-label.form-label-outside(for="comment-form-first-name") First name
+                              input#comment-form-first-name.form-control.form-validation-inside(type="text" name="first-name" data-constraints="@Required")
+                          .cell-lg-6.offset-top-12.offset-lg-top-0
+                            .form-group
+                              label.form-label.form-label-outside(for="comment-form-last-name") Last name
+                              input#comment-form-last-name.form-control.form-validation-inside(type="text" name="last-name" data-constraints="@Required")
+                          .cell-lg-6.offset-top-12
+                            .form-group
+                              label.form-label.form-label-outside(for="comment-form-email") E-mail
+                              input#comment-form-email.form-control.form-validation-inside(type="email" name="email" data-constraints="@Required @Email")
+                          .cell-lg-6.offset-top-12
+                            .form-group
+                              label.form-label.form-label-outside(for="comment-form-phone") Phone
+                              input#comment-form-phone.form-control.form-validation-inside(type="text" name="phone" data-constraints="@IsNumeric")
+                          .cell-lg-12.offset-top-12
+                            .form-group
+                              label.form-label.form-label-outside(for="comment-form-message") Message
+                              textarea#comment-form-message.form-control.form-validation-inside(name="message" data-constraints="@Required")
+                        .offset-top-20.text-center.text-sm-left
+                          button(type="submit").btn.btn-primary Submit
+          // aside
+          .cell-md-4.text-left.cell-xs-8.offset-top-85.offset-md-top-0
+            aside.inset-md-left-30
+              include ../sections/_section-blog-sidebar-variant-2
+              .offset-top-60
+                h6.text-bold Tags
+                .text-subline
+                .offset-top-20
+                  .tags-list.group.group-sm.reveal-inline-block.text-middle
+                    a.btn.btn-xs.btn-primary.text-italic(href= cfg.nav.news.submenu.newsPostPage.href) News
+                    a.btn.btn-xs.btn-primary.text-italic(href= cfg.nav.news.submenu.newsPostPage.href) Recipes
+                    a.btn.btn-xs.btn-primary.text-italic(href= cfg.nav.news.submenu.newsPostPage.href) Cooking
+                    a.btn.btn-xs.btn-primary.text-italic(href= cfg.nav.news.submenu.newsPostPage.href) Drinks
+                    a.btn.btn-xs.btn-primary.text-italic(href= cfg.nav.news.submenu.newsPostPage.href) Seafood
+                    a.btn.btn-xs.btn-primary.text-italic(href= cfg.nav.news.submenu.newsPostPage.href) Blog
+
+
+  // Page Footer
+  include ../sections/_section-footer-corporate

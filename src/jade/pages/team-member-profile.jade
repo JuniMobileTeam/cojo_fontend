@@ -1,0 +1,128 @@
+extends  ../_skeleton
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+include ../elements/_ui-progress-bar-linear
+//- Title
+block title
+  title= cfg.nav.pages.submenu.about.submenu.teamMemberProfile.title
+//- Page
+block page
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.pages,
+    cfg.nav
+    )
+  +breadcrumb-classic(
+  cfg.nav.pages.submenu.about.submenu.teamMemberProfile.title,
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.pages.title,
+      "href": cfg.nav.pages.href
+    },
+    2: {
+      "title": cfg.nav.pages.submenu.about.title,
+      "href": cfg.nav.pages.submenu.about.href
+    },
+    3: {
+      "title": cfg.nav.pages.submenu.about.submenu.teamMemberProfile.title,
+      "href": cfg.nav.pages.submenu.about.submenu.teamMemberProfile.href
+    }
+  })
+  // Page Content
+  main.page-content
+    //4 Columns Layout
+    section.section-70.section-md-114
+      .shell
+        .range.range-xs-center
+          .cell-sm-4.text-sm-left
+            .inset-sm-right-30
+              img.img-responsive.reveal-inline-block(src="images/users/user-william-barnett-340x340.jpg" width=340 height=340 alt="")
+              .offset-top-15.offset-sm-top-30
+                a(href="#" style="max-width: 340px; margin-left:auto; margin-right:auto").btn.btn-primary.btn-block Get in Touch
+              .offset-top-15.offset-sm-top-30
+                ul.list.list-unstyled
+                  li
+                    span.icon.icon-xs.mdi.mdi-phone.text-middle.text-madison
+                    a.reveal-inline-block.text-dark.inset-left-10(href="callto:#") 1-800-1234-567
+                  li
+                    span.icon.icon-xs.mdi.mdi-email-open.text-middle.text-madison
+                    a.reveal-inline-block.inset-left-10(href="mailto:info@demolink.org") info@demolink.org
+              .offset-top-15.offset-sm-top-30
+                ul.list-inline.list-inline-sm.list-inline-madison
+                  li
+                    a(href="#").icon.icon-xxs.fa-facebook.icon-rect.icon-gray-light-filled
+                  li
+                    a(href="#").icon.icon-xxs.fa-twitter.icon-rect.icon-gray-light-filled
+                  li
+                    a(href="#").icon.icon-xxs.fa-google.icon-rect.icon-gray-light-filled
+                  li
+                    a(href="#").icon.icon-xxs.fa-instagram.icon-rect.icon-gray-light-filled
+          .cell-sm-8.text-left
+            div
+              h2.text-bold Johnny Walsh
+            p.offset-top-10 Chef, Writer, Food Journalist
+            .offset-top-15.offset-sm-top-30
+              hr.divider.bg-madison.hr-left-0
+            .offset-top-30.offset-sm-top-60
+              h6.text-bold About Johnny
+              .text-subline
+            .offset-top-20
+              p Chef, writer, and food journalist Johnny Walsh was born on July 21, 1972, in Los Angeles, California, to parents from rural Georgia. Johnny left California and moved to Georgia with his family when he was 12. Walsh later said that he developed his cooking skills by watching his mother and grandmother in the kitchen. He also said that he learned to cook "as a way to get dates" in college. After studying film at the University of Georgia drama department, Mr. Walsh worked as a cinematographer and video director. However, he decided to change his specialization and became an assistant chef after working as a videographer for 3 years. We are glad to have Johnny as a part of our team because all his recipes are very original, innovative, easy-to-cook, and that’s why they are so popular.
+            .offset-top-30.offset-sm-top-60
+              h6.text-bold Certificates and Awards
+              .text-subline
+            .offset-top-15.offset-sm-top-30
+              .group.group-lg(data-photo-swipe-gallery='gallery')
+                a(data-photo-swipe-item="" href="images/sertificate-100x144.jpg" data-size='347x500')
+                  img.img-responsive.reveal-inline-block(src="images/sertificate-100x144.jpg" width=90 height=144 alt="")
+                a(data-photo-swipe-item="" href="images/sertificate2-100x144.jpg" data-size='347x500')
+                  img.img-responsive.reveal-inline-block(src="images/sertificate2-100x144.jpg" width=90 height=144 alt="")
+                a(data-photo-swipe-item="" href="images/sertificate3-100x144.jpg" data-size='347x500')
+                  img.img-responsive.reveal-inline-block(src="images/sertificate3-100x144.jpg" width=90 height=144 alt="")
+                a(data-photo-swipe-item="" href="images/sertificate4-100x144.jpg" data-size='347x500')
+                  img.img-responsive.reveal-inline-block(src="images/sertificate4-100x144.jpg" width=90 height=144 alt="")
+
+
+    // Classic Skills Bars
+    section.section-70.section-md-114.bg-madison.context-dark
+      .shell
+        h2.text-bold Skill Bars
+        hr.divider.bg-madison
+        .range.range-xs-center.offset-top-65
+          .cell-xs-10.cell-sm-6
+            +progress-bar-linear({
+              "title": "Breakfast",
+              "valueTo": "70"
+            })
+            .offset-top-56
+              +progress-bar-linear({
+                "title": "Lunch",
+                "valueTo": "42"
+              })
+            .offset-top-56
+              +progress-bar-linear({
+                "title": "Dinner",
+                "valueTo": "38"
+              })
+            .offset-top-56
+              +progress-bar-linear({
+                "title": "Custom",
+                "valueTo": "94"
+              })
+            .offset-top-20
+  // Page Footer
+  include ../sections/_section-footer-corporate

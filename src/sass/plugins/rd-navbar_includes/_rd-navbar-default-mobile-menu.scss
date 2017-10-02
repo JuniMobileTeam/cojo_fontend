@@ -1,0 +1,184 @@
+//
+// RD Navbar Default Aside Left
+// --------------------------------------------------
+
+%rd-navbar-default-mobile-menu {
+  .rd-navbar-nav {
+    padding: 0 30px;
+    margin-top: 30px;
+    > li {
+      &:last-child {
+        margin-bottom: 10px;
+      }
+      + li {
+        position: relative;
+        &:before {
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          background: $gray-lighter;
+          content: "";
+          top: -5px;
+        }
+      }
+    }
+
+    li {
+      float: none;
+      a {
+        @extend %rd-navbar-default-link-font;
+        cursor: pointer;
+        display: block;
+        padding: 8px 10px 8px 12px;
+        vertical-align: middle;
+        color: $gray-base;
+      }
+
+      &.opened > a, &.active > a, &.focus > a, &:hover > a {
+        color: $brand-primary;
+      }
+
+      &.opened, &.active, &:hover {
+        > .rd-navbar-submenu-toggle {
+          color: $rd-navbar-light-mobile-menu-list-item-hover-toggle-color;
+          content: $rd-navbar-mobile-menu-list-item-arrow-active-content;
+        }
+      }
+      + li {
+        margin-top: $rd-navbar-mobile-menu-list-item-offset-top;
+      }
+    }
+  }
+
+  .rd-navbar-submenu {
+    position: relative;
+  }
+
+  .rd-navbar-submenu-toggle {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    cursor: pointer;
+    width: $rd-navbar-mobile-menu-list-item-arrow-width;
+    font-size: $rd-navbar-mobile-menu-list-item-arrow-size;
+    line-height: $rd-navbar-mobile-menu-list-item-arrow-line-height;
+    font-family: "FontAwesome";
+    transition: .3s all ease;
+    vertical-align: middle;
+    color: $gray-base;
+    text-align: center;
+    &:before {
+      content: $rd-navbar-mobile-menu-list-item-arrow-content;
+      display: inline-block;
+      transition: .15s all ease-in;
+    }
+  }
+  li.opened{
+    .rd-navbar-submenu-toggle{
+      &:before{
+        @include transform(rotate(180deg));
+      }
+
+    }
+  }
+  .rd-navbar-dropdown {
+    display: none;
+    padding-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 23px;
+    > li {
+      padding-left: 10px;
+      > a {
+        position: relative;
+        padding-left: 20px;
+        color: $rd-navbar-light-mobile-menu-dropdown-item-link-color;
+        padding-top: 0;
+        padding-bottom: 0;
+        font-weight: 300;
+        font-size: 16px;
+        &:before {
+          content: "\f105";
+          font-family: "FontAwesome";
+          position: absolute;
+          left: 0;
+          top:50%;
+          margin-top: -10px;
+        }
+      }
+      &.active > a, &.focus > a, &:hover a {
+        color: $brand-primary;
+      }
+      .rd-navbar-dropdown > li {
+        > a {
+          padding-left: $rd-navbar-mobile-menu-dropdown2-item-link-padding-left;
+        }
+        .rd-navbar-dropdown > li > a {
+          padding-left: $rd-navbar-mobile-menu-dropdown3-item-link-padding-left;
+        }
+      }
+    }
+  }
+
+  .rd-navbar-megamenu {
+    display: none;
+    margin-top: 15px;
+    margin-bottom: 23px;
+    padding-left: 20px;
+    h6 {
+      font-family: $font-family-base;
+      .small {
+        color: $white;
+      }
+    }
+    ul > li > ul > li {
+      padding-left: 15px;
+      > a {
+        position: relative;
+        padding-left: 20px;
+        color: $rd-navbar-light-mobile-menu-dropdown-item-link-color;
+        padding-top: 0;
+        padding-bottom: 0;
+        font-weight: 300;
+        font-size: 16px;
+        &:before {
+          content: "\f105";
+          font-family: "FontAwesome";
+          position: absolute;
+          margin-top: -10px;
+          top: 50%;
+          left: 0;
+        }
+      }
+      &.active > a, &.focus > a, &:hover a {
+        color: $brand-primary;
+      }
+      .rd-navbar-dropdown > li {
+        > a {
+          padding-left: $rd-navbar-mobile-menu-dropdown2-item-link-padding-left;
+        }
+        .rd-navbar-dropdown > li > a {
+          padding-left: $rd-navbar-mobile-menu-dropdown3-item-link-padding-left;
+        }
+      }
+    }
+    > ul > li {
+      & + li {
+        margin-top: 20px;
+      }
+    }
+    [class*="col-"] + [class*="col-"] {
+      margin-top: 20px;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .rd-navbar-submenu.opened {
+    > .rd-navbar-dropdown, > .rd-navbar-megamenu {
+      display: block;
+    }
+  }
+}
+
+

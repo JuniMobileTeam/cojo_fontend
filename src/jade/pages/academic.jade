@@ -1,0 +1,234 @@
+extends  ../_skeleton
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+include ../elements/_ui-tabs-classic
+//- Title
+block title
+  title= cfg.nav.pages.submenu.academic.title
+//- Page
+block page
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.pages,
+    cfg.nav
+    )
+  +breadcrumb-classic(
+  cfg.nav.pages.submenu.academic.title,
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.pages.title,
+      "href": cfg.nav.pages.href
+    },
+    2: {
+      "title": cfg.nav.pages.submenu.academic.title,
+      "href": cfg.nav.pages.submenu.academic.href
+    }
+  })
+  // Page Content
+  main.page-content
+    // vertical link Tabs
+    section.section-90.section-md-114.section-md-bottom-190
+      .shell
+        +tabs-classic(["Undergraduate Study", "Graduate & Professional Study", "Departments & Programs", "Global Education", "Summer Session", "Non-Degree Offerings", "Online Learning"], "vertical", "tabs-lg-collapsed", "")
+          div
+            .inset-lg-left-60
+              h2.text-bold.veil.reveal-lg-block Undergraduate Study
+              .hr.divider.bg-madison.hr-sm-left-0.veil.reveal-lg-block
+              .offset-lg-top-60
+                p At Williams, we view college as a time for students to explore, exercise curiosity, and discover new interests and abilities.
+                p We provide students with an immersive, collaborative, and inspiring environment where they can develop a broadly informed, highly disciplined intellect that will help them be successful in whatever work they finally choose.
+                p Our students graduate with the values and knowledge they need to pursue meaningful work, find passion in life-long learning, and lead successful and purposeful lives.
+              .offset-top-30
+                img.img-responsive.reveal-inline-block(src="images/academics-01-770x480.jpg" width=770 height=480 alt="")
+              .offset-top-30
+                h6.text-bold Programs of Study
+                .text-subline
+                .range.offset-top-20
+                  .cell-sm-6.cell-md-4
+                    ul.list.list-unstyled.list-marked
+                      li African American Studies
+                      li African Studies
+                      li American Studies
+                      li Anthropology
+                      li Applied Mathematics
+                      li Architecture
+                      li Art
+                      li Astronomy
+                  .cell-sm-6.cell-md-4.offset-top-10.offset-sm-top-0
+                    ul.list.list-unstyled.list-marked
+                      li Biomedical Engineering
+                      li Chemical Engineering
+                      li Chemistry
+                      li Computer Science
+                      li East Asian Languages
+                      li Ecology and Biology
+                      li Economics
+                      li Mathematics
+                  .cell-sm-6.cell-md-4.offset-top-10.offset-md-top-0
+                    ul.list.list-unstyled.list-marked
+                      li Physics
+                      li Political Science
+                      li Portuguese
+                      li Psychology
+                      li Religious Studies
+                      li Sociology
+                      li Spanish
+                      li Statistics
+
+
+          div
+            .inset-lg-left-60
+              h2.text-bold.veil.reveal-lg-block Graduate & Professional Study
+              .hr.divider.bg-madison.hr-sm-left-0.veil.reveal-lg-block
+              .offset-lg-top-60
+                p Williams College offers advanced degrees through its Schools of Arts & Sciences and 12 professional schools. Browse the organizations below for information on programs of study, academic requirements, and faculty research.
+              .offset-top-30
+                img.img-responsive.reveal-inline-block(src="images/academics-02-770x480.jpg" width=770 height=480 alt="")
+              .offset-top-30
+                h6.text-bold Schools List
+                .text-subline
+                .offset-top-20
+                  ul.list.list-unstyled.list-marked
+                    li Graduate School of Arts & Sciences
+                    li School of Architecture
+                    li School of Art
+                    li Divinity School
+                    li School of Drama
+                    li School of Engineering & Applied Science
+                    li School of Forestry & Environmental Studies
+                    li Law School
+                    li School of Management
+                    li School of Medicine
+                    li School of Music
+                    li School of Nursing
+                    li School of Public Health
+          div
+            .inset-lg-left-60
+              h2.text-bold.veil.reveal-lg-block Departments & Programs
+              .hr.divider.bg-madison.hr-sm-left-0.veil.reveal-lg-block
+              .offset-lg-top-60
+                p The following is a list of our degree-granting academic departments and programs.
+              .offset-top-30
+                img.img-responsive.reveal-inline-block(src="images/academics-03-770x480.jpg" width=770 height=480 alt="")
+              .offset-top-30
+                h6.text-bold Programs of Study
+                .text-subline
+                .range.offset-top-20
+                  .cell-sm-6.cell-md-4
+                    ul.list.list-unstyled.list-marked
+                      li African American Studies
+                      li African Studies
+                      li American Studies
+                      li Anthropology
+                      li Applied Mathematics
+                      li Architecture
+                      li Art
+                      li Astronomy
+                  .cell-sm-6.cell-md-4.offset-top-10.offset-sm-top-0
+                    ul.list.list-unstyled.list-marked
+                      li Biomedical Engineering
+                      li Chemical Engineering
+                      li Chemistry
+                      li Computer Science
+                      li East Asian Languages
+                      li Ecology and Biology
+                      li Economics
+                      li Mathematics
+                  .cell-sm-6.cell-md-4.offset-top-10.offset-md-top-0
+                    ul.list.list-unstyled.list-marked
+                      li Physics
+                      li Political Science
+                      li Portuguese
+                      li Psychology
+                      li Religious Studies
+                      li Sociology
+                      li Spanish
+                      li Statistics
+          div
+            .inset-lg-left-60
+              h2.text-bold.veil.reveal-lg-block Global Education
+              .hr.divider.bg-madison.hr-sm-left-0.veil.reveal-lg-block
+              .offset-lg-top-60
+                p The Eric and Nicole Fisher Center for International and Area Studies at the College is the focal point for encouraging and coordinating teaching and research on global affairs, regions, and cultures around the world. From science and engineering to arts and humanities, explore the many different ways in which faculty, students, and scholars at Williams undertake study, research and discussion about international and global issues.
+              .offset-top-30
+                img.img-responsive.reveal-inline-block(src="images/academics-04-770x480.jpg" width=770 height=480 alt="")
+              .offset-top-30
+                h6.text-bold Centers & Initiatives
+                .text-subline
+                .offset-top-20
+                  p Discover academic and research centers and initiatives concentrating specifically on international topics including area studies, languages, law, science, arts and humanities and more.
+              .offset-top-30
+                h6.text-bold Faculty Research & Activities
+                .text-subline
+                .offset-top-20
+                  p Access the database of the Jonathan Carroll University faculty's worldwide research interests and projects. Spanning academic disciplines, JCU faculty members are involved in joint research centers and projects from Chile and Brazil to China and Japan.
+              .offset-top-30
+                h6.text-bold Library Collections
+                .text-subline
+                .offset-top-20
+                  p Search the international collections of the Jonathan Carroll University Library, one of the world's leading research libraries which includes around 10.2 million volumes and information in all media, ranging from ancient papyruses to early printed books to electronic databases.
+          div
+            .inset-lg-left-60
+              h2.text-bold.veil.reveal-lg-block Summer Session
+              .hr.divider.bg-madison.hr-sm-left-0.veil.reveal-lg-block
+              .offset-lg-top-60
+                img.img-responsive.reveal-inline-block(src="images/academics-05-770x480.jpg" width=770 height=480 alt="")
+              .offset-top-30
+                p Williams Summer Session offers courses during the summer for our students, qualified undergraduate students from other colleges, students about to enter their last year in high school, and adult learners. Additional programs offered through Williams Summer Session include: Study Abroad, English Language Institute, Online Courses, Writers' Conference, Drama and Film, and Foreign Language Courses.
+              .offset-top-30
+                a(href="#").btn.btn-primary Choose a Program
+          div
+            .inset-lg-left-60
+              h2.text-bold.veil.reveal-lg-block Non-Degree Offerings
+              .hr.divider.bg-madison.hr-sm-left-0.veil.reveal-lg-block
+              .offset-lg-top-60
+                p You don't have to be a Williams College student to have access to our education.
+                p From online courses to on-campus experiences, there are a range of learning opportunities available for non-degree seekers.
+              .offset-top-30
+                img.img-responsive.reveal-inline-block(src="images/academics-06-770x480.jpg" width=770 height=480 alt="")
+              .offset-top-30
+                h6.text-bold College Classes & Courses
+                .text-subline
+                .offset-top-20
+                  p Audit a class or take courses for credit without matriculating as a College undergraduate.
+              .offset-top-30
+                h6.text-bold Graduate & Professional Schools
+                .text-subline
+                .offset-top-20
+                  p The schools at Williams College offer non-degree programs ranging from research opportunities to continuing education.
+
+          div
+            .inset-lg-left-60
+              h2.text-bold.veil.reveal-lg-block Online Learning
+              .hr.divider.bg-madison.hr-sm-left-0.veil.reveal-lg-block
+              .offset-lg-top-60
+                p We explore online learning for a wide and global audience: from lifelong learners seeking to improve knowledge skills, to undergraduate and graduate students looking to supplement their current classes or take a class online for college credit, a certificate or a degree.
+              .offset-top-30
+                img.img-responsive.reveal-inline-block(src="images/academics-07-770x480.jpg" width=770 height=480 alt="")
+              .offset-top-30
+                h6.text-bold Programs List
+                .text-subline
+                .offset-top-20
+                  ul.list.list-unstyled.list-marked
+                    li Introduction to Psychology
+                    li Mental Lives of Babies and Animals
+                    li Causes and Consequences of Corruption
+                    li Capital Punishment: Race, Poverty, & Disadvantage
+                    li Moral Foundations of Politics
+                    li Introduction to Classical Music
+  // Page Footer
+  include ../sections/_section-footer-corporate

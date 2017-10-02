@@ -1,0 +1,59 @@
+//
+// RD Navbar Default Mobile Search
+// --------------------------------------------------
+
+%rd-navbar-default-mobile-search {
+  .rd-navbar-search-mobile {
+    position: relative;
+    margin-bottom: 45px;
+    margin-top: 30px;
+    transition: 0.35s all ease;
+    padding-left: 30px;
+    padding-right: 30px;
+    .rd-navbar-search-form-input {
+      border: none;
+      color: $brand-madison;
+      background: $white;
+      padding-left: 35px;
+    }
+    .form-label {
+      left: 15px;
+      color: $gray-base;
+      font-size: 14px;
+      font-family: $font-family-base;
+      font-weight: 400;
+    }
+    .form-search-submit {
+      color: $rd-navbar-light-mobile-search-form-search-submit-color;
+    }
+    .form-group {
+      .form-label, .form-lable.focus {
+        color: $gray-base;
+      }
+    }
+    .rd-navbar-search-form-input{
+      border-radius: $border-radius-base;
+      border: 1px solid $gray;
+      padding: 15px;
+      padding-right: 37px;
+    }
+    .rd-navbar-search-button{
+      position: absolute;
+      top: 50%;
+      right: 30px;
+      @include transform(translateY(-50%));
+      background: none;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      line-height: 16px;
+      color: $gray-base;
+      transition: 0.35s all ease;
+      &:hover,
+      &:focus,
+      &:active{
+        color: $brand-primary;
+      }
+    }
+  }
+}

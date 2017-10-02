@@ -1,0 +1,120 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+include ../elements/_widget-form-subscribe
+include ../elements/_widget-form-subscribe-type-2
+
+//- Title
+block title
+  title= cfg.nav.elements.submenu.forms.title
+
+//- Page
+block page
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.elements,
+    cfg.nav
+    )
+
+  +breadcrumb-classic(
+  cfg.nav.elements.submenu.forms.title,
+  {0: {
+    "title": cfg.nav.home.title,
+    "href": cfg.nav.home.href
+  },
+    1: {
+      "title": cfg.nav.elements.title,
+      "href": cfg.nav.elements.href
+    },
+    2: {
+      "title": cfg.nav.elements.submenu.forms.title,
+      "href": cfg.nav.elements.submenu.forms.href
+    }
+  })
+
+  // Page Content
+  main.page-content.section-70.section-md-114.section-md-bottom-100
+
+    // login form
+    section
+      .shell
+        .range.range-xs-center
+          .cell-sm-8.cell-lg-4
+            h2.text-bold Login Form
+            hr.divider.bg-madison
+            .offset-md-top-56.offset-top-40
+              form.rd-mailform.text-left(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+                .form-group
+                  label.form-label.form-label-outside(for="login-username") Username or e-mail
+                  input#login-username.form-control.form-validation-inside(type="text" name="name" data-constraints="@Required")
+                .form-group
+                  label.form-label.form-label-outside(for="login-pass") Password
+                  input#login-pass.form-control.form-validation-inside(type="password" name="password" data-constraints="@Required")
+                .offset-top-20.text-center.text-lg-left
+                  button(type="submit").btn.btn-primary.reveal-xs-inline-block.text-middle Sign In
+                  p.text-gray.reveal-xs-inline-block.text-middle.inset-xs-left-15.small or enter with
+                  ul.list-inline.list-inline-sm.list-inline-madison.reveal-xs-inline-block.text-middle.inset-xs-left-15
+                    li
+                      a(href="#").icon.icon-xxs.fa-facebook.icon-rect.icon-gray-light-filled
+                    li
+                      a(href="#").icon.icon-xxs.fa-twitter.icon-rect.icon-gray-light-filled
+                    li
+                      a(href="#").icon.icon-xxs.fa-google.icon-rect.icon-gray-light-filled
+
+    // Contact form
+    section.offset-top-70.offset-md-top-114
+      .shell
+        .range.range-xs-center
+          .cell-xs-10.cell-lg-8
+            h2.text-bold Contact Form
+            hr.divider.bg-madison
+            .offset-md-top-50.offset-top-40
+              form.rd-mailform.text-left(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+                .range
+                  .cell-lg-6
+                    .form-group
+                      label.form-label.form-label-outside(for="contact-us-first-name") First name
+                      input#contact-us-first-name.form-control.form-validation-inside(type="text" name="first-name" data-constraints="@Required")
+                  .cell-lg-6.offset-top-12.offset-lg-top-0
+                    .form-group
+                      label.form-label.form-label-outside(for="contact-us-last-name") Last name
+                      input#contact-us-last-name.form-control.form-validation-inside(type="text" name="last-name" data-constraints="@Required")
+                  .cell-lg-6.offset-top-12
+                    .form-group
+                      label.form-label.form-label-outside(for="contact-us-email") E-mail
+                      input#contact-us-email.form-control.form-validation-inside(type="email" name="email" data-constraints="@Required @Email")
+                  .cell-lg-6.offset-top-12
+                    .form-group
+                      label.form-label.form-label-outside(for="contact-us-phone") Phone
+                      input#contact-us-phone.form-control.form-validation-inside(type="text" name="phone" data-constraints="@IsNumeric")
+                  .cell-lg-12.offset-top-12
+                    .form-group
+                      label.form-label.form-label-outside(for="contact-us-message") Message
+                      textarea#contact-us-message.form-control.form-validation-inside(name="message" data-constraints="@Required")
+                .offset-top-20.text-center.text-sm-left
+                  button(type="submit").btn.btn-primary Send Message
+
+    // Newsletter
+    section.offset-top-70.offset-md-top-114
+      .shell
+        .range.range-xs-center
+          .cell-xs-10.cell-lg-6
+            h2 Newsletter
+            hr.divider.bg-madison
+            .offset-md-top-60.text-left.offset-top-40
+              p Enter your email address to get the latest news, special events and exclusive fresh recipes delivered right to your inbox.
+            .offset-top-15
+              +widget-form-subscribe-type-2("form-subscribe-forms-page")
+  // Page Footer
+  include ../sections/_section-footer-corporate

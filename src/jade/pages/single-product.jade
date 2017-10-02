@@ -1,0 +1,259 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+include ../elements/_ui-tables
+include ../elements/_ui-box-comment
+
+//- Title
+block title
+  title= cfg.nav.shop.submenu.singleProduct.title
+
+//- Page
+block page
+
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.shop,
+    cfg.nav
+    )
+
+  +breadcrumb-classic(
+  cfg.nav.shop.title,
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.shop.title,
+      "href": cfg.nav.shop.href
+    },
+    2: {
+      "title": cfg.nav.shop.submenu.singleProduct.title,
+      "href": cfg.nav.shop.submenu.singleProduct.href
+    }
+  })
+
+  // Page Content
+  main.page-content.section-70.section-md-114
+    section
+      .shell
+        .range.range-xs-center
+          .cell-sm-6.text-lg-left
+            // Slick Carousel
+            .slick-slider.carousel-parent(data-arrows="false", data-loop="false", data-dots="false", data-swipe="false", data-items="1" data-child="#child-carousel", data-for="#child-carousel")
+              .item
+                img.img-responsive.reveal-inline-block(src='images/product-01-502x410.jpg', alt='', width='502', height='410')
+              .item
+                img.img-responsive.reveal-inline-block(src='images/product-02-502x410.jpg', alt='', width='502', height='410')
+              .item
+                img.img-responsive.reveal-inline-block(src='images/product-03-502x410.jpg', alt='', width='502', height='410')
+            .slick-slider#child-carousel(data-for=".carousel-parent", data-arrows="false",
+            data-loop="false", data-dots="false", data-swipe="true",
+            data-items="2", data-xs-items="3", data-sm-items="3", data-md-items="4", data-lg-items="5" data-slide-to-scroll="1")
+              .item
+                img.img-responsive.reveal-inline-block(src='images/product-thumbnail-01-110x110.jpg', alt='', width='110', height='110')
+              .item
+                img.img-responsive.reveal-inline-block(src='images/product-thumbnail-02-110x110.jpg', alt='', width='110', height='110')
+              .item
+                img.img-responsive.reveal-inline-block(src='images/product-thumbnail-03-110x110.jpg', alt='', width='110', height='110')
+
+          .cell-sm-6.text-sm-left.offset-top-60.offset-sm-top-0
+            h2.text-bold 10 Piece OXO ® Holder with Tools Set
+            hr.divider.bg-madison.hr-sm-left-0
+            .offset-top-60
+              ul.list-inline.rating.reveal-inline-block
+                li.icon.fa-star
+                li.icon.fa-star
+                li.icon.fa-star
+                li.icon.fa-star
+                li.icon.fa-star-half-empty
+              span.inset-left-30 1 customer review
+            p Whether you're outfitting your first kitchen or expanding your tool collection, you'll love this handy set. It includes nine of OXO's most essential everyday tools. To keep everything organized and within easy reach in the kitchen, the set also includes a sleek, space-saving utensil holder. All your essential kitchen tools will always be in quick reach with this product.
+            .offset-top-20
+              ul.list-inline
+                li.text-middle Quantity:
+                li.text-middle
+                  .stepper-type-2
+                    input.form-control(type="number" data-zeros="true" value="1" min="1" max="20")
+            .offset-top-30
+              h4 $44.00
+                span.text-gray.text-strike.inset-left-10 $49.00
+            .offset-top-20
+              a(href= cfg.nav.shop.submenu.shoppingCart.href).btn.btn-primary.btn-icon.btn-icon-left
+                span.icon.fa-shopping-cart
+                span Add to Cart
+              ul.list-inline.list-inline-sm.list-inline-madison.pull-lg-right.offset-lg-top-5.offset-top-30
+                li Share:
+                li
+                  a(href="#").icon.icon-xxs.fa-facebook.icon-rect.icon-gray-light-filled
+                li
+                  a(href="#").icon.icon-xxs.fa-twitter.icon-rect.icon-gray-light-filled
+                li
+                  a(href="#").icon.icon-xxs.fa-google.icon-rect.icon-gray-light-filled
+                li
+                  a(href="#").icon.icon-xxs.fa-instagram.icon-rect.icon-gray-light-filled
+
+
+    // vertical link Tabs
+    section.offset-top-85
+      .shell
+        .range.range-xs-center
+          .cell-xs-10.cell-lg-12
+            +tabs-classic(["Description", "Additional Information", "Reviews (2)"], "vertical")
+              div
+                .inset-lg-left-30
+                  p Avery Durable View Protect & Store™ Binder makes the perfect desktop or pocketbook companion. Its small size makes it easy to organize and store notes, phone numbers, addresses and other important information that you can easily take on the road for quick reference. A 375-sheet capacity and fully enclosed pocket provide plenty of room for documents and other important supplies. The secure clasp prevents items from falling out, while the water-resistant material keeps them protected from the elements.
+              div
+                .inset-lg-left-30
+                  table.table.table-custom.table-fixed.table-hover-rows.table-product
+                    tbody
+                      tr
+                        td Brand Name
+                        td Black n' Red
+
+                      tr
+                       td Item Weight
+                       td 1 pounds
+                      tr
+                        td Product Dimensions
+                        td 0.6 x 8.5 x 12 inches
+                      tr
+                        td Item model number
+                        td D66174
+              div
+                .inset-lg-left-30
+                  +box-comment(
+                  "box-comment-classic",
+                  {
+                    "width": 80,
+                    "height": 80,
+                    "src": "images/users/user-theresa-lane-80x80.jpg",
+                    "alt": ""
+                  },
+                  "2 days ago",
+                  "Theresa Lane",
+                  "This product is just what I was looking for! It helps me be organized and never forget about important meetings."
+                  )
+                    //- Reply 1
+                    +box-comment(
+                    "box-comment-classic",
+                    {
+                      "width": 80,
+                      "height": 80,
+                      "src": "images/users/user-ronald-austin-80x80.jpg",
+                      "alt": ""
+                    },
+                    "2 days ago",
+                    "Roland Austin",
+                    "Thank you for your review!"
+                    )
+
+    section.offset-top-110
+      .shell
+        .text-center
+          h4.text-bold Related Products
+        .offset-top-30.range.range-xs-center.range-lg-condensed.section-products
+          .cell-xs-10.cell-lg-3.cell-sm-6.cell-md-4
+            .product
+              .product-body
+                img.img-responsive.reveal-inline-block(src="images/product-01-225x225.jpg", width="225", height="225", alt="")
+                .offset-top-20
+                  P.text-primary
+                    a(href= cfg.nav.shop.submenu.singleProduct.href) Expandable Bamboo Flatware Tray
+                .offset-top-22
+                  h6 $31.00
+                .offset-top-20
+                  a(href= cfg.nav.shop.submenu.shoppingCart.href).btn.btn-primary.btn-icon.btn-icon-left
+                    span.icon.fa-shopping-cart
+                    span Add to Cart
+              .product-meta-info
+                ul.list-inline.list-inline-dark.list-inline-lg
+                  li
+                    a(href="#").icon.icon-xxs.fa-heart
+                  li
+                    a(href="#").icon.icon-xs.fa-exchange
+                  li
+                    a(href="#").icon.icon-xs.fa-eye
+
+          .cell-xs-10.cell-lg-3.cell-sm-6.cell-md-4.offset-top-30.offset-sm-top-0
+            .product
+              .product-body
+                .label
+                  span New
+                img.img-responsive.reveal-inline-block(src="images/product-02-225x225.jpg", width="225", height="225", alt="")
+                .offset-top-20
+                  P.text-primary
+                    a(href= cfg.nav.shop.submenu.singleProduct.href) FSC Teak Rectangular Cutting Boards with Well
+                .offset-top-22
+                  h6 $44.00
+                .offset-top-20
+                  a(href= cfg.nav.shop.submenu.shoppingCart.href).btn.btn-primary.btn-icon.btn-icon-left
+                    span.icon.fa-shopping-cart
+                    span Add to Cart
+              .product-meta-info
+                ul.list-inline.list-inline-dark.list-inline-lg
+                  li
+                    a(href="#").icon.icon-xxs.fa-heart
+                  li
+                    a(href="#").icon.icon-xs.fa-exchange
+                  li
+                    a(href="#").icon.icon-xs.fa-eye
+          .cell-xs-10.cell-lg-3.cell-sm-6.cell-md-4.offset-top-30.offset-md-top-0
+            .product
+              .product-body
+                img.img-responsive.reveal-inline-block(src="images/product-03-225x225.jpg", width="225", height="225", alt="")
+                .offset-top-20
+                  P.text-primary
+                    a(href= cfg.nav.shop.submenu.singleProduct.href) Kuhn Rikon Cookie Press and Decorating Kit
+                .offset-top-22
+                  h6 $29.00
+                    span.text-dark.text-strike.inset-left-10 $15.00
+                .offset-top-20
+                  a(href= cfg.nav.shop.submenu.shoppingCart.href).btn.btn-primary.btn-icon.btn-icon-left
+                    span.icon.fa-shopping-cart
+                    span Add to Cart
+              .product-meta-info
+                ul.list-inline.list-inline-dark.list-inline-lg
+                  li
+                    a(href="#").icon.icon-xxs.fa-heart
+                  li
+                    a(href="#").icon.icon-xs.fa-exchange
+                  li
+                    a(href="#").icon.icon-xs.fa-eye
+          .cell-xs-10.cell-lg-3.cell-sm-6.cell-md-4.offset-top-30.offset-lg-top-0
+            .product
+              .product-body
+                img.img-responsive.reveal-inline-block(src="images/product-04-225x225.jpg", width="225", height="225", alt="")
+                .offset-top-20
+                  P.text-primary
+                    a(href= cfg.nav.shop.submenu.singleProduct.href) Rabbit ® Wine Opener 3 Piece Set
+                .offset-top-22
+                  h6 $29.00
+                    span.text-dark.text-strike.inset-left-10 $35.00
+                .offset-top-20
+                  a(href= cfg.nav.shop.submenu.shoppingCart.href).btn.btn-primary.btn-icon.btn-icon-left
+                    span.icon.fa-shopping-cart
+                    span Add to Cart
+              .product-meta-info
+                ul.list-inline.list-inline-dark.list-inline-lg
+                  li
+                    a(href="#").icon.icon-xxs.fa-heart
+                  li
+                    a(href="#").icon.icon-xs.fa-exchange
+                  li
+                    a(href="#").icon.icon-xs.fa-eye
+
+  // Page Footer
+  include ../sections/_section-footer-corporate

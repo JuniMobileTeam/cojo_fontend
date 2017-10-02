@@ -1,0 +1,122 @@
+include ../elements/_ui-tabs-classic
+include ../elements/_widget-form-search
+include ../mixins/_rd-navbar-submenu-simple
+
+//- RD Navbar Transparent
+//- skin - rd navbar skin (transparent, inverse, default)
+//- attrs - additional HTML attributes of rd navbar
+//- logo - logo markup (<img/> or text)
+//- links - nav links object
+mixin rd-navbar-center(skin, attrs, logo, activeLink, links, activeTitle)
+  // RD Navbar Transparent
+  .rd-navbar-wrap
+    nav&attributes(attrs).rd-navbar(class="#{skin}" data-md-device-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-static" data-stick-up-offset="230")
+      .rd-navbar-inner
+        // RD Navbar Panel
+        .rd-navbar-panel
+          // RD Navbar Toggle
+          button.rd-navbar-toggle(data-rd-navbar-toggle=".rd-navbar, .rd-navbar-nav-wrap")
+            span
+          if activeTitle != undefined
+            h4.panel-title.veil-md= activeTitle
+          h4.panel-title.veil-md= activeLink.title
+          // RD Navbar Right Side Toggle
+          button.rd-navbar-top-panel-toggle.veil-md(data-rd-navbar-toggle=".rd-navbar-top-panel")
+            span
+          .rd-navbar-top-panel
+            .shell
+              .range.range-md-center.range-md-middle.range-lg-around
+                .cell-md-3
+                  .unit.unit-horizontal.unit-top.unit-spacing-xs
+                    .unit-left
+                      span.icon.mdi.mdi-phone.text-middle
+                    .unit-body
+                      a.reveal-block(href="callto:#") 1-800-1234-567,
+                      a(href="callto:#") 1-800-6547-321
+                .cell-md-3.offset-top-0
+                  //Navbar Brand
+                  .rd-navbar-brand
+                    a(href="index.html").reveal-block
+                      .unit.unit-xs-middle.unit-spacing-xxs
+                        .unit-left !{logo}
+                        .unit-body.text-center
+                          .rd-navbar-brand-title= cfg.brand.name
+                          .rd-navbar-brand-slogan.text-italic= cfg.brand.slogan
+
+                .cell-md-3.offset-top-10.offset-md-top-0
+                  .inset-md-left-50
+                    .unit.unit-horizontal.unit-top.unit-spacing-xs.text-left
+                      .unit-left
+                        span.icon.mdi.mdi-map-marker.text-middle
+                      .unit-body
+                        a(href="#") 2130 Fulton Street San Diego, CA 94117-1080 USA
+
+        .rd-navbar-menu-wrap.clearfix
+          .rd-navbar-nav-wrap
+            -var megamenus = [{obj: cfg.nav.pages, columns: 3}]
+            -var type = 'simple'
+            -var megamenuColumns = 3
+
+            .rd-navbar-mobile-scroll
+              .rd-navbar-mobile-header-wrap
+                //Navbar Brand Mobile
+                .rd-navbar-mobile-brand
+                  a(href="index.html") !{cfg.brand.logoHumburgerNavbar}
+              // RD Navbar Nav
+              ul.rd-navbar-nav
+                each link, title in links
+                  -type = 'simple'
+                  li(class=(activeLink.title == link.title) ? 'active' : '')
+                    a(href=link.href)= link.title
+
+                    each megamenu in megamenus
+                      -
+                        if (JSON.stringify(megamenu.obj) === JSON.stringify(link)){
+                          type = 'megamenu'
+                          if (megamenu.columns !== 'undefined') megamenuColumns = megamenu.columns
+                        }
+                      if type === 'megamenu'
+                        .rd-navbar-megamenu
+                          .row.section-relative
+                            -var megamenuColumns = 3
+                            - var columnLength = Object.keys(link.submenu).length / megamenuColumns
+                            - for (var i = 1; i <= megamenuColumns; i++){
+                              - var j = 0
+                                ul(class='col-md-' + 12 / (megamenuColumns))
+                                  each dropdown in link.submenu
+                                    -j++
+                                    -if (j <= (i - 1) * columnLength) continue
+                                    -if (j > (i*columnLength)) break
+                                    li(class=(dropdown.title == "Academic") ? 'tabs-nav' : '')
+                                      h6= dropdown.title
+                                      ul.list-unstyled.offset-lg-top-20
+                                        each link in dropdown.submenu
+                                          li
+                                            a(href=link.href)= link.title
+                            -}
+
+                      else
+                        +rd-navbar-simple-submenu(link)
+                li.veil-md
+                  a(href= cfg.nav.shop.submenu.shoppingCart.href) Shopping Cart (2)
+              //RD Navbar Mobile Search
+              div.rd-navbar-search-mobile#rd-navbar-search-mobile
+                form(action="search-results.html" method="GET").rd-navbar-search-form.search-form-icon-right.rd-search
+                  div.form-group
+                    label(for="rd-navbar-mobile-search-form-input" class="form-label") Search...
+                    input(class="rd-navbar-search-form-input form-control form-control-gray-lightest" id="rd-navbar-mobile-search-form-input" type="text" name="s" autocomplete="off")
+                  button.icon.fa-search.rd-navbar-search-button(type="submit")
+          //RD Navbar Search
+          div.rd-navbar-search
+            a.rd-navbar-search-toggle.mdi(data-rd-navbar-toggle=".rd-navbar-search" href="#")
+              span
+            form(action="search-results.html" data-search-live="rd-search-results-live" method="GET").rd-navbar-search-form.search-form-icon-right.rd-search
+              div.form-group
+                label(for="rd-navbar-search-form-input" class="form-label") Search
+                input(class="rd-navbar-search-form-input form-control form-control-gray-lightest" id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off")
+                #rd-search-results-live.rd-search-results-live
+
+          //RD Navbar shop
+          .rd-navbar-cart
+            span.icon.fa-shopping-cart
+            a.inset-left-10(href= cfg.nav.shop.submenu.shoppingCart.href) 2

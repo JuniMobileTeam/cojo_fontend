@@ -1,0 +1,184 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+include ../elements/_ui-thumbnail-classic
+include ../elements/_ui-box-comment
+
+//- Title
+block title
+  title= cfg.nav.campus.submenu.recipes.title
+
+//- Page
+block page
+
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.campus,
+    cfg.nav
+    )
+
+  +breadcrumb-classic(
+  cfg.nav.campus.title,
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.campus.title,
+      "href": cfg.nav.campus.href
+    },
+    2: {
+      "title": cfg.nav.campus.submenu.recipes.title,
+      "href": cfg.nav.campus.submenu.recipes.href
+    }
+  })
+
+  // Page Content
+  main.page-content
+
+    // Portfolio Grid
+    section.section-70.section-md-114.text-left
+      .shell
+        .range.range-xs-center.range-lg-reverse
+          .cell-lg-6
+            h2 Tasty Grilled Crusted Steak With Lemon Butter
+            hr.divider.bg-madison.hr-left-0
+            .post-news-meta.offset-top-20.offset-sm-top-50.offset-lg-top-65.group-lg
+              div
+                span.icon.icon-xs.mdi.mdi-clock.text-middle.text-madison
+                span.text-middle.inset-left-10 00h 35m
+
+              ul.list-inline.list-inline-xxs.offset-top-15
+                li: span.icon.icon-xs.mdi.mdi-star.text-primary.text-middle
+                li: span.icon.icon-xs.mdi.mdi-star.text-primary.text-middle
+                li: span.icon.icon-xs.mdi.mdi-star.text-primary.text-middle
+                li: span.icon.icon-xs.mdi.mdi-star.text-primary.text-middle
+                li: span.icon.icon-xs.mdi.mdi-star.text-light.text-middle
+              div.text-primary
+                span.text-middle (95 made it
+                span.text-middle.text-light &nbsp; | &nbsp;
+                span.text-middle 54 reviews)
+            p.offset-top-20 If you are looking for a good steak marinade for a petit sirloin to grill, then this recipe is just what you need. It is especially suitable if you want to make it extra, special, good to cook for your guests.
+            p A long marinating time is recommended, but even if you have only an hour, it will still be good. Also, don’t forget to salt the steaks before grilling. If you skip the marinating, you might just get lock jaw from chewing, so pay your attention to that part.
+
+            .offset-top-60
+              h6 Ingredients
+              .text-subline
+              ul.list.list-unstyled.offset-top-15
+                li
+                  span.text-base 4 &nbsp;
+                  span sirloin steaks
+                li
+                  span.text-base 1/2 &nbsp;
+                  span teaspoon red pepper flakes
+                li
+                  span.text-base 1 &nbsp;
+                  span teaspoon ground coriander
+                li
+                  span.text-base 1/4 &nbsp;
+                  span cup sugar
+                li
+                  span.text-base 1 &nbsp;
+                  span tablespoon salt
+                li
+                  span.text-base 1 &nbsp;
+                  span teaspoon garlic powder
+            .offset-top-50
+              h6 Directions
+              .text-subline
+              p Mix together butter, parsley, lemon juice and 1/4 teaspoon garlic powder. Place butter mixture in plastic wrap and roll into a log shape. Chill until firm. Combine black pepper, white pepper, red pepper flakes, coriander, sugar, salt and garlic powder.
+              p Rub spice mix into both sides of steaks. Shake off excess. Place steaks on a hot grill and cook for 2 minutes. Turn and cook for 2 additional minutes.
+              a(href="#").btn.btn-primary.offset-top-30 Save to My Recipes
+
+          .cell-sm-8.cell-lg-6.offset-top-60.offset-lg-top-0
+            .inset-lg-right-30
+              .unit.unit-vertical.unit-spacing-xs
+                .unit-left
+                  img.img-responsive.img-fullwidth(src="images/single-recipe-01.jpg" width=540 height=490 alt='')
+                .unit-body.bg-catskill.section-bottom-10.text-center
+                  ul.list-inline.list-single-recipe.group-xs
+                    li
+                      a(href='#')
+                        span.text-middle.icon.icon-xxs.text-gray.mdi.mdi-heart &nbsp;
+                        span.text-middle Save
+                    li
+                      a(href='#')
+                        span.text-middle.icon.icon-xxs.text-gray.mdi.mdi-checkbox-marked-circle &nbsp;
+                        span.text-middle I Made it
+                    li
+                      a(href='#')
+                        span.text-middle.icon.icon-xxs.text-gray.mdi.mdi-star-half &nbsp;
+                        span.text-middle Rate it
+                    li
+                      a(href='#')
+                        span.text-middle.icon.icon-xxs.text-gray.mdi.mdi-share-variant &nbsp;
+                        span.text-middle Share
+                    li
+                      a(href='#')
+                        span.text-middle.icon.icon-xxs.text-gray.mdi.mdi-printer &nbsp;
+                        span.text-middle Print
+              .offset-top-30.offset-sm-top-60
+                h6 A Few Words About Author
+                .text-subline
+                .unit.unit-sm.unit-sm-horizontal.unit-spacing-lg.offset-top-20
+                  .unit-left
+                    img.img-responsive.reveal-inline-block(src="images/users/user-kathleen-mendoza-110x110.jpg" width=110 height=110 alt="")
+                  .unit-body
+                    h6.text-bold.text-primary
+                      a(href= cfg.nav.pages.submenu.about.submenu.teamMemberProfile.href) Julia Weaver
+                    .offset-sm-top-30
+                      ul.list.list-unstyled
+                        li
+                          span.icon.icon-xs.mdi.mdi-phone.text-middle.text-gray(style="font-size: 24px; line-height: 24px")
+                          a.reveal-inline-block.text-black.inset-left-10(href="callto:#") 1-800-1234-567
+                        li
+                          span.icon.icon-xs.mdi.mdi-email-outline.text-middle.text-gray(style="font-size: 24px; line-height: 24px")
+                          a.reveal-inline-block.inset-left-10(href="mailto:info@demolink.org") info@demolink.org
+                .offset-top-20
+                  p Julia has been Good Food’s Dining section reporter since 2010, writing about food news (startling readers with the fact that most sushi is frozen, not fresh) and trends (including the first reporting on New York’s Korean fried chicken craze). Recently, she’s been investigating best recipes for kitchen classics.
+
+        .range.offset-top-60
+          .cell-sm-10.cell-md-8
+            h6 Comments
+            .text-subline
+            .offset-top-30
+              +box-comment(
+              "box-comment-classic",
+              {
+                "width": 80,
+                "height": 80,
+                "src": "images/users/user-theresa-lane-80x80.jpg",
+                "alt": ""
+              },
+              "2 days ago",
+              "Theresa Lane",
+              "Thanks to the author for such a useful recipe. Now I know what steak I can cook this autumn."
+              )
+                //- Reply 1
+                +box-comment(
+                "box-comment-classic",
+                {
+                  "width": 80,
+                  "height": 80,
+                  "src": "images/users/user-ronald-austin-80x80.jpg",
+                  "alt": ""
+                },
+                "2 days ago",
+                "Roland Austin",
+                "Totally agree with you! This recipe is easy and the final result is very tasty!"
+                )
+
+  // Page Footer
+  include ../sections/_section-footer-corporate

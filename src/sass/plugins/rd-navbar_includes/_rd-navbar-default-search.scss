@@ -1,0 +1,96 @@
+//
+// RD Navbar Default Search
+// --------------------------------------------------
+
+%rd-navbar-default-search {
+  .rd-navbar-search {
+    display: inline-block;
+    position: relative;
+    &.active .rd-navbar-search-form {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .rd-search-results-live{
+      display: none;
+    }
+    &.active{
+      .rd-search-results-live{
+        display: block;
+      }
+    }
+  }
+
+  .rd-navbar-search-form {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    margin-top: 29px;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    transition: .3s all ease;
+    width: 370px;
+    height: 54px;
+    box-shadow: $shadow-area-md;
+    .form-group, input {
+      height: 100%;
+    }
+
+    .form-label {
+      left: 0;
+      top: 50%;
+      font-size: $rd-navbar-search-form-input-size;
+      font-weight: $rd-navbar-search-form-input-weight;
+      color: $gray;
+      padding: $rd-navbar-search-form-input-padding;
+      &.focus {
+        font-size: $rd-navbar-search-form-label-focus-size;
+        top: -9px;
+        color: $rd-navbar-light-search-form-label-focus-color;
+      }
+    }
+
+    .rd-navbar-search-form-input {
+      height: 100%;
+      font-size: $rd-navbar-search-form-input-size;
+      padding: $rd-navbar-search-form-input-padding;
+      border: none;
+      font-weight: $rd-navbar-search-form-input-weight;
+      color: $rd-navbar-light-search-form-input-color;
+      background: $white;
+    }
+    @media (min-width: $screen-xl-min) {
+      margin-top: 58px;
+    }
+  }
+
+  .rd-navbar-search-toggle {
+    margin-left: $rd-navbar-search-toggle-offset-left;
+    @include toggle-icons-via-rotation($rd-navbar-search-toggle-icon-size, $rd-navbar-search-toggle-icon-size, $rd-navbar-search-toggle-icon-color, $rd-navbar-search-toggle-open-icon, $rd-navbar-search-toggle-close-icon, "FontAwesome", "FontAwesome");
+    position: relative;
+    z-index: 3;
+    &:hover{
+      span{
+        color: $brand-primary;
+        transition: none;
+      }
+    }
+  }
+  .form-control{
+    border-radius:0;
+  }
+
+  &.rd-navbar--is-stuck {
+    .rd-navbar-search-form {
+      .form-label {
+        &.focus {
+          top: 3px;
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}

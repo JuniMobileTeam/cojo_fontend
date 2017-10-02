@@ -1,0 +1,90 @@
+//- Includes
+include ../elements/_widget-flickrfeed
+include ../elements/_widget-tags
+include ../elements/_widget-form-search
+h6.text-bold Search
+.text-subline
+.offset-top-30
+  +widget-form-search()
+.offset-top-60
+  // Archive
+  h6.text-bold Archive
+  .text-subline
+  .row.offset-top-20
+    .col-xs-6
+      ul.list.list-marked.list-marked-primary
+        li
+          a(href= cfg.nav.news.submenu.newsPostPage.href) Jun 2016
+        li
+          a(href= cfg.nav.news.submenu.newsPostPage.href) Aug 2016
+        li
+          a(href= cfg.nav.news.submenu.newsPostPage.href) Oct 2016
+        li
+          a(href= cfg.nav.news.submenu.newsPostPage.href) Dec 2016
+        li
+          a(href= cfg.nav.news.submenu.newsPostPage.href) Feb 2017
+    .col-xs-6
+      ul.list.list-marked.list-marked-primary
+        li
+          a(href= cfg.nav.news.submenu.newsPostPage.href) Jul 2016
+        li
+          a(href= cfg.nav.news.submenu.newsPostPage.href) Sep 2016
+        li
+          a(href= cfg.nav.news.submenu.newsPostPage.href) Nov 2016
+        li
+          a(href= cfg.nav.news.submenu.newsPostPage.href) Jan 2016
+        li
+          a(href= cfg.nav.news.submenu.newsPostPage.href) Mar 2017
+.offset-top-60
+  // Flickr Feed
+  h6.text-bold Gallery
+  .text-subline
+  .offset-top-20.text-left
+    +widget-flickrfeed("tm-61184", {"data-image_q": "src"}, 6)
+.offset-top-60
+  // Categories
+  h6.text-bold Categories
+  .text-subline
+  .offset-top-20
+    ul.list.list-marked.list-marked-primary
+      li
+        a(href= cfg.nav.news.submenu.newsPostPage.href) News
+      li
+        a(href= cfg.nav.news.submenu.newsPostPage.href) Cooking
+      li
+        a(href= cfg.nav.news.submenu.newsPostPage.href) Breakfast
+      li
+        a(href= cfg.nav.news.submenu.newsPostPage.href) Lunch
+      li
+        a(href= cfg.nav.news.submenu.newsPostPage.href) Dinner
+.offset-top-60
+  // Facebook standart widget
+  div
+    .fb-root.fb-widget
+      .fb-page-responsive
+        .fb-page(data-href='https://www.facebook.com/TemplateMonster', data-tabs='timeline', data-height='220', data-small-header='false', data-adapt-container-width='true', data-hide-cover='false', data-show-facepile='true')
+          .fb-xfbml-parse-ignore
+            blockquote(cite='https://www.facebook.com/TemplateMonster')
+              a(href='https://www.facebook.com/TemplateMonster') TemplateMonster
+.offset-top-60
+  //Recent posts
+  h6.text-bold Recent News
+  .text-subline
+  .offset-top-20.text-left
+    article.widget-post
+      h6.text-bold.text-primary
+        a(href= cfg.nav.news.submenu.newsPostPage.href) Packing a Sandwich that Won’t be Sad and Soggy by Lunchtime
+      p.text-dark 2 days ago by Ronald Austin
+    .offset-top-20
+      article.widget-post
+        h6.text-bold.text-primary
+          a(href= cfg.nav.news.submenu.newsPostPage.href) 5 Favorite Weeknight Dinners That You’ll Love
+        p.text-dark 2 days ago by Ronald Austin
+    .offset-top-20
+      article.widget-post
+        h6.text-bold.text-primary
+          a(href= cfg.nav.news.submenu.newsPostPage.href) 15 Minute Baked Tilapia with Watermelon-Habanero Salsa
+        p.text-dark 2 days ago by Ronald Austin
+.offset-top-60.text-center
+  a(href="#").reveal-block
+    img.img-responsive.reveal-inline-block(src="images/blog/banner-340x500.jpg" width=340 height=500 alt="")

@@ -1,0 +1,91 @@
+//
+// Input group custom
+// --------------------------------------------------
+
+// Base styles
+// --------------------------------------------------
+
+.input-group-addon {
+  transition: .3s;
+  color: $input-group-addon-color;
+
+  > .input-group-icon {
+    position: relative;
+    display: inline-block;
+  }
+}
+
+.input-group-addon-inverse{
+  background: $white;
+  border-color: $gray;
+  color: $gray-darker;
+}
+
+.input-group {
+  .form-control{
+    color: $input-color;
+    background: $white;
+  }
+
+  > .input-group-addon > .input-group-icon {
+    font-size: 28px;
+  }
+}
+
+.input-group.input-group-sm {
+  > .input-group-addon > .input-group-icon {
+    font-size: 19px;
+    line-height: 1;
+    &.mdi {
+      top: 2px;
+    }
+  }
+  > .form-control{
+    padding: 8px 10px;
+  }
+  @media (min-width: $screen-md-min) {
+    > .input-group-btn > .btn {
+      font-size: $btn-font-size-small;
+      padding: $padding-small-vertical $padding-small-horizontal;
+    }
+  }
+  > .input-group-btn > .btn {
+    font-size: 14px;
+    padding: $padding-small-vertical 20px;
+    text-transform: capitalize;
+    font-family: $font-family-base;
+    letter-spacing: 0;
+  }
+}
+
+.input-group-lg {
+  > .input-group-addon > .input-group-icon {
+    font-size: 32px;
+  }
+}
+
+.input-group .form-control:not(:first-child):not(:last-child){
+  &.form-control-last-child{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.input-group-sm > .form-control,
+.input-group-sm > .input-group-btn > .btn{
+  border-radius: 0;
+}
+
+
+// Button input groups
+// --------------------------------------------------
+
+.input-group-btn {
+  // Negative margin for spacing, position for bringing hovered/focused/actived
+  // element above the siblings.
+  > .btn {
+    + .btn {
+      margin-left: 0;
+    }
+  }
+}

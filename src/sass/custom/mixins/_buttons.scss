@@ -1,0 +1,49 @@
+// Custom button variants
+//
+
+@mixin button-variant-custom($clr, $bg, $bd, $clr-hover, $bg-hover, $bd-hover) {
+  color: $clr;
+  background-color: $bg;
+  border-color: $bd;
+
+  &:focus,
+  &.focus,
+  &:hover,
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $clr-hover;
+    background-color: $bg-hover;
+    border-color: $bd-hover;
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    box-shadow: none;
+    &.shadow-drop-xs{
+      box-shadow: $shadow-area-xs;
+    }
+    &:hover,
+    &:focus,
+    &.focus {
+      color: $clr-hover;
+      background-color: $bg-hover;
+      border-color: $bd-hover;
+      outline: none;
+    }
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    pointer-events: none;
+    opacity: .5;
+  }
+
+  .badge {
+    color: $bg;
+    background-color: $clr;
+  }
+}
+

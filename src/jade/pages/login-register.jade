@@ -1,0 +1,91 @@
+extends  ../_skeleton
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+include ../elements/_ui-tables
+//- Title
+block title
+  title= cfg.nav.pages.submenu.pages.submenu.loginRegister.title
+//- Page
+block page
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.pages,
+    cfg.nav
+    )
+  +breadcrumb-classic(
+  cfg.nav.pages.submenu.pages.submenu.loginRegister.title,
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.pages.title,
+      "href": cfg.nav.pages.href
+    },
+    2: {
+      "title": cfg.nav.pages.submenu.pages.submenu.loginRegister.title,
+      "href": cfg.nav.pages.submenu.pages.submenu.loginRegister.href
+    }
+  })
+  // Page Content
+  main.page-content.section-70.section-md-114
+    //Section Login Register
+    section.section-98.section-sm-110.section-bottom-66
+      .shell
+        .range.range-xs-center.section-34
+          .cell-xs-8.cell-sm-6.cell-md-4
+            h2.text-bold Sign In/Sign Up
+            hr.divider.bg-madison
+            .offset-sm-top-45.text-center
+              +tabs-classic(['Login', 'Registration'], "horizontal")
+                div
+                  // RD Mailform
+                  form.rd-mailform.text-left(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+                    .form-group
+                      label.form-label.form-label-outside(for="form-login-username") Username or e-mail:
+                      input#form-login-username.form-control.bg-white(type="text" name="username" data-constraints="@Required")
+                    .form-group.offset-top-15
+                      label.form-label.form-label-outside(for="form-login-password") Password:
+                      input#form-login-password.form-control.bg-white(type="password" name="pass" data-constraints="@Required")
+                    .offset-top-20
+                      button(type="submit").btn.btn-primary.reveal-block.reveal-lg-inline-block Sign in
+                      span.inset-lg-left-20.text-middle.small.reveal-inline-block.offset-top-20.offset-lg-top-0 or enter with
+                      ul.list-inline.list-inline-sm.list-inline-madison.reveal-lg-inline-block.inset-lg-left-10.inset-xl-left-20.text-middle.offset-top-25.offset-lg-top-0
+                        li
+                          a(href="#").icon.icon-xxs.fa-facebook.icon-rect.icon-gray-light-filled
+                        li
+                          a(href="#").icon.icon-xxs.fa-twitter.icon-rect.icon-gray-light-filled
+                        li
+                          a(href="#").icon.icon-xxs.fa-google.icon-rect.icon-gray-light-filled
+                div
+                  // RD Mailform
+                  form.rd-mailform.text-left(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+                    .form-group
+                      label.form-label.form-label-outside(for="form-register-username") Name:
+                      input#form-register-username.form-control.bg-white(type="text" name="name" data-constraints="@Required")
+                    .form-group.offset-top-15
+                      label.form-label.form-label-outside(for="form-register-email") Email:
+                      input#form-register-email.form-control.bg-white(type="text" name="email" data-constraints="@Required @Email")
+                    .form-group.offset-top-15
+                      label.form-label.form-label-outside(for="form-register-password") Password:
+                      input#form-register-password.form-control.bg-white(type="password" name="pass" data-constraints="@Required")
+                    .form-group.offset-top-15
+                      label.form-label.form-label-outside(for="form-register-confirm-password") Confirm Password:
+                      input#form-register-confirm-password.form-control.bg-white(type="password" name="confirmpass" data-constraints="@Required")
+                    .offset-top-20
+                      button(type="submit").btn.btn-primary Register
+
+  // Page Footer
+  include ../sections/_section-footer-corporate
+

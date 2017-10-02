@@ -1,0 +1,155 @@
+extends  ../_skeleton
+//- Includes
+include ../elements/_ui-breadcrumb-classic
+include ../elements/_ui-rd-map
+//- Title
+block title
+  title= cfg.nav.howto.submenu.howToPlus.title
+//- Page
+block page
+  // Page Header
+  header.page-head
+    //- RD Navbar
+    +rd-navbar-corporate(
+    'rd-navbar-default',
+    {
+      "data-lg-auto-height": "true",
+      "data-md-layout": 'rd-navbar-static',
+      "data-lg-layout": 'rd-navbar-static',
+      "data-lg-stick-up": 'true'
+    },
+    cfg.brand.logoCorporateNavbar,
+    cfg.nav.howto,
+    cfg.nav
+    )
+
+  +breadcrumb-classic(
+  "How to",
+  {
+    0: {
+      "title": cfg.nav.home.title,
+      "href": cfg.nav.home.href
+    },
+    1: {
+      "title": cfg.nav.howto.title,
+      "href": cfg.nav.howto.href
+    },
+    2: {
+      "title": cfg.nav.howto.submenu.howToPlus.title,
+      "href": cfg.nav.howto.submenu.howToPlus.href
+    }
+  })
+  // Page Content
+  main.page-content
+    // Recipes
+    section.bg-catskill.section-70.section-md-114
+      .shell
+        h2 Explore recipes
+        hr.divider.bg-madison
+        .range.text-left.range-xs-center.offset-top-60
+          .cell-sm-6.cell-md-4
+            .form-group
+              label.form-label.form-label-outside(for="recipe") Recipe Category
+              select.form-control.select-filter#recipe(data-placeholder="Choose Category", data-minimum-results-for-search="Infinity")
+                option Choose Category
+                option(value="2") Category 1
+                option(value="3") Category 2
+                option(value="4") Category 3
+
+          .cell-sm-6.cell-md-4.offset-top-12.offset-sm-top-0
+            .form-group
+              label.form-label.form-label-outside(for="category") Course
+              select.form-control.select-filter#category(data-placeholder="Choose Course", data-minimum-results-for-search="Infinity")
+                option Choose Course
+                option(value="2") Category 1
+                option(value="3") Category 2
+                option(value="4") Category 3
+
+          .cell-sm-6.cell-md-4.offset-top-12.offset-md-top-0
+            button(type='submit').btn.btn-primary.btn-fullwidth.text-bottom.offset-top-25 Search How To
+        .range.text-sm-left.range-xs-center.offset-top-60
+          .cell-sm-6.cell-md-4
+            article.post-news.bg-white
+              a(href='recipes-single.html')
+                img.img-responsive(src="images/blog/howto-1-370x240.jpg", width="370", height="240", alt="")
+              .post-news-body
+                h6
+                  a(href='recipes-single.html') How to Build a Better Burger
+                .offset-top-20
+                  p Want to make your burgers even better? Amp them up with just a few simple tips before tossing them on the grill...
+                .post-news-meta.offset-top-20
+                  span.icon.icon-xs.mdi.mdi-account-outline.text-middle.text-madison
+                  span.text-middle.inset-left-10 Michael Robbins
+
+            .offset-top-30
+              article.post-news.bg-white
+                a(href='recipes-single.html')
+                  img.img-responsive(src="images/blog/howto-2-370x240.jpg", width="370", height="240", alt="")
+                .post-news-body
+                  h6
+                    a(href='recipes-single.html') How to Make the Top-Notch Crispy Nachos
+                  .offset-top-20
+                    p No one can resist a crispy plateful of nachos, especially for game day snacking.  But all too often, those deliciously loaded chips...
+                  .post-news-meta.offset-top-20
+                    span.icon.icon-xs.mdi.mdi-account-outline.text-middle.text-madison
+                    span.text-middle.inset-left-10 Joan  Newman
+
+          .cell-sm-6.cell-md-4.offset-top-30.offset-md-top-0
+            article.post-news.bg-white
+              a(href='recipes-single.html')
+                img.img-responsive(src="images/blog/howto-3-370x240.jpg", width="370", height="240", alt="")
+              .post-news-body
+                h6
+                  a(href='recipes-single.html') How to Make Fettuccine Alfredo with Cherry Tomatoes
+                .offset-top-20
+                  p Melt 2 tbsp (30 mL) of the butter in large skillet. Add garlic and tomatoes. Cook, stirring, for 3 min. Add cream and bring to boil. Add salt, pepper and orange peel. Remove from heat...
+                .post-news-meta.offset-top-20
+                  span.icon.icon-xs.mdi.mdi-account-outline.text-middle.text-madison
+                  span.text-middle.inset-left-10 Michael Robbins
+
+            .offset-top-30
+              article.post-news.bg-white
+                a(href='recipes-single.html')
+                  img.img-responsive(src="images/blog/howto-4-370x240.jpg", width="370", height="240", alt="")
+                .post-news-body
+                  h6
+                    a(href='recipes-single.html').
+                      How to Make White Fish and Shrimp Soup
+                  .offset-top-20
+                    p This is a traditional Russian recipe and you can use a freshly caught fish just like...
+                  .post-news-meta.offset-top-20
+                    span.icon.icon-xs.mdi.mdi-account-outline.text-middle.text-madison
+                    span.text-middle.inset-left-10 Camilla King
+
+          .cell-md-4.offset-top-30.offset-sm-top-0
+            .range
+              .cell-sm-6.cell-md-12
+                article.post-news.bg-white
+                  a(href='recipes-single.html')
+                    img.img-responsive(src="images/blog/howto-5-370x240.jpg", width="370", height="240", alt="")
+                  .post-news-body
+                    h6
+                      a(href='recipes-single.html') How to Freeze Fresh Vegetables
+                    .offset-top-20
+                      p Start by trimming and washing your vegetables under cold water. Remove any stems and wash under cold water. Peel if necessary. Cut to desired size, if necessary, according to their intended...
+                    .post-news-meta.offset-top-20
+                      span.icon.icon-xs.mdi.mdi-account-outline.text-middle.text-madison
+                      span.text-middle.inset-left-10 Joseph Walters
+
+
+              .cell-sm-6.cell-md-12.offset-top-30
+                article.post-news.bg-white
+                  a(href='recipes-single.html')
+                    img.img-responsive(src="images/blog/howto-6-370x240.jpg", width="370", height="240", alt="")
+                  .post-news-body
+                    h6
+                      a(href='recipes-single.html') How to Bake Salmon
+                    .offset-top-20
+                      p Salmon is a heart-healthy, flavorful favorite whose firm, meaty flesh rewards simple preparations. Delicious and easy to prepare, salmon is good...
+                    .post-news-meta.offset-top-20
+                      span.icon.icon-xs.mdi.mdi-account-outline.text-middle.text-madison
+                      span.text-middle.inset-left-10 Joan  Newman
+
+      a(href="recipes.html").btn.btn-primary.offset-top-60   View All
+  // Page Footer
+  include ../sections/_section-footer-corporate

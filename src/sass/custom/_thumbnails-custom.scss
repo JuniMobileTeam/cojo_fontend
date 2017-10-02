@@ -1,0 +1,295 @@
+//
+// Custom Thumbnails
+// --------------------------------------------------
+
+// Base styles
+// --------------------------------------------------
+
+%thumbnail {
+  &,
+  > figure {
+    position: relative;
+    display: block;
+  }
+
+  img,
+  figure img {
+    width: 100%;
+    height: auto;
+    transition: .35s;
+    will-change: transform;
+  }
+
+  figure figcaption,
+  figcaption {
+    position: absolute;
+  }
+}
+
+// Bootstrap Thumbnail
+// -------------------------
+
+.thumbnail {
+  transition: .3s;
+  border: none;
+  box-shadow: $shadow-area-md;
+}
+
+a.thumbnail:hover {
+  box-shadow: $shadow-area-lg;
+}
+
+// Thumbnail Classic
+// -------------------------
+
+.thumbnail-classic {
+  @extend %thumbnail;
+  position: relative;
+  overflow: hidden;
+  figure figcaption,
+  figcaption {
+    @include display-flex();
+    @include flex-direction(column);
+    @include justify-content(center);
+    position: static;
+    background: $brand-primary;
+    color: #d3d3d3;
+    padding: 15px;
+  }
+  &-img-wrap {
+    position: relative;
+  }
+  .gallery-link-mobile {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+  }
+  &-title {
+    color: $white;
+  }
+  .divider {
+    background: $white;
+    margin: 10px auto 15px;
+  }
+  .icon {
+    font-size: 24px;
+    line-height: 24px;
+    color: $white;
+    &:hover{
+      color: $brand-madison;
+    }
+  }
+  @media (min-width: $screen-lg-min) {
+    figure figcaption,
+    figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      padding-left: 15px;
+      padding-right: 15px;
+      background: none;
+      z-index: 2;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.35s all ease-out;
+      @include transform(translateY(-10%));
+      &:before {
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        top: 10px;
+        bottom: 10px;
+        content: "";
+        transition: 0.35s all ease-out;
+      }
+      p{
+        max-height: 45px;
+        overflow: hidden;
+      }
+    }
+    &:before {
+      position: absolute;
+      left: -20px;
+      right: -20px;
+      top: -20px;
+      bottom: -20px;
+      content: "";
+      background: rgba($brand-madison, .9);
+      z-index: 1;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.35s all ease-out;
+      transition-delay: 0.2s;
+    }
+    &:hover{
+      &:before{
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0s;
+      }
+      figure figcaption,
+      figcaption {
+        opacity: 1;
+        visibility: visible;
+        @include transform(translateY(0));
+        &:before{
+          left: 20px;
+          right: 20px;
+          top: 20px;
+          bottom: 20px;
+        }
+      }
+    }
+  }
+  @media (min-width: $screen-xl-min) {
+    .divider {
+      margin: 10px auto 33px;
+    }
+    figure figcaption,
+    figcaption {
+      padding-left: 50px;
+      padding-right: 50px;
+      &:before {
+        border: 1px solid $white;
+      }
+      max-height: none;
+    }
+  }
+
+}
+
+
+// Thumbnail Classic
+// -------------------------
+.thumbnail-default {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(#000, .5);
+    opacity: 0;
+    transition: 0.35s all ease;
+    z-index: 1;
+  }
+  .icon {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    @include transform(translate(-50%, -50%));
+    opacity: 0;
+    font-size: 30px;
+    color: $white;
+    transition: 0.35s all ease;
+    z-index: 2;
+  }
+}
+
+.ie-11, .ie-edge {
+  .thumbnail-default {
+    display: block;
+  }
+  .widget-flickrfeed{
+    .thumbnail-default {
+      display: inline-block;
+    }
+  }
+}
+
+.tablet .thumbnail-default,
+.mobile .thumbnail-default,
+.thumbnail-default:hover {
+  .icon {
+    top: 50%;
+    opacity: 1;
+  }
+  &:after {
+    opacity: 1;
+  }
+}
+
+.tablet .thumbnail-default,
+.mobile .thumbnail-default {
+  &:after {
+    opacity: .4;
+  }
+}
+.widget-flickrfeed{
+  .thumbnail-default {
+    width: 50%;
+  }
+}
+
+
+.img-wrap-2{
+  position: relative;
+  display: inline-block;
+  .icon{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include transform(translate(-50%,-50%));
+    display: inline-block;
+    text-align: center;
+    font-size: 80px;
+    color: $white;
+    cursor: pointer;
+    transition:250ms;
+    &:hover {
+      @include transform(translate(-50%,-50%) scale(1.1));
+    }
+  }
+}
+.page{
+  .flickr {
+    margin-bottom: -5px;
+  }
+}
+
+.ie-11,
+.ie-edge {
+  .page{
+    .flickr {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+.thumbnail-flickr {
+  position: relative;
+  padding-bottom: 100%;
+  text-align: center;
+  overflow: hidden;
+
+  @media (min-width: $screen-xl-min) {
+    margin-right: -1px;
+  }
+
+  img{
+    width: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    min-width: 100%;
+    min-height: 100%;
+    max-width: none;
+    max-height: none;
+    height: auto;
+  }
+}
