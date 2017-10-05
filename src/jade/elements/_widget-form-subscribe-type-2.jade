@@ -4,7 +4,7 @@
 //- external - true if form output element is an external element
 mixin widget-form-subscribe-type-2(id, external, btnText)
   - var btn = (btnText === undefined) ? "Subscribe": btnText
-  form.rd-mailform.form-subscribe-type-2(data-form-output=id, data-form-type='subscribe', method='post', action='bat/rd-mailform.php')
+  form.rd-mailform.form-subscribe-type-2(data-form-output=id, data-form-type='subscribe', method='post', action='php/rd-mailform.php')
     .form-group
       .input-group.text-left
         label.form-label.form-label-outside(for="email-subscribe-form-type-2") E-mail

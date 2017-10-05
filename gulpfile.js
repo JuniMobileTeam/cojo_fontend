@@ -27,13 +27,30 @@ const sassConfig = {
   allSourceFiles: './src/sass/**/*.scss',
   targetFile: './src/sass/all.scss',
   distFileName: 'all.css',
-  distDir: distDir + "/css"
+  distDir: distDir + '/css'
 }
 
 /* for images */
 const imagesConfig = {
   allSourceFiles: './src/images/**/*',
-  distDir: distDir + "/images"
+  distDir: distDir + '/images'
+}
+
+/* for js */
+const jsConfig = {
+  allSourceFiles: './src/js/**/*.js',
+  distDir: distDir + '/js'
+}
+
+/* for font */
+const fontsConfig = {
+  allSourceFiles: './src/fonts/**/*',
+  distDir: distDir + '/fonts'
+}
+
+const phpConfig = {
+  allSourceFiles: './src/php/**/*',
+  distDir: distDir + '/php'
 }
 
 /* Settings */
@@ -67,6 +84,26 @@ gulp.task('images', function() {
     .pipe(gulp.dest(imagesConfig.distDir));
 });
 
+/* move all js file to dist folder */
+gulp.task('js', function() {
+  return gulp.src(jsConfig.allSourceFiles)
+    .pipe(sourcemaps.init())
+    .pipe(gulp.dest(jsConfig.distDir))
+    .pipe(browserSync.stream({ match: '**/*.js' }));
+});
+
+/* move all font files in to dist folder */
+gulp.task('fonts', function() {
+  return gulp.src(fontsConfig.allSourceFiles)
+  .pipe(gulp.dest(fontsConfig.distDir));
+});
+
+/* move all php files in to dist folder */
+gulp.task('php', function() {
+  return gulp.src(phpConfig.allSourceFiles)
+    .pipe(gulp.dest(phpConfig.distDir));
+});
+
 /* gulp - continue to watch the changes */
 gulp.task('watch', function() {
   browserSync.init(null, {
@@ -80,4 +117,4 @@ gulp.task('watch', function() {
 
 });
 /* default - help to only run 'gulp' in the command-line */
-gulp.task('default', ['jade', 'sass', 'images', 'watch']);
+gulp.task('default', ['jade', 'sass', 'images', 'js', 'fonts', 'php', 'watch']);

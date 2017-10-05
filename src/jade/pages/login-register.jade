@@ -51,7 +51,7 @@ block page
               +tabs-classic(['Login', 'Registration'], "horizontal")
                 div
                   // RD Mailform
-                  form.rd-mailform.text-left(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+                  form.rd-mailform.text-left(data-form-output="form-output-global", data-form-type='contact', method='post', action='php/rd-mailform.php')
                     .form-group
                       label.form-label.form-label-outside(for="form-login-username") Username or e-mail:
                       input#form-login-username.form-control.bg-white(type="text" name="username" data-constraints="@Required")
@@ -70,7 +70,7 @@ block page
                           a(href="#").icon.icon-xxs.fa-google.icon-rect.icon-gray-light-filled
                 div
                   // RD Mailform
-                  form.rd-mailform.text-left(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+                  form.rd-mailform.text-left(data-form-output="form-output-global", data-form-type='contact', method='post', action='php/rd-mailform.php')
                     .form-group
                       label.form-label.form-label-outside(for="form-register-username") Name:
                       input#form-register-username.form-control.bg-white(type="text" name="name" data-constraints="@Required")
