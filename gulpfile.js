@@ -30,6 +30,12 @@ const sassConfig = {
   distDir: distDir + "/css"
 }
 
+/* for images */
+const imagesConfig = {
+  allSourceFiles: './src/images/**/*',
+  distDir: distDir + "/images"
+}
+
 /* Settings */
 const siteProxy = "cojo.dev"
 
@@ -55,6 +61,12 @@ gulp.task('jade', function() {
   .pipe(gulp.dest(jadeConfig.distDir))
 });
 
+/* move all images to dist folder */
+gulp.task('images', function() {
+  return gulp.src(imagesConfig.allSourceFiles)
+    .pipe(gulp.dest(imagesConfig.distDir));
+});
+
 /* gulp - continue to watch the changes */
 gulp.task('watch', function() {
   browserSync.init(null, {
@@ -68,4 +80,4 @@ gulp.task('watch', function() {
 
 });
 /* default - help to only run 'gulp' in the command-line */
-gulp.task('default', ['jade', 'sass', 'watch']);
+gulp.task('default', ['jade', 'sass', 'images', 'watch']);
