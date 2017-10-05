@@ -11,6 +11,12 @@
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-jade": "^1.1.0"
+    "gulp-jade": "^1.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sass": "^2.3.2",
+    "autoprefixer": "^7.1.1",
+    "browser-sync": "^2.18.12"
   }
 }

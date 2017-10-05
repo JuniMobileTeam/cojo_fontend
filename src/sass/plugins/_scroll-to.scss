@@ -3,7 +3,7 @@
 // --------------------------------------------------
 
 .scrollToNext {
-  @extend .bg-mantis;
+  @extend .bg-mantis !optional;
   position: fixed;
   right: 15px;
   bottom: 15px;

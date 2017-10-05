@@ -5,7 +5,7 @@
 .rd-navbar-sidebar-toggle {
   &.rd-navbar-fixed {
     @extend %rd-navbar-default-mobile-menu;
-    @extend %rd-navbar-default-cart-aside-right;
+    @extend %rd-navbar-default-cart-aside-right !optional;
     @extend %rd-navbar-default-aside-left;
     @extend %rd-navbar-default-mobile-search;
     @extend %rd-navbar-sidebar-toggle-panel;
@@ -74,12 +74,12 @@
 
     // Mobile Fixed Layout Colors
     &.rd-navbar-fixed {
-      @extend %rd-navbar-sidebar-toggle-panel-dark;
-      @extend %rd-navbar-default-mobile-menu-dark;
-      @extend %rd-navbar-default-cart-aside-right-dark;
-      @extend %rd-navbar-default-aside-left-dark;
-      @extend %rd-navbar-default-mobile-search-dark;
-      @extend %rd-navbar-sidebar-toggle-footer-dark;
+      @extend %rd-navbar-sidebar-toggle-panel-dark !optional;
+      @extend %rd-navbar-default-mobile-menu-dark !optional;
+      @extend %rd-navbar-default-cart-aside-right-dark !optional;
+      @extend %rd-navbar-default-aside-left-dark !optional;
+      @extend %rd-navbar-default-mobile-search-dark !optional;
+      @extend %rd-navbar-sidebar-toggle-footer-dark !optional;
       @media (min-width: $screen-lg) {
       }
     }
@@ -98,12 +98,12 @@
 
     // Mobile Fixed Layout Colors
     &.rd-navbar-fixed {
-      @extend %rd-navbar-sidebar-toggle-panel-light;
-      @extend %rd-navbar-default-mobile-menu-light;
-      @extend %rd-navbar-default-cart-aside-right-light;
-      @extend %rd-navbar-default-aside-left-light;
-      @extend %rd-navbar-default-mobile-search-light;
-      @extend %rd-navbar-sidebar-toggle-footer-light;
+      @extend %rd-navbar-sidebar-toggle-panel-light !optional;
+      @extend %rd-navbar-default-mobile-menu-light !optional;
+      @extend %rd-navbar-default-cart-aside-right-light !optional;
+      @extend %rd-navbar-default-aside-left-light !optional;
+      @extend %rd-navbar-default-mobile-search-light !optional;
+      @extend %rd-navbar-sidebar-toggle-footer-light !optional;
 
       @media (min-width: $screen-lg) {
       }
