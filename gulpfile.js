@@ -31,7 +31,7 @@ const sassConfig = {
 }
 
 /* Settings */
-const siteProxy = "cojo.dev"
+const siteProxy = "jok-font-end.test"
 
 /*** Gulp tasks ***/
 /* for sass */
